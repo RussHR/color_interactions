@@ -48,5 +48,8 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
     postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 };
