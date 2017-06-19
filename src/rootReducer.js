@@ -1,6 +1,6 @@
-export default function placeholderReducer(state = [], action) {
+export default function placeholderReducer(state = {}, action) {
     switch (action.type) {
     default:
-        return state
+        return {test: 'test'}
     }
 }
