@@ -1,0 +1,14 @@
+.aColorHasManyFaces {
+    display: flex;
+}
+.aColorHasManyFaces__outerBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+.aColorHasManyFaces__innerBlock {
+    height: 20%;
+    width: 16%;
+}
