@@ -6,12 +6,11 @@ import 'normalize.css';
 import './main.scss';
 
 function mapStateToProps(state) {
-    return state;
+    return state.plates;
 }
 
 class ColorInteractionsApp extends Component {
     render() {
-        console.log(this)
         return <AColorHasManyFaces />;
     }
 }

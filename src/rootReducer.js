@@ -1,6 +1,4 @@
-export default function placeholderReducer(state = {}, action) {
-    switch (action.type) {
-    default:
-        return {test: 'test'}
-    }
-}
+import { combineReducers } from 'redux';
+import plates from './modules/plates/plates';
+
+export default combineReducers({ plates });
