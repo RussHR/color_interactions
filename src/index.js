@@ -15,9 +15,6 @@ if (module.hot) {
   });
 }
 
-import 'normalize.css';
-import './main.scss';
-
 render(
     <Provider store={store}>
         <ColorInteractionsApp />

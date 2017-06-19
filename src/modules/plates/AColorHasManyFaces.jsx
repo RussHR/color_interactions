@@ -14,11 +14,11 @@ export default class AColorHasManyFaces extends Component {
         const innerPlateColor = { backgroundColor: color3 };
 
         return (
-            <div className="plate aColorHasManyFaces">
-                <div className="aColorHasManyFaces__outerBlock" style={leftPlateColor}>
+            <div className="plate display-flex">
+                <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>
-                <div className="aColorHasManyFaces__outerBlock" style={rightPlateColor}>
+                <div className="aColorHasManyFaces__outerBlock display-flex" style={rightPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>
             </div>
