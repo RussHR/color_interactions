@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 
 class ColorInteractionsApp extends Component {
     render() {
-        return <AColorHasManyFaces />;
+        return <AColorHasManyFaces colors={this.props.colors.slice(0, 3)} />;
     }
 }
 

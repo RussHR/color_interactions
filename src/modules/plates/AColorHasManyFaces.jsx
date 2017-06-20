@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './a_color_has_many_faces.scss';
 
@@ -8,7 +9,7 @@ export default class AColorHasManyFaces extends Component {
     }
 
     render() {
-        const { color1, color2, color3 } = this.props;
+        const [ color1, color2, color3 ] = this.props.colors;
         const leftPlateColor = { backgroundColor: color1 };
         const rightPlateColor = { backgroundColor: color2 };
         const innerPlateColor = { backgroundColor: color3 };
@@ -27,7 +28,8 @@ export default class AColorHasManyFaces extends Component {
 }
 
 AColorHasManyFaces.defaultProps = {
-    color1: '#b4d455',
-    color2: 'aliceblue',
-    color3: 'brown'
+    colors: ['#b4d455', 'aliceblue', 'brown']
+};
+AColorHasManyFaces.propTypes = {
+    colors: PropTypes.arrayOf(PropTypes.string)
 };
