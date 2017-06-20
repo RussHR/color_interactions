@@ -1,15 +1,17 @@
 // plates.js
 
+import Immutable from 'immutable';
+
 // Actions
 // const LOAD   = 'my-app/widgets/LOAD'; example action
 
 // Reducer
-export default function reducer(state = {}, action = {}) {
+export default function reducer(state = Immutable.Map(), action = {}) {
   switch (action.type) {
     default:
-        return {
-            colors: ['#b4d455', 'aliceblue', 'brown']
-        };
+        return Immutable.Map({
+            colors: Immutable.List(['#b4d455', 'aliceblue', 'brown'])
+        });
   }
 }
 
