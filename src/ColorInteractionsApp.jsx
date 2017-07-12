@@ -6,7 +6,7 @@ import 'normalize.css';
 import './main.scss';
 
 function mapStateToProps(state) {
-    return state.get('plates').toJS();
+    return state.get('colors').toJS();
 }
 
 class ColorInteractionsApp extends Component {

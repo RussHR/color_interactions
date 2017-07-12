@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux-immutable';
-import plates from './plates';
+import colors from './colors';
 
-export default combineReducers({ plates });
+export default combineReducers({ colors });
