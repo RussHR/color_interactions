@@ -1,9 +1,4 @@
-// plates.js
-
 import Immutable from 'immutable';
-
-// Actions
-// const LOAD   = 'my-app/widgets/LOAD'; example action
 
 // Reducer
 export default function reducer(state = Immutable.Map(), action = {}) {
@@ -14,12 +9,3 @@ export default function reducer(state = Immutable.Map(), action = {}) {
         });
   }
 }
-
-// Action Creators
-// example action:
-// export function loadWidgets() {
-//   return { type: LOAD };
-// }
-
-// side effects, only as applicable
-// e.g. thunks, epics, etc

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AColorHasManyFaces } from './modules/plates';
+import { AColorHasManyFaces } from './components/plates';
 
 import 'normalize.css';
 import './main.scss';
