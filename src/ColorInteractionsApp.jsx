@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { pick } from 'lodash';
 import { AColorHasManyFaces } from './components/plates';
 
 import 'normalize.css';
 import './main.scss';
 
 function mapStateToProps(state) {
-    return state.get('colors').toJS();
+    return state;
 }
 
 class ColorInteractionsApp extends Component {
     render() {
-        return <AColorHasManyFaces colors={this.props.colors.slice(0, 3)} />;
+        return (
+            <AColorHasManyFaces colors={pick(this.props.colors, ['color1', 'color2', 'color3'])}/>
+        );
     }
 }
 

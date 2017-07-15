@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { has, forOwn } from 'lodash';
 
 import './a_color_has_many_faces.scss';
 
@@ -9,10 +10,10 @@ export default class AColorHasManyFaces extends Component {
     }
 
     render() {
-        const [ color1, color2, color3 ] = this.props.colors;
-        const leftPlateColor = { backgroundColor: color1 };
-        const rightPlateColor = { backgroundColor: color2 };
-        const innerPlateColor = { backgroundColor: color3 };
+        const { color1, color2, color3 } = this.props.colors;
+        const leftPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
+        const rightPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+        const innerPlateColor = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
         return (
             <div className="plate display-flex">
@@ -28,8 +29,21 @@ export default class AColorHasManyFaces extends Component {
 }
 
 AColorHasManyFaces.defaultProps = {
-    colors: ['#b4d455', 'aliceblue', 'brown']
+    color1: { r: 100, g:100, b:100 },
+    color2: { r: 0, g:100, b:100 },
+    color3: { r: 100, g:100, b:0 }
 };
+
 AColorHasManyFaces.propTypes = {
-    colors: PropTypes.arrayOf(PropTypes.string)
+    colors: (props, propName, componentName) => {
+        if (!has(props[propName], 'color1') || !has(props[propName], 'color2') || !has(props[propName], 'color3')) {
+            return new Error(
+                `Invalid prop ${propName}: missing color1, color2, or color3 in colors of ${componentName}`
+            );
+        }
+
+        forOwn(props[propName], (value, key) => {
+            console.log('bulgogi', key, value);
+        });
+    }
 };
