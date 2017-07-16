@@ -18,7 +18,7 @@ export default class Menu extends Component {
         let menuContent;
 
         if (this.state.isOpen) {
-            menuContent = <div>i am open hay</div>;
+            menuContent = <button aria-label="Close" onClick={this.toggleMenu}>X</button>;
         } else {
             menuContent = <button className="menu" onClick={this.toggleMenu}>menu</button>;
         }
