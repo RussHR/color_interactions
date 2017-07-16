@@ -9,15 +9,18 @@ import './a_color_has_many_faces.scss';
 
 export default class AColorHasManyFaces extends Component {
     render() {
-        const { color1, color2, color3, menuIsOpen } = this.props.colors;
-        const leftPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const rightPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
-        const innerPlateColor = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
+        const { onChangeColor } = this.props;
+        const { color0, color1, color2 } = this.props.colors;
+        const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
+        const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
+        const innerPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
 
         return (
             <div className="plate display-flex">
                 <Menu>
-                    <ChromePicker />
+                    <ChromePicker disableAlpha={true} color={color0} onChange={(color) => onChangeColor('color0', color)} />
+                    <ChromePicker disableAlpha={true} color={color1} onChange={(color) => onChangeColor('color1', color)} />
+                    <ChromePicker disableAlpha={true} color={color2} onChange={(color) => onChangeColor('color2', color)} />
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
@@ -31,16 +34,16 @@ export default class AColorHasManyFaces extends Component {
 }
 
 AColorHasManyFaces.defaultProps = {
+    color0: generateRandomColor(),
     color1: generateRandomColor(),
-    color2: generateRandomColor(),
-    color3: generateRandomColor()
+    color2: generateRandomColor()
 };
 
 AColorHasManyFaces.propTypes = {
     colors: (props, propName, componentName) => {
-        if (!has(props[propName], 'color1') || !has(props[propName], 'color2') || !has(props[propName], 'color3')) {
+        if (!has(props[propName], 'color0') || !has(props[propName], 'color1') || !has(props[propName], 'color2')) {
             return new Error(
-                `Invalid prop ${propName}: missing color1, color2, or color3 in colors of ${componentName}`
+                `Invalid prop ${propName}: missing color0, color1, or color2 in colors of ${componentName}`
             );
         }
 
@@ -54,5 +57,6 @@ AColorHasManyFaces.propTypes = {
                 }
             });
         });
-    }
+    },
+    onChangeColor: PropTypes.func.isRequired
 };
