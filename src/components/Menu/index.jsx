@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './menu.scss';
 
@@ -17,4 +18,11 @@ export default class Menu extends Component {
             </div>
         );
     }
+}
+
+Menu.defaultProps = {
+    isOpen: false
+}
+Menu.propTypes = {
+    isOpen: PropTypes.bool
 }
