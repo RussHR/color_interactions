@@ -42,8 +42,15 @@ AColorHasManyFaces.propTypes = {
             );
         }
 
-        forOwn(props[propName], (value, key) => {
-            console.log('bulgogi', key, value);
+        // make sure r, g, and b are 0-255
+        forOwn(props[propName], (color, key) => {
+            forOwn(color, (rgbValue, rgb) => {
+                if (rgbValue < 0 || rgbValue > 255) {
+                    return new Error(
+                        `Invalid prop ${propName} of ${componentName}: rgb for ${color} out of bounds (${rgb}: ${rgbValue})`
+                    );
+                }
+            });
         });
     }
 };
