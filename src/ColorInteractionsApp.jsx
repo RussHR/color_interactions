@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
+import Home from './components/Home';
 import { AColorHasManyFaces } from './components/plates';
 import { CHANGE_COLOR } from './constants/actionTypes';
 
@@ -35,10 +36,7 @@ class ColorInteractionsApp extends Component {
 
     render() {
         return (
-            <AColorHasManyFaces
-                colors={pick(this.props.colors, ['color0', 'color1', 'color2'])}
-                onChangeColor={this.changeColor}
-            />
+            <Home />
         );
     }
 }
@@ -46,3 +44,10 @@ class ColorInteractionsApp extends Component {
 ColorInteractionsApp = connect(mapStateToProps)(ColorInteractionsApp);
 
 export default ColorInteractionsApp;
+
+/*
+<AColorHasManyFaces
+                colors={pick(this.props.colors, ['color0', 'color1', 'color2'])}
+                onChangeColor={this.changeColor}
+            />
+*/

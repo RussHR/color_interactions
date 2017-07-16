@@ -16,7 +16,7 @@ export default class AColorHasManyFaces extends Component {
         const innerPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
 
         return (
-            <div className="plate display-flex">
+            <div className="full-screen position-relative display-flex">
                 <Menu>
                     <ChromePicker
                         disableAlpha={true}
