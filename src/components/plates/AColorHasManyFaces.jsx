@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { has, forOwn } from 'lodash';
+import { ChromePicker } from 'react-color';
 import { generateRandomColor } from '../../helpers/colorHelpers';
 import Menu from '../Menu';
 
@@ -15,7 +16,9 @@ export default class AColorHasManyFaces extends Component {
 
         return (
             <div className="plate display-flex">
-                <Menu />
+                <Menu>
+                    <ChromePicker />
+                </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>

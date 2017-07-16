@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './menu.scss';
 
@@ -18,10 +19,17 @@ export default class Menu extends Component {
         let menuContent;
 
         if (this.state.isOpen) {
-            menuContent = <button aria-label="Close" onClick={this.toggleMenu}>X</button>;
+            menuContent = (
+                <div>
+                    <button aria-label="Close" onClick={this.toggleMenu}>X</button>
+                    <br />
+                    {this.props.children}
+                </div>
+            );
         } else {
             menuContent = <button className="menu" onClick={this.toggleMenu}>menu</button>;
         }
+
         return (
             <div className="menu">
                 {menuContent}
@@ -29,3 +37,7 @@ export default class Menu extends Component {
         );
     }
 }
+
+Menu.propTypes = {
+    children: PropTypes.node
+};
