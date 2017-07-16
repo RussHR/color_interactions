@@ -10,7 +10,7 @@ export default function Home() {
             <Menu>
                 hay
             </Menu>
-            <HomeLink />
+            <HomeLink href="#a-color-has-many-faces" />
         </div>
     );
 }
