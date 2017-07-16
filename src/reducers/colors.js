@@ -1,4 +1,5 @@
-// Reducer
+import { generateRandomColor } from '../helpers/colorHelpers';
+
 export default function colors(state = getDefaultColors(), action = {}) {
     switch (action.type) {
         default:
@@ -10,11 +11,7 @@ function getDefaultColors() {
     const defaultColors = {};
 
     for (let i = 0; i <= 3; i++) {
-        defaultColors[`color${i}`] = {
-            r: parseInt(Math.random() * 256),
-            g: parseInt(Math.random() * 256),
-            b: parseInt(Math.random() * 256)
-        };
+        defaultColors[`color${i}`] = generateRandomColor();
     }
 
     return defaultColors;

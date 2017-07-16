@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { has, forOwn } from 'lodash';
+import { generateRandomColor } from '../../helpers/colorHelpers';
 
 import './a_color_has_many_faces.scss';
 
@@ -29,9 +30,9 @@ export default class AColorHasManyFaces extends Component {
 }
 
 AColorHasManyFaces.defaultProps = {
-    color1: { r: 100, g:100, b:100 },
-    color2: { r: 0, g:100, b:100 },
-    color3: { r: 100, g:100, b:0 }
+    color1: generateRandomColor(),
+    color2: generateRandomColor(),
+    color3: generateRandomColor()
 };
 
 AColorHasManyFaces.propTypes = {
