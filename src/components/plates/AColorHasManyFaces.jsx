@@ -2,22 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { has, forOwn } from 'lodash';
 import { generateRandomColor } from '../../helpers/colorHelpers';
+import Menu from '../Menu';
 
 import './a_color_has_many_faces.scss';
 
 export default class AColorHasManyFaces extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const { color1, color2, color3 } = this.props.colors;
+        const { color1, color2, color3, menuIsOpen } = this.props.colors;
         const leftPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
         const innerPlateColor = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
         return (
             <div className="plate display-flex">
+                <Menu isOpen={menuIsOpen} />
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>
@@ -32,7 +30,8 @@ export default class AColorHasManyFaces extends Component {
 AColorHasManyFaces.defaultProps = {
     color1: generateRandomColor(),
     color2: generateRandomColor(),
-    color3: generateRandomColor()
+    color3: generateRandomColor(),
+    menuIsOpen: false
 };
 
 AColorHasManyFaces.propTypes = {
@@ -53,5 +52,6 @@ AColorHasManyFaces.propTypes = {
                 }
             });
         });
-    }
+    },
+    menuIsOpen: PropTypes.bool
 };
