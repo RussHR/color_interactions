@@ -46,9 +46,11 @@ export default class AColorHasManyFaces extends Component {
 }
 
 AColorHasManyFaces.defaultProps = {
-    color0: generateRandomColor(),
-    color1: generateRandomColor(),
-    color2: generateRandomColor()
+    colors: {
+        color0: generateRandomColor(),
+        color1: generateRandomColor(),
+        color2: generateRandomColor()
+    }
 };
 
 AColorHasManyFaces.propTypes = {

@@ -11,7 +11,7 @@ function mapStateToProps(state) {
     return state;
 }
 
-export default class ColorInteractionsApp extends Component {
+class ColorInteractionsApp extends Component {
 
     constructor(props) {
         super(props);
@@ -44,3 +44,5 @@ export default class ColorInteractionsApp extends Component {
 }
 
 ColorInteractionsApp = connect(mapStateToProps)(ColorInteractionsApp);
+
+export default ColorInteractionsApp;
