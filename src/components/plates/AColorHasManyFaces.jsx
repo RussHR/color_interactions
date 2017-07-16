@@ -18,9 +18,21 @@ export default class AColorHasManyFaces extends Component {
         return (
             <div className="plate display-flex">
                 <Menu>
-                    <ChromePicker disableAlpha={true} color={color0} onChange={(color) => onChangeColor('color0', color)} />
-                    <ChromePicker disableAlpha={true} color={color1} onChange={(color) => onChangeColor('color1', color)} />
-                    <ChromePicker disableAlpha={true} color={color2} onChange={(color) => onChangeColor('color2', color)} />
+                    <ChromePicker
+                        disableAlpha={true}
+                        color={color0}
+                        onChange={(color) => onChangeColor('color0', color)}
+                    />
+                    <ChromePicker
+                        disableAlpha={true}
+                        color={color1}
+                        onChange={(color) => onChangeColor('color1', color)}
+                    />
+                    <ChromePicker
+                        disableAlpha={true}
+                        color={color2}
+                        onChange={(color) => onChangeColor('color2', color)}
+                    />
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
@@ -48,11 +60,12 @@ AColorHasManyFaces.propTypes = {
         }
 
         // make sure r, g, and b are 0-255
-        forOwn(props[propName], (color, key) => {
+        forOwn(props[propName], (color) => {
             forOwn(color, (rgbValue, rgb) => {
                 if (rgbValue < 0 || rgbValue > 255) {
                     return new Error(
-                        `Invalid prop ${propName} of ${componentName}: rgb for ${color} out of bounds (${rgb}: ${rgbValue})`
+                        `Invalid prop ${propName} of ${componentName}:
+                        rgb for ${color} out of bounds (${rgb}: ${rgbValue})`
                     );
                 }
             });
