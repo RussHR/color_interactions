@@ -15,7 +15,7 @@ export default class AColorHasManyFaces extends Component {
 
         return (
             <div className="plate display-flex">
-                <Menu isOpen={menuIsOpen} />
+                <Menu />
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>
@@ -30,8 +30,7 @@ export default class AColorHasManyFaces extends Component {
 AColorHasManyFaces.defaultProps = {
     color1: generateRandomColor(),
     color2: generateRandomColor(),
-    color3: generateRandomColor(),
-    menuIsOpen: false
+    color3: generateRandomColor()
 };
 
 AColorHasManyFaces.propTypes = {
@@ -52,6 +51,5 @@ AColorHasManyFaces.propTypes = {
                 }
             });
         });
-    },
-    menuIsOpen: PropTypes.bool
+    }
 };

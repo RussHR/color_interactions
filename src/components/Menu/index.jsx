@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import './menu.scss';
 
 export default class Menu extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = { isOpen: false };
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+
+    toggleMenu() {
+        this.setState({ isOpen: !this.state.isOpen });
+    }
+
     render() {
         let menuContent;
 
-        if (this.props.isOpen) {
+        if (this.state.isOpen) {
             menuContent = <div>i am open hay</div>;
         } else {
-            menuContent = <button className="menu">menu</button>;
+            menuContent = <button className="menu" onClick={this.toggleMenu}>menu</button>;
         }
         return (
             <div className="menu">
@@ -18,11 +28,4 @@ export default class Menu extends Component {
             </div>
         );
     }
-}
-
-Menu.defaultProps = {
-    isOpen: false
-}
-Menu.propTypes = {
-    isOpen: PropTypes.bool
 }

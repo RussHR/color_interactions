@@ -13,9 +13,7 @@ function mapStateToProps(state) {
 class ColorInteractionsApp extends Component {
     render() {
         return (
-            <AColorHasManyFaces
-                colors={pick(this.props.colors, ['color1', 'color2', 'color3'])}
-                menuIsOpen={this.props.menu.isOpen} />
+            <AColorHasManyFaces colors={pick(this.props.colors, ['color1', 'color2', 'color3'])} />
         );
     }
 }
