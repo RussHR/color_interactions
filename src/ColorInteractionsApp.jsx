@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
 import Home from './components/Home';
-import Router from './components/Router';
 import { AColorHasManyFaces } from './components/plates';
 import { CHANGE_COLOR } from './constants/actionTypes';
 
@@ -37,9 +36,7 @@ class ColorInteractionsApp extends Component {
 
     render() {
         return (
-            <Router>
-                <Home />
-            </Router>
+            <Home />
         );
     }
 }
