@@ -23,10 +23,7 @@ class AColorHasManyFaces extends Component {
      * @param {object} payload - data for colors to be changed including new color in rgb format
      * @returns {void}
      */
-    changeColor(colorToChange, { rgb: { r, g, b } }) {
-        const payload = {};
-        payload[colorToChange] = { r, g, b };
-
+    changeColor(payload) {
         this.props.dispatch({
             type: CHANGE_COLOR,
             payload
@@ -45,17 +42,17 @@ class AColorHasManyFaces extends Component {
                     <ChromePicker
                         disableAlpha={true}
                         color={color0}
-                        onChange={color => this.changeColor('color0', color)}
+                        onChange={({ rgb: { r, g, b } }) => this.changeColor({color0: { r, g, b } })}
                     />
                     <ChromePicker
                         disableAlpha={true}
                         color={color1}
-                        onChange={color => this.changeColor('color1', color)}
+                        onChange={({ rgb: { r, g, b } }) => this.changeColor({color1: { r, g, b } })}
                     />
                     <ChromePicker
                         disableAlpha={true}
                         color={color2}
-                        onChange={color => this.changeColor('color2', color)}
+                        onChange={({ rgb: { r, g, b } }) => this.changeColor({color2: { r, g, b } })}
                     />
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
