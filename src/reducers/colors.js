@@ -1,11 +1,13 @@
 import { assign } from 'lodash';
 import { generateRandomColor } from '../helpers/colorHelpers';
-import { CHANGE_COLOR } from '../constants/actionTypes';
+import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../constants/actionTypes';
 
 export default function colors(state = getDefaultColors(), action = {}) {
     switch (action.type) {
         case CHANGE_COLOR:
             return assign({}, state, action.payload);
+        case RANDOMIZE_COLORS:
+            return getDefaultColors();
         default:
             return state;
     }

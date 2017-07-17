@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { has, forOwn } from 'lodash';
 import { ChromePicker } from 'react-color';
-import { CHANGE_COLOR } from '../../constants/actionTypes';
+import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
 import Menu from '../Menu';
 
@@ -30,6 +30,15 @@ class AColorHasManyFaces extends Component {
         });
     }
 
+    /**
+     * Calls dispatch to change a color.
+     * @param {object} payload - data for colors to be changed including new color in rgb format
+     * @returns {void}
+     */
+    randomizeColors() {
+        this.props.dispatch({ type: RANDOMIZE_COLORS });
+    }
+
     render() {
         const { color0, color1, color2 } = this.props.colors;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
@@ -54,6 +63,7 @@ class AColorHasManyFaces extends Component {
                         color={color2}
                         onChange={({ rgb: { r, g, b } }) => this.changeColor({color2: { r, g, b } })}
                     />
+                    <button onClick={() => this.randomizeColors()}>randomizeColors</button>
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
