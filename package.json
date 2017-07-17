@@ -43,6 +43,7 @@
     "prop-types": "^15.5.10",
     "react-color": "^2.13.1",
     "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.2",
     "redux": "^3.6.0"
   }
 }

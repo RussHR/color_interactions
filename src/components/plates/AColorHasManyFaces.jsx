@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { has, forOwn } from 'lodash';
 import { ChromePicker } from 'react-color';
+import { CHANGE_COLOR } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
 import Menu from '../Menu';
 
 import './a_color_has_many_faces.scss';
 
-export default class AColorHasManyFaces extends Component {
+function mapStateToProps(state) {
+    return state;
+}
+
+class AColorHasManyFaces extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    /**
+     * Calls dispatch to change a color.
+     * @param {object} payload - data for colors to be changed including new color in rgb format
+     * @returns {void}
+     */
+    changeColor(colorToChange, { rgb: { r, g, b } }) {
+        const payload = {};
+        payload[colorToChange] = { r, g, b };
+
+        this.props.dispatch({
+            type: CHANGE_COLOR,
+            payload
+        });
+    }
+
     render() {
-        const { onChangeColor } = this.props;
         const { color0, color1, color2 } = this.props.colors;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
@@ -21,17 +45,17 @@ export default class AColorHasManyFaces extends Component {
                     <ChromePicker
                         disableAlpha={true}
                         color={color0}
-                        onChange={(color) => onChangeColor('color0', color)}
+                        onChange={color => this.changeColor('color0', color)}
                     />
                     <ChromePicker
                         disableAlpha={true}
                         color={color1}
-                        onChange={(color) => onChangeColor('color1', color)}
+                        onChange={color => this.changeColor('color1', color)}
                     />
                     <ChromePicker
                         disableAlpha={true}
                         color={color2}
-                        onChange={(color) => onChangeColor('color2', color)}
+                        onChange={color => this.changeColor('color2', color)}
                     />
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
@@ -72,6 +96,9 @@ AColorHasManyFaces.propTypes = {
                 }
             });
         });
-    },
-    onChangeColor: PropTypes.func.isRequired
+    }
 };
+
+AColorHasManyFaces = connect(mapStateToProps)(AColorHasManyFaces);
+
+export default AColorHasManyFaces;
