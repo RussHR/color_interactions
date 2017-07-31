@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { has, forOwn } from 'lodash';
+import { assign, has, forOwn } from 'lodash';
 import { ChromePicker } from 'react-color';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
@@ -16,6 +15,15 @@ function mapStateToProps(state) {
 class AColorHasManyFaces extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            activeColor: 'color0',
+            lockedColors: {
+                color0: false,
+                color1: false,
+                color2: false
+            }
+        };
     }
 
     /**
@@ -30,17 +38,28 @@ class AColorHasManyFaces extends Component {
         });
     }
 
+    changeActiveColor(activeColor) {
+        this.setState({ activeColor });
+    }
+
+    toggleLockedColor(color) {
+        const lockedColors = assign({}, this.state.lockedColors, { [`${color}`]: !this.state.lockedColors[color] });
+        this.setState({ lockedColors });
+    }
+
     /**
      * Calls dispatch to change a color.
      * @param {object} payload - data for colors to be changed including new color in rgb format
      * @returns {void}
      */
     randomizeColors() {
-        this.props.dispatch({ type: RANDOMIZE_COLORS });
+        this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
 
     render() {
         const { color0, color1, color2 } = this.props.colors;
+        const { colors } = this.props;
+        const { activeColor, lockedColors } = this.state;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
         const innerPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
@@ -48,22 +67,71 @@ class AColorHasManyFaces extends Component {
         return (
             <div className="full-screen position-relative display-flex">
                 <Menu>
+                    <label htmlFor="color0">Left Background Color</label>
+                    <input
+                        type="radio"
+                        name="color"
+                        id="color0"
+                        checked={activeColor == 'color0'}
+                        onChange={() => this.changeActiveColor('color0')}
+                    />
+                    <br />
+                    <label htmlFor="color1">Right Background Color</label>
+                    <input
+                        type="radio"
+                        name="color"
+                        id="color1"
+                        checked={activeColor == 'color1'}
+                        onChange={() => this.changeActiveColor('color1')}
+                    />
+                    <br />
+                    <label htmlFor="color2">Inner Color</label>
+                    <input
+                        type="radio"
+                        name="color"
+                        id="color2"
+                        checked={activeColor == 'color2'}
+                        onChange={() => this.changeActiveColor('color2')}
+                    />
+                    <br/>
+                    <br />
                     <ChromePicker
                         disableAlpha={true}
-                        color={color0}
-                        onChange={({ rgb: { r, g, b } }) => this.changeColor({color0: { r, g, b } })}
+                        color={colors[activeColor]}
+                        onChange={({ rgb: { r, g, b } }) => this.changeColor({ [`${activeColor}`]: { r, g, b } })}
                     />
-                    <ChromePicker
-                        disableAlpha={true}
-                        color={color1}
-                        onChange={({ rgb: { r, g, b } }) => this.changeColor({color1: { r, g, b } })}
-                    />
-                    <ChromePicker
-                        disableAlpha={true}
-                        color={color2}
-                        onChange={({ rgb: { r, g, b } }) => this.changeColor({color2: { r, g, b } })}
-                    />
+                    <br/>
                     <button onClick={() => this.randomizeColors()}>randomizeColors</button>
+                    <br />
+                    <label htmlFor="color0-lock">Lock Left Background Color</label>
+                    <input
+                        type="checkbox"
+                        name="color"
+                        id="color0-lock"
+                        value="color0"
+                        checked={lockedColors['color0']}
+                        onChange={() => this.toggleLockedColor('color0')}
+                    />
+                    <br />
+                    <label htmlFor="color1-lock">Lock Right Background Color</label>
+                    <input
+                        type="checkbox"
+                        name="color"
+                        id="color1-lock"
+                        value="color1"
+                        checked={lockedColors['color1']}
+                        onChange={() => this.toggleLockedColor('color1')}
+                    />
+                    <br />
+                    <label htmlFor="color2-lock">Lock Inner Color</label>
+                    <input
+                        type="checkbox"
+                        name="color"
+                        id="color2-lock"
+                        value="color2"
+                        checked={lockedColors['color2']}
+                        onChange={() => this.toggleLockedColor('color2')}
+                    />
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>

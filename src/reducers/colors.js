@@ -1,4 +1,4 @@
-import { assign } from 'lodash';
+import { assign, forOwn } from 'lodash';
 import { generateRandomColor } from '../helpers/colorHelpers';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../constants/actionTypes';
 
@@ -7,7 +7,7 @@ export default function colors(state = getDefaultColors(), action = {}) {
         case CHANGE_COLOR:
             return assign({}, state, action.payload);
         case RANDOMIZE_COLORS:
-            return getDefaultColors();
+            return newColorsWithLocks(state, action.payload);
         default:
             return state;
     }
@@ -21,4 +21,15 @@ function getDefaultColors() {
     }
 
     return defaultColors;
+}
+
+function newColorsWithLocks(prevState, { lockedColors }) {
+    const newColors = getDefaultColors();
+    // if a color is set to true in locked colors, we don't want to change the color
+    forOwn(lockedColors, (isLocked, color) => {
+        if (isLocked) {
+            newColors[color] = prevState[color];
+        }
+    });
+    return newColors;
 }

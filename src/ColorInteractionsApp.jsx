@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
-import { pick } from 'lodash';
 import Home from './components/Home';
 import { AColorHasManyFaces } from './components/plates';
 
