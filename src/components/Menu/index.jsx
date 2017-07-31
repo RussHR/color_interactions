@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './menu.scss';
 
@@ -7,8 +8,23 @@ export default class Menu extends Component {
 
     constructor(props){
         super(props);
-        this.state = { isOpen: false };
+        this.state = { isOpen: false, isHidden: false };
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.toggleHiding = this.toggleHiding.bind(this);
+    }
+
+    componentWillMount() {
+        window.addEventListener('keydown', this.toggleHiding);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('keydown', this.toggleHiding);
+    }
+
+    toggleHiding({ keyCode }) {
+        if (keyCode == 72) {
+            this.setState({ isHidden: !this.state.isHidden });
+        }
     }
 
     toggleMenu() {
@@ -31,7 +47,7 @@ export default class Menu extends Component {
         }
 
         return (
-            <div className="menu">
+            <div className={classNames('menu', { 'hidden': this.state.isHidden })}>
                 {menuContent}
             </div>
         );

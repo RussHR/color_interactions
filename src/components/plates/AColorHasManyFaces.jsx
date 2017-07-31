@@ -132,6 +132,8 @@ class AColorHasManyFaces extends Component {
                         checked={lockedColors['color2']}
                         onChange={() => this.toggleLockedColor('color2')}
                     />
+                    <br />
+                    <a href="#">Home</a>
                 </Menu>
                 <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
