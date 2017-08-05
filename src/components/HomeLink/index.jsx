@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 
 import './home_link.scss';
 
-export default function HomeLink({ href }) {
+export default function HomeLink({ href, title }) {
     return (
         <a href={href} className="homeLink">
-            HomeLink
+            {title}
         </a>
     );
 }
 
 HomeLink.propTypes = {
-    href: PropTypes.string.isRequired
+    href: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
 };
