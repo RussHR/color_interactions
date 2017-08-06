@@ -13,7 +13,7 @@ class ColorInteractionsApp extends Component {
             <HashRouter>
                 <div>
                     <Route path="/a-color-has-many-faces" component={AColorHasManyFaces} />
-                    <Route path="/" component={Home} />
+                    <Route exact path="/" component={Home} />
                 </div>
             </HashRouter>
         );

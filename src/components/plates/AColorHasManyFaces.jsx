@@ -24,6 +24,27 @@ class AColorHasManyFaces extends Component {
                 color2: false
             }
         };
+        this.randomizeColorsViaKeyboard = this.randomizeColorsViaKeyboard.bind(this);
+    }
+
+    componentDidMount() {
+        window.document.addEventListener('keydown', this.randomizeColorsViaKeyboard);
+    }
+
+    componentWillUnmount() {
+        window.document.removeEventListener('keydown', this.randomizeColorsViaKeyboard);
+    }
+
+    /**
+     * Randomizes colors with keyboard input.
+     * @param {object} e - DOM event with keyCode property
+     * @returns {void}
+     */
+    randomizeColorsViaKeyboard({ keyCode }) {
+        // if key is 'r'
+        if (keyCode === 82) {
+            this.randomizeColors();
+        }
     }
 
     /**
@@ -42,6 +63,11 @@ class AColorHasManyFaces extends Component {
         this.setState({ activeColor });
     }
 
+    /**
+     * Toggles the state of whether a color is "locked", i.e. prevented, from changing into a random color.
+     * @param {string} color - string that determines which color is locked, e.g. 'color1'
+     * @returns {void}
+     */
     toggleLockedColor(color) {
         const lockedColors = assign({}, this.state.lockedColors, { [`${color}`]: !this.state.lockedColors[color] });
         this.setState({ lockedColors });
