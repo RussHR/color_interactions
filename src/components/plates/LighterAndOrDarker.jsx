@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { assign, has, forOwn } from 'lodash';
 import { ChromePicker } from 'react-color';
+import classNames from 'classnames';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
 import Menu from '../Menu';
@@ -22,17 +23,22 @@ class LighterAndOrDarker extends Component {
                 color0: false,
                 color1: false,
                 color2: false
-            }
+            },
+            squaresApart: false
         };
         this.randomizeColorsViaKeyboard = this.randomizeColorsViaKeyboard.bind(this);
+        this.toggleTouchingSquares = this.toggleTouchingSquares.bind(this);
+        this.toggleTouchingSquaresViaKeyboard = this.toggleTouchingSquaresViaKeyboard.bind(this);
     }
 
     componentDidMount() {
         window.document.addEventListener('keydown', this.randomizeColorsViaKeyboard);
+        window.document.addEventListener('keydown', this.toggleTouchingSquaresViaKeyboard);
     }
 
     componentWillUnmount() {
         window.document.removeEventListener('keydown', this.randomizeColorsViaKeyboard);
+        window.document.removeEventListener('keydown', this.toggleTouchingSquaresViaKeyboard);
     }
 
     /**
@@ -82,12 +88,34 @@ class LighterAndOrDarker extends Component {
         this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
 
+    /**
+     * Toggles the state of whether the squares are touching.
+     * @returns {void}
+     */
+    toggleTouchingSquares({ keyCode }) {
+        this.setState({ squaresApart: !this.state.squaresApart });
+    }
+
+    /**
+     * Toggles the state of whether the squares are touching via keyboard.
+     * @returns {void}
+     */
+    toggleTouchingSquaresViaKeyboard({ keyCode }) {
+        // if key is 's'
+        if (keyCode === 83) {
+            this.setState({ squaresApart: !this.state.squaresApart });
+        }
+    }
+
     render() {
         const { color0, color1, color2 } = this.props.colors;
         const { colors } = this.props;
-        const { activeColor, lockedColors } = this.state;
+        const { activeColor, lockedColors, squaresApart } = this.state;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
+        const rightPlateClasses = classNames('LighterAndOrDarker__rightBlock', {
+            'LighterAndOrDarker__rightBlock--apart': squaresApart
+        });
         const bgColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
 
         return (
@@ -159,11 +187,13 @@ class LighterAndOrDarker extends Component {
                         onChange={() => this.toggleLockedColor('color2')}
                     />
                     <br />
+                    <button onClick={this.toggleTouchingSquares}>Separate Squares</button>
+                    <br/>
                     <a href="#">Home</a>
                 </Menu>
                 <div className="LighterAndOrDarker__leftBlock" style={leftPlateColor}>
                 </div>
-                <div className="LighterAndOrDarker__rightBlock" style={rightPlateColor}>
+                <div className={rightPlateClasses} style={rightPlateColor}>
                 </div>
             </div>
         );
