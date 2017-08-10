@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import Home from './components/Home';
-import { AColorHasManyFaces } from './components/plates';
+import { AColorHasManyFaces, LighterAndOrDarker } from './components/plates';
 
 import 'normalize.css';
 import './main.scss';
@@ -13,6 +13,8 @@ class ColorInteractionsApp extends Component {
             <HashRouter>
                 <div>
                     <Route path="/a-color-has-many-faces" component={AColorHasManyFaces} />
+                    <Route path="/lighter-and-or-darker" component={LighterAndOrDarker} />
+
                     <Route exact path="/" component={Home} />
                 </div>
             </HashRouter>

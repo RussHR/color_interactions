@@ -11,6 +11,7 @@ export default function Home() {
                 hay
             </Menu>
             <HomeLink href="#a-color-has-many-faces" title="A Color Has Many Faces" />
+            <HomeLink href="#lighter-and-or-darker" title="Lighter and/or Darker" />
         </div>
     );
 }

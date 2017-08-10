@@ -13,7 +13,7 @@ export default class Menu extends Component {
         this.toggleHiding = this.toggleHiding.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         window.addEventListener('keydown', this.toggleHiding);
     }
 

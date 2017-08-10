@@ -1,0 +1,15 @@
+.LighterAndOrDarker__leftBlock,
+.LighterAndOrDarker__rightBlock {
+    height: 30vw;
+    width: 30vw;
+    position: absolute;
+    top: 50%;
+}
+.LighterAndOrDarker__leftBlock {
+    left: 15%;
+    transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+.LighterAndOrDarker__rightBlock {
+    left: 43%;
+    transform: translate3d(0, -50%, 0) rotate(45deg);
+}
