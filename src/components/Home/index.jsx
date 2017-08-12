@@ -10,8 +10,22 @@ export default function Home() {
             <Menu>
                 hay
             </Menu>
-            <HomeLink href="#a-color-has-many-faces" title="A Color Has Many Faces" />
-            <HomeLink href="#lighter-and-or-darker" title="Lighter and/or Darker" />
+            <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
+                <div className="homeLink__thumbnail">
+                    <div className="half-width full-height display-inline-block">
+                    </div>
+                    <div className="half-width full-height display-inline-block">
+                    </div>
+                </div>
+            </HomeLink>
+            <HomeLink href="#lighter-and-or-darker" title="lighter and/or darker">
+                <div className="homeLink__thumbnail">
+                    <div className="half-width full-height display-inline-block">
+                    </div>
+                    <div className="half-width full-height display-inline-block">
+                    </div>
+                </div>
+            </HomeLink>
         </div>
     );
 }

@@ -161,10 +161,16 @@ class AColorHasManyFaces extends Component {
                     <br />
                     <a href="#">Home</a>
                 </Menu>
-                <div className="aColorHasManyFaces__outerBlock display-flex" style={leftPlateColor}>
+                <div
+                    className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
+                    style={leftPlateColor}
+                >
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>
-                <div className="aColorHasManyFaces__outerBlock display-flex" style={rightPlateColor}>
+                <div
+                    className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
+                    style={rightPlateColor}
+                >
                     <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
                 </div>
             </div>

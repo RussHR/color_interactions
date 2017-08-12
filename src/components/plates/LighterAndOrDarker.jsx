@@ -92,7 +92,7 @@ class LighterAndOrDarker extends Component {
      * Toggles the state of whether the squares are touching.
      * @returns {void}
      */
-    toggleTouchingSquares({ keyCode }) {
+    toggleTouchingSquares() {
         this.setState({ squaresApart: !this.state.squaresApart });
     }
 
