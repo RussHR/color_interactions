@@ -1,7 +1,7 @@
 export function generateRandomColor() {
     return {
-        r: parseInt(Math.random() * 256),
-        g: parseInt(Math.random() * 256),
-        b: parseInt(Math.random() * 256)
+        r: Math.floor(Math.random() * 256),
+        g: Math.floor(Math.random() * 256),
+        b: Math.floor(Math.random() * 256)
     };
 }
