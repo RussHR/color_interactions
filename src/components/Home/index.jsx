@@ -1,20 +1,40 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { pick } from 'lodash';
 import HomeLink from '../HomeLink';
 import Menu from '../Menu';
 
 import './home.scss';
 
-export default function Home() {
+function mapStateToProps(state) {
+    return pick(state, 'colors');
+}
+
+function Home({ colors: { color0, color1, color2 } }) {
     return (
         <div className="full-screen position-relative display-flex home">
             <Menu>
                 hay
             </Menu>
             <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
-                <div className="homeLink__thumbnail">
-                    <div className="half-width full-height display-inline-block">
+                <div className="homeLink__thumbnail display-flex">
+                    <div
+                        className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
+                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})`}}
+                    >
+                        <div
+                            className="aColorHasManyFaces__innerBlock"
+                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                        />
                     </div>
-                    <div className="half-width full-height display-inline-block">
+                    <div
+                        className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
+                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})`}}
+                    >
+                        <div
+                            className="aColorHasManyFaces__innerBlock"
+                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                        />
                     </div>
                 </div>
             </HomeLink>
@@ -29,3 +49,7 @@ export default function Home() {
         </div>
     );
 }
+
+Home = connect(mapStateToProps)(Home);
+
+export default Home;

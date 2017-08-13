@@ -47,7 +47,7 @@ export default class Menu extends Component {
         }
 
         return (
-            <div className={classNames('Menu', { 'hidden': this.state.isHidden })}>
+            <div className={classNames('Menu', 'position-absolute', { 'hidden': this.state.isHidden })}>
                 {menuContent}
             </div>
         );

@@ -29,7 +29,11 @@ html {
     width: 50%;
 }
 
-.position-relative{
+.position-absolute {
+    position: absolute;
+}
+
+.position-relative {
     position: relative;
 }
 

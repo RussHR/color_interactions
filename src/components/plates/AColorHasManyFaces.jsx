@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { assign, has, forOwn } from 'lodash';
+import { assign, forOwn, has, pick } from 'lodash';
 import { ChromePicker } from 'react-color';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
@@ -9,7 +9,7 @@ import Menu from '../Menu';
 import './a_color_has_many_faces.scss';
 
 function mapStateToProps(state) {
-    return state;
+    return pick(state, 'colors');
 }
 
 class AColorHasManyFaces extends Component {
@@ -91,7 +91,7 @@ class AColorHasManyFaces extends Component {
         const innerPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
 
         return (
-            <div className="full-screen position-relative display-flex">
+            <div className="full-screen display-flex">
                 <Menu>
                     <label htmlFor="color0">Left Background Color</label>
                     <input

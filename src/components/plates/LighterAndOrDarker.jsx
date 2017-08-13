@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { assign, has, forOwn } from 'lodash';
+import { assign, forOwn, has, pick } from 'lodash';
 import { ChromePicker } from 'react-color';
 import classNames from 'classnames';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
@@ -10,7 +10,7 @@ import Menu from '../Menu';
 import './lighter_and_or_darker.scss';
 
 function mapStateToProps(state) {
-    return state;
+    return pick(state, 'colors');
 }
 
 class LighterAndOrDarker extends Component {
@@ -113,9 +113,11 @@ class LighterAndOrDarker extends Component {
         const { activeColor, lockedColors, squaresApart } = this.state;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const rightPlateClasses = classNames('LighterAndOrDarker__rightBlock', {
-            'LighterAndOrDarker__rightBlock--apart': squaresApart
-        });
+        const rightPlateClasses = classNames(
+            'LighterAndOrDarker__rightBlock',
+            'position-absolute',
+            { 'LighterAndOrDarker__rightBlock--apart': squaresApart }
+        );
         const bgColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
 
         return (
@@ -191,7 +193,7 @@ class LighterAndOrDarker extends Component {
                     <br/>
                     <a href="#">Home</a>
                 </Menu>
-                <div className="LighterAndOrDarker__leftBlock" style={leftPlateColor}>
+                <div className="LighterAndOrDarker__leftBlock position-absolute" style={leftPlateColor}>
                 </div>
                 <div className={rightPlateClasses} style={rightPlateColor}>
                 </div>
