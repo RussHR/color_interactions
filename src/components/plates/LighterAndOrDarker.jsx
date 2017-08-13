@@ -193,10 +193,8 @@ class LighterAndOrDarker extends Component {
                     <br/>
                     <a href="#">Home</a>
                 </Menu>
-                <div className="LighterAndOrDarker__leftBlock position-absolute" style={leftPlateColor}>
-                </div>
-                <div className={rightPlateClasses} style={rightPlateColor}>
-                </div>
+                <div className="LighterAndOrDarker__leftBlock position-absolute" style={leftPlateColor} />
+                <div className={rightPlateClasses} style={rightPlateColor} />
             </div>
         );
     }

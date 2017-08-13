@@ -10,17 +10,18 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-function Home({ colors: { color0, color1, color2 } }) {
+let Home = ({ colors: { color0, color1, color2 } }) => {
     return (
         <div className="full-screen position-relative display-flex home">
             <Menu>
                 hay
             </Menu>
+
             <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
                 <div className="homeLink__thumbnail display-flex">
                     <div
                         className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
-                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})`}}
+                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
                     >
                         <div
                             className="aColorHasManyFaces__innerBlock"
@@ -29,7 +30,7 @@ function Home({ colors: { color0, color1, color2 } }) {
                     </div>
                     <div
                         className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
-                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})`}}
+                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
                     >
                         <div
                             className="aColorHasManyFaces__innerBlock"
@@ -38,17 +39,25 @@ function Home({ colors: { color0, color1, color2 } }) {
                     </div>
                 </div>
             </HomeLink>
+
             <HomeLink href="#lighter-and-or-darker" title="lighter and/or darker">
-                <div className="homeLink__thumbnail">
-                    <div className="half-width full-height display-inline-block">
-                    </div>
-                    <div className="half-width full-height display-inline-block">
-                    </div>
+                <div
+                    className="homeLink__thumbnail position-relative"
+                    style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                >
+                    <div
+                        className="LighterAndOrDarker__leftBlock position-absolute"
+                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                    />
+                    <div
+                        className="LighterAndOrDarker__rightBlock position-absolute"
+                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                    />
                 </div>
             </HomeLink>
         </div>
     );
-}
+};
 
 Home = connect(mapStateToProps)(Home);
 
