@@ -46,11 +46,11 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                     style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
                 >
                     <div
-                        className="LighterAndOrDarker__leftBlock position-absolute"
+                        className="LighterAndOrDarker__leftBlock position-absolute LighterAndOrDarker__block--thumbnail"
                         style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
                     />
                     <div
-                        className="LighterAndOrDarker__rightBlock position-absolute"
+                        className="LighterAndOrDarker__rightBlock position-absolute LighterAndOrDarker__block--thumbnail"
                         style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
                     />
                 </div>

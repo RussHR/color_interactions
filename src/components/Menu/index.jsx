@@ -32,22 +32,24 @@ export default class Menu extends Component {
     }
 
     render() {
+        const menuClasses = classNames('Menu', 'position-absolute', 'top-0', 'right-0', { 'hidden': this.state.isHidden });
         let menuContent;
 
         if (this.state.isOpen) {
             menuContent = (
                 <div>
-                    <button aria-label="Close" onClick={this.toggleMenu}>X</button>
-                    <br />
+                    <button aria-label="Close" className="Menu__close position-absolute top-0 right-0" onClick={this.toggleMenu}>
+                        X
+                    </button>
                     {this.props.children}
                 </div>
             );
         } else {
-            menuContent = <button className="menu" onClick={this.toggleMenu}>menu</button>;
+            menuContent = <button className="Menu__cornerButton no-padding" onClick={this.toggleMenu}>menu</button>;
         }
 
         return (
-            <div className={classNames('Menu', 'position-absolute', { 'hidden': this.state.isHidden })}>
+            <div className={menuClasses}>
                 {menuContent}
             </div>
         );

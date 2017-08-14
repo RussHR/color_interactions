@@ -1,7 +1,7 @@
 .LighterAndOrDarker__leftBlock,
 .LighterAndOrDarker__rightBlock {
-    height: 30%;
-    width: 30%;
+    height: 30vw;
+    width: 30vw;
     top: 50%;
 }
 .LighterAndOrDarker__leftBlock {
@@ -15,4 +15,9 @@
 }
 .LighterAndOrDarker__rightBlock--apart {
     transform: translate3d(103%, -50%, 0) rotate(45deg);
+}
+// home thumbnail
+.LighterAndOrDarker__block--thumbnail {
+    height: 30%;
+    width: 30%;
 }

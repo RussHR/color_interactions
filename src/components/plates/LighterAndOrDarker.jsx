@@ -189,7 +189,7 @@ class LighterAndOrDarker extends Component {
                         onChange={() => this.toggleLockedColor('color2')}
                     />
                     <br />
-                    <button onClick={this.toggleTouchingSquares}>Separate Squares</button>
+                    <button onClick={this.toggleTouchingSquares}>separate squares (S)</button>
                     <br/>
                     <a href="#">Home</a>
                 </Menu>
