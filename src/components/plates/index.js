@@ -1,5 +1,5 @@
 import AColorHasManyFaces from './AColorHasManyFaces';
 import LighterAndOrDarker from './LighterAndOrDarker';
+import Gradient from './Gradient';
 
-export { AColorHasManyFaces };
-export { LighterAndOrDarker };
+export { AColorHasManyFaces, LighterAndOrDarker, Gradient };
