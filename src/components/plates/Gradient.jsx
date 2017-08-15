@@ -97,7 +97,7 @@ class Gradient extends Component {
         const bars = times(numBars, (i) => {
             let style;
             if (i % 2 == 0) {
-                style = { width: `${100 / numBars}vw`, background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
+                style = { width: `${100 / numBars}%`, background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
             } else {
                 style = { width: `${100 / numBars}%`, backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
             }
