@@ -26,6 +26,7 @@ class Gradient extends Component {
             numBars: 5
         };
         this.randomizeColorsViaKeyboard = this.randomizeColorsViaKeyboard.bind(this);
+        this.changeNumBars = this.changeNumBars.bind(this);
     }
 
     componentDidMount() {
@@ -83,6 +84,10 @@ class Gradient extends Component {
         this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
 
+    changeNumBars({ currentTarget: { value: numBars } }) {
+        this.setState({ numBars });
+    }
+
     render() {
         const { color0, color1, color2 } = this.props.colors;
         const { colors } = this.props;
@@ -92,7 +97,7 @@ class Gradient extends Component {
         const bars = times(numBars, (i) => {
             let style;
             if (i % 2 == 0) {
-                style = { width: `${100 / numBars}%`, background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
+                style = { width: `${100 / numBars}vw`, background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
             } else {
                 style = { width: `${100 / numBars}%`, backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
             }
@@ -170,6 +175,15 @@ class Gradient extends Component {
                         onChange={() => this.toggleLockedColor('color2')}
                     />
                     <br />
+                    <label htmlFor="num-bars">number of bars: </label>
+                    <input
+                        id="num-bars"
+                        type="number"
+                        min="3"
+                        max="500"
+                        value={numBars}
+                        onChange={this.changeNumBars}
+                    />
                     <a href="#">Home</a>
                 </Menu>
 
