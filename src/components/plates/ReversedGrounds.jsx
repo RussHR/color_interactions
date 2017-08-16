@@ -20,8 +20,7 @@ class ReversedGrounds extends Component {
             activeColor: 'color0',
             lockedColors: {
                 color0: false,
-                color1: false,
-                color2: false
+                color1: false
             }
         };
         this.randomizeColorsViaKeyboard = this.randomizeColorsViaKeyboard.bind(this);
@@ -88,7 +87,10 @@ class ReversedGrounds extends Component {
         const { activeColor, lockedColors } = this.state;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const innerPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+        const averageR = Math.floor((color0.r + color1.r) / 2);
+        const averageG = Math.floor((color0.g + color1.g) / 2);
+        const averageB = Math.floor((color0.b + color1.b) / 2);
+        const innerPlateColor = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
 
         return (
             <div className="full-screen display-flex">
@@ -110,16 +112,6 @@ class ReversedGrounds extends Component {
                         checked={activeColor == 'color1'}
                         onChange={() => this.changeActiveColor('color1')}
                     />
-                    <br />
-                    <label htmlFor="color2">Inner Color</label>
-                    <input
-                        type="radio"
-                        name="color"
-                        id="color2"
-                        checked={activeColor == 'color2'}
-                        onChange={() => this.changeActiveColor('color2')}
-                    />
-                    <br/>
                     <br />
                     <ChromePicker
                         disableAlpha={true}
@@ -149,16 +141,6 @@ class ReversedGrounds extends Component {
                         onChange={() => this.toggleLockedColor('color1')}
                     />
                     <br />
-                    <label htmlFor="color2-lock">Lock Inner Color</label>
-                    <input
-                        type="checkbox"
-                        name="color"
-                        id="color2-lock"
-                        value="color2"
-                        checked={lockedColors['color2']}
-                        onChange={() => this.toggleLockedColor('color2')}
-                    />
-                    <br />
                     <a href="#">Home</a>
                 </Menu>
                 <div
@@ -181,16 +163,15 @@ class ReversedGrounds extends Component {
 ReversedGrounds.defaultProps = {
     colors: {
         color0: generateRandomColor(),
-        color1: generateRandomColor(),
-        color2: generateRandomColor()
+        color1: generateRandomColor()
     }
 };
 
 ReversedGrounds.propTypes = {
     colors: (props, propName, componentName) => {
-        if (!has(props[propName], 'color0') || !has(props[propName], 'color1') || !has(props[propName], 'color2')) {
+        if (!has(props[propName], 'color0') || !has(props[propName], 'color1')) {
             return new Error(
-                `Invalid prop ${propName}: missing color0, color1, or color2 in colors of ${componentName}`
+                `Invalid prop ${propName}: missing color0 or color1 in colors of ${componentName}`
             );
         }
 

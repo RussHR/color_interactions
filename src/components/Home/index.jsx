@@ -35,6 +35,11 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
         );
     });
 
+    const averageR = Math.floor((color0.r + color1.r) / 2);
+    const averageG = Math.floor((color0.g + color1.g) / 2);
+    const averageB = Math.floor((color0.b + color1.b) / 2);
+    const averageRGB = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
+
     return (
         <div className="full-screen position-relative display-flex home">
             <Menu>
@@ -44,7 +49,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
             <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
                 <div className="homeLink__thumbnail display-flex">
                     <div
-                        className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
+                        className="justify-content-center align-items-center display-flex half-width full-height"
                         style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
                     >
                         <div
@@ -53,7 +58,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         />
                     </div>
                     <div
-                        className="aColorHasManyFaces__outerBlock display-flex half-width full-height"
+                        className="justify-content-center align-items-center display-flex half-width full-height"
                         style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
                     >
                         <div
@@ -100,7 +105,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                     >
                         <div
                             className="aColorHasManyFaces__innerBlock"
-                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                            style={averageRGB}
                         />
                     </div>
                     <div
@@ -109,7 +114,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                     >
                         <div
                             className="aColorHasManyFaces__innerBlock"
-                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                            style={averageRGB}
                         />
                     </div>
                 </div>
