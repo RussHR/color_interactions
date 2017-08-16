@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 }
 
 let Home = ({ colors: { color0, color1, color2 } }) => {
-    const gradientBars = times(5, (i) => {
+    const falseGradientBars = times(5, (i) => {
         let style;
         if (i % 2 == 0) {
             style = { width: '20%', background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
@@ -80,9 +80,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                 </div>
             </HomeLink>
 
-            <HomeLink href="#gradient" title="gradient">
+            <HomeLink href="#false-gradient" title="false gradient">
                 <div className="homeLink__thumbnail display-flex">
-                    {gradientBars}
+                    {falseGradientBars}
                 </div>
             </HomeLink>
 

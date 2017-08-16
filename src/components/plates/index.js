@@ -1,6 +1,6 @@
 import AColorHasManyFaces from './AColorHasManyFaces';
 import LighterAndOrDarker from './LighterAndOrDarker';
-import Gradient from './Gradient';
+import FalseGradient from './FalseGradient';
 import Void from './Void';
 
-export { AColorHasManyFaces, LighterAndOrDarker, Gradient, Void };
+export { AColorHasManyFaces, LighterAndOrDarker, FalseGradient, Void };

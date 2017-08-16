@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import Home from './components/Home';
-import { AColorHasManyFaces, LighterAndOrDarker, Gradient, Void } from './components/plates';
+import { AColorHasManyFaces, LighterAndOrDarker, FalseGradient, Void } from './components/plates';
 
 import 'normalize.css';
 import './main.scss';
@@ -14,7 +14,7 @@ class ColorInteractionsApp extends Component {
                 <div>
                     <Route path="/a-color-has-many-faces" component={AColorHasManyFaces} />
                     <Route path="/lighter-and-or-darker" component={LighterAndOrDarker} />
-                    <Route path="/gradient" component={Gradient} />
+                    <Route path="/false-gradient" component={FalseGradient} />
                     <Route path="/void" component={Void} />
 
                     <Route exact path="/" component={Home} />
