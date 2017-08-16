@@ -10,7 +10,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-class Gradient extends Component {
+class Void extends Component {
     constructor(props) {
         super(props);
 
@@ -191,7 +191,7 @@ class Gradient extends Component {
     }
 }
 
-Gradient.defaultProps = {
+Void.defaultProps = {
     colors: {
         color0: generateRandomColor(),
         color1: generateRandomColor(),
@@ -199,7 +199,7 @@ Gradient.defaultProps = {
     }
 };
 
-Gradient.propTypes = {
+Void.propTypes = {
     colors: (props, propName, componentName) => {
         if (!has(props[propName], 'color0') || !has(props[propName], 'color1') || !has(props[propName], 'color2')) {
             return new Error(
@@ -221,6 +221,6 @@ Gradient.propTypes = {
     }
 };
 
-Gradient = connect(mapStateToProps)(Gradient);
+Void = connect(mapStateToProps)(Void);
 
-export default Gradient;
+export default Void;

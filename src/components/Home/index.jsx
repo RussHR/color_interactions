@@ -19,7 +19,19 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
             style = { width: '20%', backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
         }
         return (
-            <div key={i} style={style} />
+            <div key={`gradient-${i}`} style={style} />
+        );
+    });
+
+    const voidBars = times(12, (i) => {
+        let style;
+        if (i % 2 == 0) {
+            style = { width: '20%', background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
+        } else {
+            style = { width: '20%', background: `linear-gradient(rgb(${color1.r}, ${color1.g}, ${color1.b}), rgb(${color0.r}, ${color0.g}, ${color0.b}))`};
+        }
+        return (
+            <div key={`void-${i}`} style={style} />
         );
     });
 
@@ -71,6 +83,12 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
             <HomeLink href="#gradient" title="gradient">
                 <div className="homeLink__thumbnail display-flex">
                     {gradientBars}
+                </div>
+            </HomeLink>
+
+            <HomeLink href="#void" title="void">
+                <div className="homeLink__thumbnail display-flex">
+                    {voidBars}
                 </div>
             </HomeLink>
         </div>
