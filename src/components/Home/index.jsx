@@ -91,6 +91,29 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                     {voidBars}
                 </div>
             </HomeLink>
+
+            <HomeLink href="#reversed-grounds" title="reversed grounds">
+                <div className="homeLink__thumbnail display-flex">
+                    <div
+                        className="justify-content-center align-items-center display-flex half-width full-height"
+                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                    >
+                        <div
+                            className="aColorHasManyFaces__innerBlock"
+                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                        />
+                    </div>
+                    <div
+                        className="justify-content-center align-items-center display-flex half-width full-height"
+                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                    >
+                        <div
+                            className="aColorHasManyFaces__innerBlock"
+                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                        />
+                    </div>
+                </div>
+            </HomeLink>
         </div>
     );
 };

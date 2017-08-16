@@ -6,13 +6,13 @@ import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
 import Menu from '../Menu';
 
-import './a_color_has_many_faces.scss';
+import './reversed_grounds.scss';
 
 function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-class AColorHasManyFaces extends Component {
+class ReversedGrounds extends Component {
     constructor(props) {
         super(props);
 
@@ -165,20 +165,20 @@ class AColorHasManyFaces extends Component {
                     className="justify-content-center align-items-center display-flex half-width full-height"
                     style={leftPlateColor}
                 >
-                    <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
+                    <div className="ReversedGrounds__innerBlock" style={innerPlateColor}></div>
                 </div>
                 <div
                     className="justify-content-center align-items-center display-flex half-width full-height"
                     style={rightPlateColor}
                 >
-                    <div className="aColorHasManyFaces__innerBlock" style={innerPlateColor}></div>
+                    <div className="ReversedGrounds__innerBlock" style={innerPlateColor}></div>
                 </div>
             </div>
         );
     }
 }
 
-AColorHasManyFaces.defaultProps = {
+ReversedGrounds.defaultProps = {
     colors: {
         color0: generateRandomColor(),
         color1: generateRandomColor(),
@@ -186,7 +186,7 @@ AColorHasManyFaces.defaultProps = {
     }
 };
 
-AColorHasManyFaces.propTypes = {
+ReversedGrounds.propTypes = {
     colors: (props, propName, componentName) => {
         if (!has(props[propName], 'color0') || !has(props[propName], 'color1') || !has(props[propName], 'color2')) {
             return new Error(
@@ -208,6 +208,6 @@ AColorHasManyFaces.propTypes = {
     }
 };
 
-AColorHasManyFaces = connect(mapStateToProps)(AColorHasManyFaces);
+ReversedGrounds = connect(mapStateToProps)(ReversedGrounds);
 
-export default AColorHasManyFaces;
+export default ReversedGrounds;
