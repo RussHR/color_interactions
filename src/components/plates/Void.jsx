@@ -21,7 +21,7 @@ class Void extends Component {
                 color1: false,
                 color2: false
             },
-            numBars: 5
+            numBars: 12
         };
         this.randomizeColorsViaKeyboard = this.randomizeColorsViaKeyboard.bind(this);
         this.changeNumBars = this.changeNumBars.bind(this);
@@ -97,7 +97,7 @@ class Void extends Component {
             if (i % 2 == 0) {
                 style = { width: `${100 / numBars}%`, background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
             } else {
-                style = { width: `${100 / numBars}%`, backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+                style = { width: `${100 / numBars}%`, background: `linear-gradient(rgb(${color1.r}, ${color1.g}, ${color1.b}), rgb(${color0.r}, ${color0.g}, ${color0.b}))`};
             }
             return (
                 <div key={i} style={style} />
@@ -177,7 +177,7 @@ class Void extends Component {
                     <input
                         id="num-bars"
                         type="number"
-                        min="3"
+                        min="2"
                         max="500"
                         value={numBars}
                         onChange={this.changeNumBars}
