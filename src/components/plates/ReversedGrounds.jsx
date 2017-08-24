@@ -147,13 +147,13 @@ class ReversedGrounds extends Component {
                     className="justify-content-center align-items-center display-flex half-width full-height"
                     style={leftPlateColor}
                 >
-                    <div className="ReversedGrounds__innerBlock" style={innerPlateColor}></div>
+                    <div className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left" style={innerPlateColor}></div>
                 </div>
                 <div
                     className="justify-content-center align-items-center display-flex half-width full-height"
                     style={rightPlateColor}
                 >
-                    <div className="ReversedGrounds__innerBlock" style={innerPlateColor}></div>
+                    <div className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right" style={innerPlateColor}></div>
                 </div>
             </div>
         );

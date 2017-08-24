@@ -104,7 +104,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
                     >
                         <div
-                            className="aColorHasManyFaces__innerBlock"
+                            className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
                             style={averageRGB}
                         />
                     </div>
@@ -113,7 +113,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
                     >
                         <div
-                            className="aColorHasManyFaces__innerBlock"
+                            className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
                             style={averageRGB}
                         />
                     </div>
