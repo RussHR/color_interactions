@@ -19,6 +19,9 @@ class ColorInteractionsApp extends Component {
         return (
             <HashRouter>
                 <div>
+                    {/* MENU */}
+                    <CornerMenu />
+
                     {/* ROUTES */}
                     <Route path="/a-color-has-many-faces" component={AColorHasManyFaces} />
                     <Route path="/lighter-and-or-darker" component={LighterAndOrDarker} />

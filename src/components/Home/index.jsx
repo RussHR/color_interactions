@@ -42,10 +42,6 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
 
     return (
         <div className="full-screen position-relative display-flex home">
-            <CornerMenu>
-                hay
-            </CornerMenu>
-
             <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
                 <div className="homeLink__thumbnail display-flex">
                     <div
