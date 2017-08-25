@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './menu.scss';
+import './corner_menu.scss';
 
 export default class Menu extends Component {
 
@@ -32,20 +32,20 @@ export default class Menu extends Component {
     }
 
     render() {
-        const menuClasses = classNames('Menu', 'position-absolute', 'top-0', 'right-0', { 'hidden': this.state.isHidden });
+        const menuClasses = classNames('CornerMenu', 'position-absolute', 'top-0', 'right-0', { 'hidden': this.state.isHidden });
         let menuContent;
 
         if (this.state.isOpen) {
             menuContent = (
                 <div>
-                    <button aria-label="Close" className="Menu__close position-absolute top-0 right-0" onClick={this.toggleMenu}>
+                    <button aria-label="Close" className="CornerMenu__close position-absolute top-0 right-0" onClick={this.toggleMenu}>
                         X
                     </button>
                     {this.props.children}
                 </div>
             );
         } else {
-            menuContent = <button className="Menu__cornerButton no-padding" onClick={this.toggleMenu}>menu</button>;
+            menuContent = <button className="CornerMenu__cornerButton no-padding" onClick={this.toggleMenu}>menu</button>;
         }
 
         return (

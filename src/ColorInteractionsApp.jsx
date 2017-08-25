@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import Home from './components/Home';
+import CornerMenu from './components/CornerMenu';
 import {
     AColorHasManyFaces,
     LighterAndOrDarker,
@@ -18,6 +19,7 @@ class ColorInteractionsApp extends Component {
         return (
             <HashRouter>
                 <div>
+                    {/* ROUTES */}
                     <Route path="/a-color-has-many-faces" component={AColorHasManyFaces} />
                     <Route path="/lighter-and-or-darker" component={LighterAndOrDarker} />
                     <Route path="/false-gradient" component={FalseGradient} />

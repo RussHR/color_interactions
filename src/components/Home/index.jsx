@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { pick, times } from 'lodash';
 import HomeLink from '../HomeLink';
-import Menu from '../Menu';
+import CornerMenu from '../CornerMenu';
 
 import './home.scss';
 
@@ -42,9 +42,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
 
     return (
         <div className="full-screen position-relative display-flex home">
-            <Menu>
+            <CornerMenu>
                 hay
-            </Menu>
+            </CornerMenu>
 
             <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
                 <div className="homeLink__thumbnail display-flex">

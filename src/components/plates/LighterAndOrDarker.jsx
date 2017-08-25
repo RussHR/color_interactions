@@ -5,7 +5,7 @@ import { ChromePicker } from 'react-color';
 import classNames from 'classnames';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
-import Menu from '../Menu';
+import CornerMenu from '../CornerMenu';
 
 import './lighter_and_or_darker.scss';
 

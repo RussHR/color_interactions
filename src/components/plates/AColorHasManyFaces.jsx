@@ -4,7 +4,7 @@ import { assign, forOwn, has, pick } from 'lodash';
 import { ChromePicker } from 'react-color';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { generateRandomColor } from '../../helpers/colorHelpers';
-import Menu from '../Menu';
+import CornerMenu from '../CornerMenu';
 
 import './a_color_has_many_faces.scss';
 
