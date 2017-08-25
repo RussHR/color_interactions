@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { pick } from 'lodash';
+import { pick, times } from 'lodash';
 import { ChromePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -13,13 +13,18 @@ function mapStateToProps(state) {
 }
 
 class CornerMenu extends Component {
-
     constructor(props){
         super(props);
+        const lockedColors = {};
+        times(props.colorLabels.length, (i) => {
+            lockedColors[`color${i}`] = false;
+        });
+
         this.state = {
             isOpen: false,
             isHidden: false,
-            activeColor: 'color0'
+            activeColor: 'color0',
+            lockedColors
         };
         this.toggleOpen = this.toggleOpen.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
@@ -37,7 +42,7 @@ class CornerMenu extends Component {
         if (keyCode === 72) {
             this.toggleHiding();
         } else if (keyCode === 82) {
-            this.randomizeColorsViaKeyboard();
+            this.randomizeColors();
         }
     }
 
@@ -45,7 +50,7 @@ class CornerMenu extends Component {
         this.setState({ isHidden: !this.state.isHidden });
     }
 
-    randomizeColorsViaKeyboard() {
+    randomizeColors() {
         this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
 
@@ -74,6 +79,24 @@ class CornerMenu extends Component {
         });
     }
 
+    renderActiveColorRadios() {
+        return this.props.colorLabels.map((label, i) => {
+            return (
+                <div key={`color-radio-${i}`}>
+                    <label htmlFor={`color${i}`}>{label}</label>
+                    <input
+                        type="radio"
+                        name="color"
+                        id={`color${i}`}
+                        checked={this.state.activeColor == `color${i}`}
+                        onChange={() => this.changeActiveColor(`color${i}`)}
+                    />
+                    <br />
+                </div>
+            );
+        });
+    }
+
     render() {
         const menuClasses = classNames('CornerMenu', 'position-absolute', 'top-0', 'right-0', { 'hidden': this.state.isHidden });
         let menuContent;
@@ -95,34 +118,26 @@ class CornerMenu extends Component {
                     <button aria-label="Close" className="CornerMenu__close position-absolute top-0 right-0" onClick={this.toggleOpen}>
                         X
                     </button>
-                    <label htmlFor="color0">Color 1</label>
-                    <input
-                        type="radio"
-                        name="color"
-                        id="color0"
-                        checked={activeColor == 'color0'}
-                        onChange={() => this.changeActiveColor('color0')}
-                    />
-                    <br />
-                    <label htmlFor="color1">Color 2</label>
-                    <input
-                        type="radio"
-                        name="color"
-                        id="color1"
-                        checked={activeColor == 'color1'}
-                        onChange={() => this.changeActiveColor('color1')}
-                    />
-                    <br />
+
+                    {this.renderActiveColorRadios()}
+
                     <ChromePicker
                         disableAlpha={true}
                         color={colors[activeColor]}
                         onChange={({ rgb: { r, g, b } }) => this.changeColor({ [`${activeColor}`]: { r, g, b } })}
                     />
+
+                    <br />
+                    <button onClick={() => this.randomizeColors()}>randomizeColors</button>
                 </div>
             </div>
         );
     }
 }
+
+CornerMenu.propTypes = {
+    colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 CornerMenu = connect(mapStateToProps)(CornerMenu);
 

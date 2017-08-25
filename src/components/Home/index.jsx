@@ -39,10 +39,13 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const averageG = Math.floor((color0.g + color1.g) / 2);
     const averageB = Math.floor((color0.b + color1.b) / 2);
     const averageRGB = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
+    const colorLabels = ['Color 1', 'Color 2', 'Color 3'];
 
     return (
         <div className="full-screen Home">
+            <CornerMenu colorLabels={colorLabels} />
             <h1>color interactions</h1>
+
             <div className="display-flex Home__homeLinks">
                 <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
                     <div className="homeLink__thumbnail display-flex">
