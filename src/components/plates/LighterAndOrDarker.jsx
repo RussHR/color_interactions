@@ -122,7 +122,7 @@ class LighterAndOrDarker extends Component {
 
         return (
             <div className="full-screen position-relative" style={bgColor}>
-                <Menu>
+                <CornerMenu>
                     <label htmlFor="color0">Left Background Color</label>
                     <input
                         type="radio"
@@ -192,7 +192,7 @@ class LighterAndOrDarker extends Component {
                     <button onClick={this.toggleTouchingSquares}>separate squares (S)</button>
                     <br/>
                     <a href="#">Home</a>
-                </Menu>
+                </CornerMenu>
                 <div className="LighterAndOrDarker__leftBlock position-absolute" style={leftPlateColor} />
                 <div className={rightPlateClasses} style={rightPlateColor} />
             </div>

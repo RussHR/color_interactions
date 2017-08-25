@@ -105,7 +105,7 @@ class Void extends Component {
 
         return (
             <div className="full-screen display-flex">
-                <Menu>
+                <CornerMenu>
                     <label htmlFor="color0">Left Background Color</label>
                     <input
                         type="radio"
@@ -162,7 +162,7 @@ class Void extends Component {
                         onChange={this.changeNumBars}
                     />
                     <a href="#">Home</a>
-                </Menu>
+                </CornerMenu>
 
                 {bars}
             </div>

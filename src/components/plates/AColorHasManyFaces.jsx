@@ -92,7 +92,7 @@ class AColorHasManyFaces extends Component {
 
         return (
             <div className="full-screen display-flex">
-                <Menu>
+                <CornerMenu>
                     <label htmlFor="color0">Left Background Color</label>
                     <input
                         type="radio"
@@ -160,7 +160,7 @@ class AColorHasManyFaces extends Component {
                     />
                     <br />
                     <a href="#">Home</a>
-                </Menu>
+                </CornerMenu>
                 <div
                     className="justify-content-center align-items-center display-flex half-width full-height"
                     style={leftPlateColor}
