@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { pick, times } from 'lodash';
+import { assign, pick, times } from 'lodash';
 import { ChromePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -50,6 +50,10 @@ class CornerMenu extends Component {
         this.setState({ isHidden: !this.state.isHidden });
     }
 
+    /**
+     * Calls dispatch to change colors visible that aren't locked.
+     * @returns {void}
+     */
     randomizeColors() {
         this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
@@ -79,6 +83,16 @@ class CornerMenu extends Component {
         });
     }
 
+    /**
+     * Toggles the state of whether a color is "locked", i.e. prevented, from changing into a random color.
+     * @param {string} color - string that determines which color is locked, e.g. 'color1'
+     * @returns {void}
+     */
+    toggleLockedColor(color) {
+        const lockedColors = assign({}, this.state.lockedColors, { [`${color}`]: !this.state.lockedColors[color] });
+        this.setState({ lockedColors });
+    }
+
     renderActiveColorRadios() {
         return this.props.colorLabels.map((label, i) => {
             return (
@@ -90,6 +104,24 @@ class CornerMenu extends Component {
                         id={`color${i}`}
                         checked={this.state.activeColor == `color${i}`}
                         onChange={() => this.changeActiveColor(`color${i}`)}
+                    />
+                    <br />
+                </div>
+            );
+        });
+    }
+
+    renderLockedColorCheckboxes() {
+        return this.props.colorLabels.map((label, i) => {
+            return (
+                <div key={`locked-color${i}`}>
+                    <label htmlFor={`color${i}-lock`}>Lock {label}</label>
+                    <input
+                        type="checkbox"
+                        name="color"
+                        id={`color${i}-lock`}
+                        checked={this.state.lockedColors[`color${i}`]}
+                        onChange={() => this.toggleLockedColor(`color${i}`)}
                     />
                     <br />
                 </div>
@@ -129,6 +161,9 @@ class CornerMenu extends Component {
 
                     <br />
                     <button onClick={() => this.randomizeColors()}>randomizeColors</button>
+                    <br />
+
+                    {this.renderLockedColorCheckboxes()}
                 </div>
             </div>
         );
