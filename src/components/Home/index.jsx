@@ -41,80 +41,83 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const averageRGB = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
 
     return (
-        <div className="full-screen position-relative display-flex home">
-            <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
-                <div className="homeLink__thumbnail display-flex">
+        <div className="full-screen Home">
+            <h1>color interactions</h1>
+            <div className="display-flex Home__homeLinks">
+                <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
+                    <div className="homeLink__thumbnail display-flex">
+                        <div
+                            className="justify-content-center align-items-center display-flex half-width full-height"
+                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                        >
+                            <div
+                                className="aColorHasManyFaces__innerBlock"
+                                style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                            />
+                        </div>
+                        <div
+                            className="justify-content-center align-items-center display-flex half-width full-height"
+                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                        >
+                            <div
+                                className="aColorHasManyFaces__innerBlock"
+                                style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                            />
+                        </div>
+                    </div>
+                </HomeLink>
+
+                <HomeLink href="#lighter-and-or-darker" title="lighter and/or darker">
                     <div
-                        className="justify-content-center align-items-center display-flex half-width full-height"
-                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                        className="homeLink__thumbnail position-relative"
+                        style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
                     >
                         <div
-                            className="aColorHasManyFaces__innerBlock"
-                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                            className="LighterAndOrDarker__leftBlock position-absolute LighterAndOrDarker__block--thumbnail"
+                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
                         />
-                    </div>
-                    <div
-                        className="justify-content-center align-items-center display-flex half-width full-height"
-                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
-                    >
                         <div
-                            className="aColorHasManyFaces__innerBlock"
-                            style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                            className="LighterAndOrDarker__rightBlock position-absolute LighterAndOrDarker__block--thumbnail"
+                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
                         />
                     </div>
-                </div>
-            </HomeLink>
+                </HomeLink>
 
-            <HomeLink href="#lighter-and-or-darker" title="lighter and/or darker">
-                <div
-                    className="homeLink__thumbnail position-relative"
-                    style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
-                >
-                    <div
-                        className="LighterAndOrDarker__leftBlock position-absolute LighterAndOrDarker__block--thumbnail"
-                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
-                    />
-                    <div
-                        className="LighterAndOrDarker__rightBlock position-absolute LighterAndOrDarker__block--thumbnail"
-                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
-                    />
-                </div>
-            </HomeLink>
+                <HomeLink href="#false-gradient" title="false gradient">
+                    <div className="homeLink__thumbnail display-flex">
+                        {falseGradientBars}
+                    </div>
+                </HomeLink>
 
-            <HomeLink href="#false-gradient" title="false gradient">
-                <div className="homeLink__thumbnail display-flex">
-                    {falseGradientBars}
-                </div>
-            </HomeLink>
+                <HomeLink href="#void" title="void">
+                    <div className="homeLink__thumbnail display-flex">
+                        {voidBars}
+                    </div>
+                </HomeLink>
 
-            <HomeLink href="#void" title="void">
-                <div className="homeLink__thumbnail display-flex">
-                    {voidBars}
-                </div>
-            </HomeLink>
-
-            <HomeLink href="#reversed-grounds" title="reversed grounds">
-                <div className="homeLink__thumbnail display-flex">
-                    <div
-                        className="justify-content-center align-items-center display-flex half-width full-height"
-                        style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
-                    >
+                <HomeLink href="#reversed-grounds" title="reversed grounds">
+                    <div className="homeLink__thumbnail display-flex">
                         <div
-                            className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
-                            style={averageRGB}
-                        />
-                    </div>
-                    <div
-                        className="justify-content-center align-items-center display-flex half-width full-height"
-                        style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
-                    >
+                            className="justify-content-center align-items-center display-flex half-width full-height"
+                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                        >
+                            <div
+                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
+                                style={averageRGB}
+                            />
+                        </div>
                         <div
-                            className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
-                            style={averageRGB}
-                        />
+                            className="justify-content-center align-items-center display-flex half-width full-height"
+                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                        >
+                            <div
+                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
+                                style={averageRGB}
+                            />
+                        </div>
                     </div>
-                </div>
-            </HomeLink>
+                </HomeLink>
+            </div>
         </div>
     );
 };

@@ -1,6 +1,8 @@
-.home {
+.Home {
     padding: 24px;
+    background-color: white;
+}
+.Home__homeLinks {
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: white;
 }
