@@ -4,7 +4,7 @@ import { assign, forOwn, has, pick } from 'lodash';
 import { ChromePicker } from 'react-color';
 import classNames from 'classnames';
 import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
-import { generateRandomColor } from '../../helpers/colorHelpers';
+import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
 import './lighter_and_or_darker.scss';
@@ -79,25 +79,7 @@ class LighterAndOrDarker extends Component {
 }
 
 LighterAndOrDarker.propTypes = {
-    colors: (props, propName, componentName) => {
-        if (!has(props[propName], 'color0') || !has(props[propName], 'color1') || !has(props[propName], 'color2')) {
-            return new Error(
-                `Invalid prop ${propName}: missing color0, color1, or color2 in colors of ${componentName}`
-            );
-        }
-
-        // make sure r, g, and b are 0-255
-        forOwn(props[propName], (color) => {
-            forOwn(color, (rgbValue, rgb) => {
-                if (rgbValue < 0 || rgbValue > 255) {
-                    return new Error(
-                        `Invalid prop ${propName} of ${componentName}:
-                        rgb for ${color} out of bounds (${rgb}: ${rgbValue})`
-                    );
-                }
-            });
-        });
-    }
+    colors: validatePropColors(3)
 };
 
 LighterAndOrDarker = connect(mapStateToProps)(LighterAndOrDarker);
