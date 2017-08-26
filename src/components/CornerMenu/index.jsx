@@ -141,7 +141,7 @@ class CornerMenu extends Component {
             );
         }
 
-        const { colors } = this.props;
+        const { colors, children } = this.props;
         const { activeColor } = this.state;
 
         return (
@@ -164,6 +164,10 @@ class CornerMenu extends Component {
                     <br />
 
                     {this.renderLockedColorCheckboxes()}
+
+                    {children}
+
+                    <a href="#">Home</a>
                 </div>
             </div>
         );
@@ -171,7 +175,8 @@ class CornerMenu extends Component {
 }
 
 CornerMenu.propTypes = {
-    colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired
+    colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
+    children: PropTypes.node
 };
 
 CornerMenu = connect(mapStateToProps)(CornerMenu);

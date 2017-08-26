@@ -14,12 +14,11 @@ import 'normalize.css';
 import './main.scss';
 
 class ColorInteractionsApp extends Component {
-    // HashRouter expects one child
     render() {
         return (
+            // HashRouter expects one child
             <HashRouter>
                 <div>
-                    {/* ROUTES */}
                     <Route path="/a-color-has-many-faces" component={AColorHasManyFaces} />
                     <Route path="/lighter-and-or-darker" component={LighterAndOrDarker} />
                     <Route path="/false-gradient" component={FalseGradient} />
