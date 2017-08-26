@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { assign, forOwn, has, pick } from 'lodash';
-import { ChromePicker } from 'react-color';
-import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
+import { pick } from 'lodash';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -12,7 +10,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-function AColorHasManyFaces({ colors }) {
+let AColorHasManyFaces = ({ colors }) => {
     const { color0, color1, color2 } = colors;
     const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
@@ -35,7 +33,7 @@ function AColorHasManyFaces({ colors }) {
             </div>
         </div>
     );
-}
+};
 
 AColorHasManyFaces.propTypes = {
     colors: validatePropColors(3)

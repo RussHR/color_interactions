@@ -14,7 +14,11 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const falseGradientBars = times(5, (i) => {
         let style;
         if (i % 2 == 0) {
-            style = { width: '20%', background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
+            style = {
+                width: '20%',
+                background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}),
+                    rgb(${color1.r}, ${color1.g}, ${color1.b}))`
+            };
         } else {
             style = { width: '20%', backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
         }
@@ -26,9 +30,17 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const voidBars = times(12, (i) => {
         let style;
         if (i % 2 == 0) {
-            style = { width: '20%', background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}), rgb(${color1.r}, ${color1.g}, ${color1.b}))`};
+            style = {
+                width: '20%',
+                background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}),
+                    rgb(${color1.r}, ${color1.g}, ${color1.b}))`
+            };
         } else {
-            style = { width: '20%', background: `linear-gradient(rgb(${color1.r}, ${color1.g}, ${color1.b}), rgb(${color0.r}, ${color0.g}, ${color0.b}))`};
+            style = {
+                width: '20%',
+                background: `linear-gradient(rgb(${color1.r}, ${color1.g}, ${color1.b}),
+                    rgb(${color0.r}, ${color0.g}, ${color0.b}))`
+            };
         }
         return (
             <div key={`void-${i}`} style={style} />
@@ -76,11 +88,13 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
                     >
                         <div
-                            className="LighterAndOrDarker__leftBlock position-absolute LighterAndOrDarker__block--thumbnail"
+                            className="LighterAndOrDarker__leftBlock position-absolute
+                                LighterAndOrDarker__block--thumbnail"
                             style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
                         />
                         <div
-                            className="LighterAndOrDarker__rightBlock position-absolute LighterAndOrDarker__block--thumbnail"
+                            className="LighterAndOrDarker__rightBlock position-absolute
+                                LighterAndOrDarker__block--thumbnail"
                             style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
                         />
                     </div>

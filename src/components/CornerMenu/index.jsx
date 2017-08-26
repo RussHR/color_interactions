@@ -130,8 +130,13 @@ class CornerMenu extends Component {
     }
 
     render() {
-        const menuClasses = classNames('CornerMenu', 'position-absolute', 'top-0', 'right-0', { 'hidden': this.state.isHidden });
-        let menuContent;
+        const menuClasses = classNames(
+            'CornerMenu',
+            'position-absolute',
+            'top-0',
+            'right-0',
+            { 'hidden': this.state.isHidden }
+        );
 
         if (!this.state.isOpen) {
             return (
@@ -147,7 +152,11 @@ class CornerMenu extends Component {
         return (
             <div className={menuClasses}>
                 <div>
-                    <button aria-label="Close" className="CornerMenu__close position-absolute top-0 right-0" onClick={this.toggleOpen}>
+                    <button
+                        aria-label="Close"
+                        className="CornerMenu__close position-absolute top-0 right-0"
+                        onClick={this.toggleOpen}
+                    >
                         X
                     </button>
 

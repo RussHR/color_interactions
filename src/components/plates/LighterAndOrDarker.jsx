@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { assign, forOwn, has, pick } from 'lodash';
-import { ChromePicker } from 'react-color';
+import { pick } from 'lodash';
 import classNames from 'classnames';
-import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -54,8 +52,7 @@ class LighterAndOrDarker extends Component {
 
     render() {
         const { color0, color1, color2 } = this.props.colors;
-        const { colors } = this.props;
-        const { activeColor, lockedColors, squaresApart } = this.state;
+        const { squaresApart } = this.state;
         const leftBlockColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightBlockColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
         const rightBlockClasses = classNames(

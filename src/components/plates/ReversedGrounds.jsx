@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { assign, forOwn, has, pick } from 'lodash';
-import { ChromePicker } from 'react-color';
-import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
+import { pick } from 'lodash';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -12,9 +10,9 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-function ReversedGrounds({ colors }) {
+let ReversedGrounds = ({ colors }) => {
 
-    const { color0, color1, color2 } = colors;
+    const { color0, color1 } = colors;
     const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
     const averageR = Math.floor((color0.r + color1.r) / 2);
@@ -29,17 +27,23 @@ function ReversedGrounds({ colors }) {
                 className="justify-content-center align-items-center display-flex half-width full-height"
                 style={leftPlateColor}
             >
-                <div className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left" style={innerPlateColor}></div>
+                <div
+                    className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
+                    style={innerPlateColor}
+                />
             </div>
             <div
                 className="justify-content-center align-items-center display-flex half-width full-height"
                 style={rightPlateColor}
             >
-                <div className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right" style={innerPlateColor}></div>
+                <div
+                    className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
+                    style={innerPlateColor}
+                />
             </div>
         </div>
     );
-}
+};
 
 ReversedGrounds.propTypes = {
     colors: validatePropColors(2)
