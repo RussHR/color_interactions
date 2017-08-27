@@ -4,7 +4,7 @@ import { assign, pick, times } from 'lodash';
 import { ChromePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
+import { CHANGE_COLOR, RANDOMIZE_COLORS, RANDOMIZE_ALIKE_COLORS } from '../../constants/actionTypes';
 
 import './corner_menu.scss';
 
@@ -24,7 +24,8 @@ class CornerMenu extends Component {
             isOpen: false,
             isHidden: false,
             activeColor: 'color0',
-            lockedColors
+            lockedColors,
+            randomAlike: false
         };
         this.toggleOpen = this.toggleOpen.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
@@ -55,6 +56,11 @@ class CornerMenu extends Component {
      * @returns {void}
      */
     randomizeColors() {
+        if (this.state.randomAlike) {
+            this.props.dispatch({ type: RANDOMIZE_ALIKE_COLORS, payload: { lockedColors: this.state.lockedColors } });
+            return;
+        }
+
         this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
 
@@ -129,6 +135,14 @@ class CornerMenu extends Component {
         });
     }
 
+    /**
+     * Toggles the state of whether to randomize two colors with two more that look similar
+     * @returns {void}
+     */
+    toggleRandomAlike() {
+        this.setState({ randomAlike: !this.state.randomAlike });
+    }
+
     render() {
         const menuClasses = classNames(
             'CornerMenu',
@@ -146,8 +160,8 @@ class CornerMenu extends Component {
             );
         }
 
-        const { colors, children } = this.props;
-        const { activeColor } = this.state;
+        const { colors, children, enableRandomAlikeColors } = this.props;
+        const { activeColor, randomAlike } = this.state;
 
         return (
             <div className={menuClasses}>
@@ -172,6 +186,20 @@ class CornerMenu extends Component {
                     <button onClick={() => this.randomizeColors()}>randomizeColors</button>
                     <br />
 
+                    {enableRandomAlikeColors &&
+                        <div>
+                            <label htmlFor="random-alike">enable random alike colors</label>
+                            <input
+                                type="checkbox"
+                                name="color"
+                                id="random-alike"
+                                checked={this.state.randomAlike}
+                                onChange={() => this.toggleRandomAlike()}
+                            />
+                            <br />
+                        </div>
+                    }
+
                     {this.renderLockedColorCheckboxes()}
 
                     {children}
@@ -185,7 +213,8 @@ class CornerMenu extends Component {
 
 CornerMenu.propTypes = {
     colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
-    children: PropTypes.node
+    children: PropTypes.node,
+    enableRandomAlikeColors: PropTypes.bool
 };
 
 CornerMenu = connect(mapStateToProps)(CornerMenu);

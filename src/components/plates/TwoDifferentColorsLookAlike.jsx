@@ -51,11 +51,12 @@ class TwoDifferentColorsLookAlike extends Component {
     }
 
     render() {
-        const { color0, color1, color2 } = this.props.colors;
+        const { color0, color1, color2, color3 } = this.props.colors;
         const { rectanglesTouching } = this.state;
         const leftBlockColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightBlockColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const innerBlockColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+        const innerBlockLeftColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+        const innerBlockRightColor = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
         const innerBlockClasses = classNames(
             'TwoDifferentColorsLookAlike__innerBlock',
@@ -68,7 +69,10 @@ class TwoDifferentColorsLookAlike extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={['left background color', 'right background color', 'inner color']}>
+                <CornerMenu
+                    colorLabels={['left background color', 'right background color', 'inner color']}
+                    enableRandomAlikeColors={true}
+                >
                     <button onClick={this.toggleTouchingInnerBlocks}>touch inner blocks (t)</button>
                     <br/>
                 </CornerMenu>
@@ -76,13 +80,13 @@ class TwoDifferentColorsLookAlike extends Component {
                     className="half-width full-height display-inline-block overflow-hidden position-relative"
                     style={leftBlockColor}
                 >
-                    <div className={innerBlockClasses} style={innerBlockColor}></div>
+                    <div className={innerBlockClasses} style={innerBlockLeftColor}></div>
                 </div>
                 <div
                     className="half-width full-height display-inline-block overflow-hidden position-relative"
                     style={rightBlockColor}
                 >
-                    <div className={innerBlockClasses} style={innerBlockColor}></div>
+                    <div className={innerBlockClasses} style={innerBlockRightColor}></div>
                 </div>
             </div>
         );
