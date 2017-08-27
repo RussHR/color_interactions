@@ -134,6 +134,29 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         </div>
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#two-different-colors-look-alike" title="two different colors look alike">
+                    <div className="homeLink__thumbnail display-flex">
+                        <div
+                            className="justify-content-center align-items-center display-flex half-width full-height"
+                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                        >
+                            <div
+                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
+                                style={averageRGB}
+                            />
+                        </div>
+                        <div
+                            className="justify-content-center align-items-center display-flex half-width full-height"
+                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                        >
+                            <div
+                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
+                                style={averageRGB}
+                            />
+                        </div>
+                    </div>
+                </HomeLink>
             </div>
         </div>
     );

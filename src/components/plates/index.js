@@ -3,5 +3,13 @@ import LighterAndOrDarker from './LighterAndOrDarker';
 import FalseGradient from './FalseGradient';
 import Void from './Void';
 import ReversedGrounds from './ReversedGrounds';
+import TwoDifferentColorsLookAlike from './TwoDifferentColorsLookAlike';
 
-export { AColorHasManyFaces, LighterAndOrDarker, FalseGradient, Void, ReversedGrounds };
+export {
+    AColorHasManyFaces,
+    LighterAndOrDarker,
+    FalseGradient,
+    Void,
+    ReversedGrounds,
+    TwoDifferentColorsLookAlike
+};

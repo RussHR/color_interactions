@@ -58,6 +58,7 @@ class LighterAndOrDarker extends Component {
         const rightBlockClasses = classNames(
             'LighterAndOrDarker__rightBlock',
             'position-absolute',
+            'standard-transition',
             { 'LighterAndOrDarker__rightBlock--apart': squaresApart }
         );
         const bgColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
