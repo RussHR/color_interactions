@@ -68,7 +68,10 @@ class TwoDifferentColorsLookAlike extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={['left background color', 'right background color', 'inner color']} />
+                <CornerMenu colorLabels={['left background color', 'right background color', 'inner color']}>
+                    <button onClick={this.toggleTouchingInnerBlocks}>touch inner blocks (t)</button>
+                    <br/>
+                </CornerMenu>
                 <div
                     className="half-width full-height display-inline-block overflow-hidden position-relative"
                     style={leftBlockColor}
