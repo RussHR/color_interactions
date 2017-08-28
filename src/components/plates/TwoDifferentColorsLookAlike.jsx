@@ -46,7 +46,7 @@ class TwoDifferentColorsLookAlike extends Component {
     toggleTouchingInnerBlocksViaKeyboard({ keyCode }) {
         // if key is 't'
         if (keyCode === 84) {
-            this.setState({ rectanglesTouching: !this.state.rectanglesTouching });
+            this.toggleTouchingInnerBlocks();
         }
     }
 

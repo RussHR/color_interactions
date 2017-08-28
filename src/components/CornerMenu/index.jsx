@@ -42,7 +42,7 @@ class CornerMenu extends Component {
     handleKeydown({ keyCode }) {
         if (keyCode === 72) {
             this.toggleHiding();
-        } else if (keyCode === 82) {
+        } else if (keyCode === 74) {
             this.randomizeColors();
         }
     }
@@ -183,7 +183,7 @@ class CornerMenu extends Component {
                     />
 
                     <br />
-                    <button onClick={() => this.randomizeColors()}>randomizeColors</button>
+                    <button onClick={() => this.randomizeColors()}>randomizeColors (j)</button>
                     <br />
 
                     {enableRandomAlikeColors &&
