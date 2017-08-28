@@ -76,7 +76,10 @@ class ReversedGrounds extends Component {
 
         return (
             <div className="full-screen display-flex">
-                <CornerMenu colorLabels={['left background color', 'right background color']}/>
+                <CornerMenu colorLabels={['left background color', 'right background color']}>
+                    <button onClick={this.toggleInnerShapesTouching}>touch inner blocks (k)</button>
+                    <br/>
+                </CornerMenu>
                 <div
                     className="justify-content-center align-items-center display-flex half-width full-height"
                     style={leftPlateColor}
