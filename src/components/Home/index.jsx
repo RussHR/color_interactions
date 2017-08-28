@@ -10,7 +10,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-let Home = ({ colors: { color0, color1, color2 } }) => {
+let Home = ({ colors: { color0, color1, color2, color3 } }) => {
     const falseGradientBars = times(5, (i) => {
         let style;
         if (i % 2 == 0) {
@@ -51,7 +51,12 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const averageG = Math.floor((color0.g + color1.g) / 2);
     const averageB = Math.floor((color0.b + color1.b) / 2);
     const averageRGB = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
-    const colorLabels = ['Color 1', 'Color 2', 'Color 3'];
+    const colorLabels = ['Color 1', 'Color 2', 'Color 3', 'Color 4'];
+
+    const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
+    const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
+    const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+    const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
     return (
         <div className="full-screen Home">
@@ -63,20 +68,20 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                     <div className="homeLink__thumbnail display-flex">
                         <div
                             className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                            style={color0Style}
                         >
                             <div
                                 className="aColorHasManyFaces__innerBlock"
-                                style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                                style={color2Style}
                             />
                         </div>
                         <div
                             className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                            style={color1Style}
                         >
                             <div
                                 className="aColorHasManyFaces__innerBlock"
-                                style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                                style={color2Style}
                             />
                         </div>
                     </div>
@@ -85,17 +90,17 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                 <HomeLink href="#lighter-and-or-darker" title="lighter and/or darker">
                     <div
                         className="homeLink__thumbnail position-relative"
-                        style={{ backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }}
+                        style={color2Style}
                     >
                         <div
                             className="LighterAndOrDarker__leftBlock position-absolute
                                 LighterAndOrDarker__block--thumbnail"
-                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                            style={color0Style}
                         />
                         <div
                             className="LighterAndOrDarker__rightBlock position-absolute
                                 LighterAndOrDarker__block--thumbnail"
-                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                            style={color1Style}
                         />
                     </div>
                 </HomeLink>
@@ -116,7 +121,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                     <div className="homeLink__thumbnail display-flex">
                         <div
                             className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                            style={color0Style}
                         >
                             <div
                                 className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
@@ -125,7 +130,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         </div>
                         <div
                             className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                            style={color1Style}
                         >
                             <div
                                 className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
@@ -138,21 +143,21 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                 <HomeLink href="#two-different-colors-look-alike" title="two different colors look alike">
                     <div className="homeLink__thumbnail display-flex">
                         <div
-                            className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={{ backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` }}
+                            className="half-width full-height display-inline-block overflow-hidden position-relative"
+                            style={color0Style}
                         >
                             <div
-                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
-                                style={averageRGB}
+                                className="TwoDifferentColorsLookAlike__innerBlock position-absolute"
+                                style={color2Style}
                             />
                         </div>
                         <div
-                            className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={{ backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }}
+                            className="half-width full-height display-inline-block overflow-hidden position-relative"
+                            style={color1Style}
                         >
                             <div
-                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
-                                style={averageRGB}
+                                className="TwoDifferentColorsLookAlike__innerBlock position-absolute"
+                                style={color3Style}
                             />
                         </div>
                     </div>

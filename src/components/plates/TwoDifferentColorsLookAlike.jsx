@@ -80,13 +80,13 @@ class TwoDifferentColorsLookAlike extends Component {
                     className="half-width full-height display-inline-block overflow-hidden position-relative"
                     style={leftBlockColor}
                 >
-                    <div className={innerBlockClasses} style={innerBlockLeftColor}></div>
+                    <div className={innerBlockClasses} style={innerBlockLeftColor} />
                 </div>
                 <div
                     className="half-width full-height display-inline-block overflow-hidden position-relative"
                     style={rightBlockColor}
                 >
-                    <div className={innerBlockClasses} style={innerBlockRightColor}></div>
+                    <div className={innerBlockClasses} style={innerBlockRightColor} />
                 </div>
             </div>
         );
