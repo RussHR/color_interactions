@@ -59,7 +59,7 @@ class AColorHasManyFaces extends Component {
         );
 
         return (
-            <div className="full-screen display-flex">
+            <div className="full-screen display-flex overflow-hidden">
                 <CornerMenu colorLabels={['left background color', 'right background color', 'inner color']}>
                     <button onClick={this.toggleBlocksTouching}>touch inner blocks (k)</button>
                     <br/>
