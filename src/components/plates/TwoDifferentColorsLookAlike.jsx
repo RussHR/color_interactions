@@ -65,8 +65,6 @@ class TwoDifferentColorsLookAlike extends Component {
             { 'TwoDifferentColorsLookAlike__innerBlock--touching': rectanglesTouching }
         );
 
-        const bgColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
-
         return (
             <div className="full-screen">
                 <CornerMenu

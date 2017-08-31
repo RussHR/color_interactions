@@ -161,7 +161,7 @@ class CornerMenu extends Component {
         }
 
         const { colors, children, enableRandomAlikeColors } = this.props;
-        const { activeColor, randomAlike } = this.state;
+        const { activeColor } = this.state;
 
         return (
             <div className={menuClasses}>

@@ -101,7 +101,7 @@ class ReversedGrounds extends Component {
             </div>
         );
     }
-};
+}
 
 ReversedGrounds.propTypes = {
     colors: validatePropColors(2)
