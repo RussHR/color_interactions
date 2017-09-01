@@ -44,8 +44,8 @@ class LighterAndOrDarker extends Component {
      * @returns {void}
      */
     toggleTouchingSquaresViaKeyboard({ keyCode }) {
-        // if key is 's'
-        if (keyCode === 83) {
+        // if key is 'k'
+        if (keyCode === 75) {
             this.setState({ squaresApart: !this.state.squaresApart });
         }
     }
@@ -66,7 +66,7 @@ class LighterAndOrDarker extends Component {
         return (
             <div className="full-screen position-relative" style={bgColor}>
                 <CornerMenu colorLabels={['left block color', 'right block color', 'background color']}>
-                    <button onClick={this.toggleTouchingSquares}>separate squares (S)</button>
+                    <button onClick={this.toggleTouchingSquares}>separate squares (k)</button>
                     <br/>
                 </CornerMenu>
                 <div className="LighterAndOrDarker__leftBlock position-absolute" style={leftBlockColor} />
