@@ -4,6 +4,7 @@ import FalseGradient from './FalseGradient';
 import Void from './Void';
 import ReversedGrounds from './ReversedGrounds';
 import TwoDifferentColorsLookAlike from './TwoDifferentColorsLookAlike';
+import AfterImage from './AfterImage';
 
 export {
     AColorHasManyFaces,
@@ -11,5 +12,6 @@ export {
     FalseGradient,
     Void,
     ReversedGrounds,
-    TwoDifferentColorsLookAlike
+    TwoDifferentColorsLookAlike,
+    AfterImage
 };

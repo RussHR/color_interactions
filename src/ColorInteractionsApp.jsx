@@ -7,7 +7,8 @@ import {
     FalseGradient,
     Void,
     ReversedGrounds,
-    TwoDifferentColorsLookAlike
+    TwoDifferentColorsLookAlike,
+    AfterImage
 } from './components/plates';
 
 import 'normalize.css';
@@ -25,6 +26,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/void" component={Void} />
                     <Route path="/reversed-grounds" component={ReversedGrounds} />
                     <Route path="/two-different-colors-look-alike" component={TwoDifferentColorsLookAlike} />
+                    <Route path="/after-image" component={AfterImage} />
 
                     <Route exact path="/" component={Home} />
                 </div>
