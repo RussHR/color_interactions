@@ -16,71 +16,58 @@ class AfterImage extends Component {
         super(props);
 
         this.state = {
-            innerShapesTouching: false
+            circleFilled: false
         };
 
-        this.toggleInnerShapesTouching = this.toggleInnerShapesTouching.bind(this);
-        this.toggleInnerShapesTouchingViaKeyboard = this.toggleInnerShapesTouchingViaKeyboard.bind(this);
+        this.toggleCircleFilled = this.toggleCircleFilled.bind(this);
+        this.toggleCircleFilledViaKeyboard = this.toggleCircleFilledViaKeyboard.bind(this);
     }
 
     componentDidMount() {
-        window.document.addEventListener('keydown', this.toggleInnerShapesTouchingViaKeyboard);
+        window.document.addEventListener('keydown', this.toggleCircleFilledViaKeyboard);
     }
 
     componentWillUnmount() {
-        window.document.removeEventListener('keydown', this.toggleInnerShapesTouchingViaKeyboard);
+        window.document.removeEventListener('keydown', this.toggleCircleFilledViaKeyboard);
     }
 
     /**
      * Toggles the state of whether the inner shapes are touching.
      * @returns {void}
      */
-    toggleInnerShapesTouching() {
-        this.setState({ innerShapesTouching: !this.state.innerShapesTouching });
+    toggleCircleFilled() {
+        this.setState({ circleFilled: !this.state.circleFilled });
     }
 
     /**
      * Toggles the state of whether the inner shapes are touching via keyboard.
      * @returns {void}
      */
-    toggleInnerShapesTouchingViaKeyboard({ keyCode }) {
+    toggleCircleFilledViaKeyboard({ keyCode }) {
         // if key is 'k'
         if (keyCode === 75) {
-            this.toggleInnerShapesTouching();
+            this.toggleCircleFilled();
         }
     }
 
     render() {
         const { colors } = this.props;
-        const { color0, color1 } = colors;
-        const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
-        const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const averageR = Math.floor((color0.r + color1.r) / 2);
-        const averageG = Math.floor((color0.g + color1.g) / 2);
-        const averageB = Math.floor((color0.b + color1.b) / 2);
-        const innerPlateColor = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
-
-        const leftInnerShapeClass = classNames(
-            'ReversedGrounds__innerBlock',
-            'ReversedGrounds__innerBlock--left',
-            'standard-transition',
-            { 'ReversedGrounds__innerBlock--touching': this.state.innerShapesTouching }
-        );
-
-        const rightInnerShapeClass = classNames(
-            'ReversedGrounds__innerBlock',
-            'ReversedGrounds__innerBlock--right',
-            'standard-transition',
-            { 'ReversedGrounds__innerBlock--touching': this.state.innerShapesTouching }
-        );
+        const { color0 } = colors;
+        const circleColor = {};
+        if (this.state.circleFilled) {
+            circleColor.backgroundColor = `rgb(${color0.r}, ${color0.g}, ${color0.b})`;
+        }
 
         return (
             <div className="full-screen display-flex justify-content-center align-items-center AfterImage">
                 <CornerMenu colorLabels={['left background color', 'right background color']}>
-                    <button onClick={this.toggleInnerShapesTouching}>touch inner blocks (k)</button>
+                    <button onClick={this.toggleCircleFilled}>toggle circle fill (k)</button>
                     <br/>
                 </CornerMenu>
-                <div className="AfterImage__circle display-flex justify-content-center align-items-center">
+                <div
+                    className="AfterImage__circle display-flex justify-content-center align-items-center"
+                    style={circleColor}
+                >
                     <div className="AfterImage__centerDot" />
                 </div>
             </div>

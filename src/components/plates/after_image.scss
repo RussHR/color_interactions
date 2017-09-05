@@ -2,8 +2,9 @@
     background-color: black;
 }
 .AfterImage__circle {
-    height: 70vw;
-    width: 70vw;
+    height: 70vh;
+    width: 70vh;
+    max-width: 1000vw;
     border-radius: 100%;
     background-color: white;
 }
