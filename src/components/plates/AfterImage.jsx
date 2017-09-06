@@ -95,7 +95,7 @@ class AfterImage extends Component {
         } else {
             circleContent = (
                 <div
-                    className="AfterImage__circle position-relative"
+                    className="AfterImage__circles circle position-relative"
                     style={circleColor}
                 >
                     <div className="AfterImage__centerDot absolute-center" />
