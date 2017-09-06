@@ -29,6 +29,9 @@ input[type="radio"] {
 .hidden {
     display: none;
 }
+.display-grid {
+    display: grid;
+}
 
 // flex layout
 .justify-content-center {
@@ -65,6 +68,12 @@ input[type="radio"] {
 }
 .right-0 {
     right: 0;
+}
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
 }
 
 // overflow
