@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
-import classNames from 'classnames';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -21,11 +20,11 @@ let TwoDifferentColorsLookAlike = ({ colors }) => {
         <div className="full-screen">
             <CornerMenu
                 colorLabels={['left color', 'right color', 'overlapping color']}
-                enableRandomAlikeColors={true}
+                enableColor2AsAverage={true}
             />
             <div
                 className="half-width full-height display-inline-block position-relative"
-                style={innerBlockColor}
+
             >
                 <div className="position-absolute IllusionOfTransparence__leftBlock" style={leftBlockColor}>
                     <div
@@ -36,7 +35,7 @@ let TwoDifferentColorsLookAlike = ({ colors }) => {
             </div>
             <div
                 className="half-width full-height display-inline-block position-relative"
-                style={innerBlockColor}
+
             >
                 <div className="position-absolute IllusionOfTransparence__rightBlock" style={rightBlockColor} />
             </div>
