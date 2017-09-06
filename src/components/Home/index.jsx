@@ -174,6 +174,22 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         </div>
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#illusion-of-transparence" title="illusion of transparence">
+                    <div className="homeLink__thumbnail">
+                        <div className="half-width full-height display-inline-block position-relative">
+                            <div className="position-absolute IllusionOfTransparence__leftBlock" style={color0Style}>
+                                <div
+                                    className="position-absolute IllusionOfTransparence__leftInnerBlock"
+                                    style={color2Style}
+                                />
+                            </div>
+                        </div>
+                        <div className="half-width full-height display-inline-block position-relative">
+                            <div className="position-absolute IllusionOfTransparence__rightBlock" style={color1Style} />
+                        </div>
+                    </div>
+                </HomeLink>
             </div>
         </div>
     );

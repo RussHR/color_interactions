@@ -22,10 +22,7 @@ let TwoDifferentColorsLookAlike = ({ colors }) => {
                 colorLabels={['left color', 'right color', 'overlapping color']}
                 enableColor2AsAverage={true}
             />
-            <div
-                className="half-width full-height display-inline-block position-relative"
-
-            >
+            <div className="half-width full-height display-inline-block position-relative">
                 <div className="position-absolute IllusionOfTransparence__leftBlock" style={leftBlockColor}>
                     <div
                         className="position-absolute IllusionOfTransparence__leftInnerBlock"
@@ -33,10 +30,7 @@ let TwoDifferentColorsLookAlike = ({ colors }) => {
                     />
                 </div>
             </div>
-            <div
-                className="half-width full-height display-inline-block position-relative"
-
-            >
+            <div className="half-width full-height display-inline-block position-relative">
                 <div className="position-absolute IllusionOfTransparence__rightBlock" style={rightBlockColor} />
             </div>
         </div>
