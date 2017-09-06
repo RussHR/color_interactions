@@ -44,8 +44,8 @@ class TwoDifferentColorsLookAlike extends Component {
      * @returns {void}
      */
     toggleTouchingInnerBlocksViaKeyboard({ keyCode }) {
-        // if key is 't'
-        if (keyCode === 84) {
+        // if key is 'k'
+        if (keyCode === 75) {
             this.toggleTouchingInnerBlocks();
         }
     }
@@ -71,7 +71,7 @@ class TwoDifferentColorsLookAlike extends Component {
                     colorLabels={['left background color', 'right background color', 'inner color']}
                     enableRandomAlikeColors={true}
                 >
-                    <button onClick={this.toggleTouchingInnerBlocks}>touch inner blocks (t)</button>
+                    <button onClick={this.toggleTouchingInnerBlocks}>touch inner blocks (k)</button>
                     <br/>
                 </CornerMenu>
                 <div
