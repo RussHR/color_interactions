@@ -76,18 +76,15 @@ class AfterImage extends Component {
             circleContent = (
                 <div
                     className="AfterImage__circles position-relative display-grid">
-                    <div>
-                        <div>hi
-                        </div>
-                        <div>hi
-                        </div>
-                        <div>hi
-                        </div>
-                    </div>
-                    <div>
-                    </div>
-                    <div>
-                    </div>
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
+                    <div className="circle" style={circleColor} />
                     <div className="AfterImage__centerDot absolute-center" />
                 </div>
             );
