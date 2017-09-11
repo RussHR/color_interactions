@@ -6,6 +6,7 @@ import ReversedGrounds from './ReversedGrounds';
 import TwoDifferentColorsLookAlike from './TwoDifferentColorsLookAlike';
 import AfterImage from './AfterImage';
 import IllusionOfTransparence from './IllusionOfTransparence';
+import AdditiveAndSubtractive from './AdditiveAndSubtractive';
 
 export {
     AColorHasManyFaces,
@@ -15,5 +16,6 @@ export {
     ReversedGrounds,
     TwoDifferentColorsLookAlike,
     AfterImage,
-    IllusionOfTransparence
+    IllusionOfTransparence,
+    AdditiveAndSubtractive
 };

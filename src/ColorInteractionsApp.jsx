@@ -9,7 +9,8 @@ import {
     ReversedGrounds,
     TwoDifferentColorsLookAlike,
     AfterImage,
-    IllusionOfTransparence
+    IllusionOfTransparence,
+    AdditiveAndSubtractive
 } from './components/plates';
 
 import 'normalize.css';
@@ -29,6 +30,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/two-different-colors-look-alike" component={TwoDifferentColorsLookAlike} />
                     <Route path="/after-image" component={AfterImage} />
                     <Route path="/illusion-of-transparence" component={IllusionOfTransparence} />
+                    <Route path="/additive-and-subtractive" component={AdditiveAndSubtractive} />
 
                     <Route exact path="/" component={Home} />
                 </div>

@@ -49,7 +49,7 @@ class AfterImage extends Component {
     }
 
     /**
-     * Toggles the state of whether the inner shapes are touching via keyboard.
+     * Handles keydowns and maps to functions.
      * @returns {void}
      */
     handleKeydown({ keyCode }) {
