@@ -40,10 +40,16 @@ class AdditiveAndSubtractive extends Component {
         }
     }
 
-    render() {
-        const { colors } = this.props;
-        const { color0 } = colors;
+    positionAndStateToColor(numLayers) {
+        const { colors: { color0: { r, g, b } } } = this.props;
+        const whiteLevel = this.state.colorIsSubtractive ? 4 - numLayers : numLayers;
+        const newR = Math.min(255, r + whiteLevel * 30);
+        const newG = Math.min(255, g + whiteLevel * 30);
+        const newB = Math.min(255, b + whiteLevel * 30);
+        return { backgroundColor: `rgb(${newR}, ${newG}, ${newB})` };
+    }
 
+    render() {
         return (
             <div className="full-screen display-grid AdditiveAndSubtractive">
                 <CornerMenu colorLabels={['left background color', 'right background color']}>
@@ -51,95 +57,95 @@ class AdditiveAndSubtractive extends Component {
                     <br/>
                 </CornerMenu>
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 3)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(3)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 3)} />
-                <div style={positionAndStateToColor(color0, 4)} />
-                <div style={positionAndStateToColor(color0, 3)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(3)} />
+                <div style={this.positionAndStateToColor(4)} />
+                <div style={this.positionAndStateToColor(3)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 3)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(3)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 2)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 1)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
 
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
-                <div style={positionAndStateToColor(color0, 0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(0)} />
             </div>
         );
     }
@@ -152,11 +158,3 @@ AdditiveAndSubtractive.propTypes = {
 AdditiveAndSubtractive = connect(mapStateToProps)(AdditiveAndSubtractive);
 
 export default AdditiveAndSubtractive;
-
-function positionAndStateToColor({ r, g, b }, numLayers) {
-    const whiteLevel = 4 - numLayers;
-    const newR = Math.min(255, r + whiteLevel * 15);
-    const newG = Math.min(255, g + whiteLevel * 15);
-    const newB = Math.min(255, b + whiteLevel * 15);
-    return { backgroundColor: `rgb(${newR}, ${newG}, ${newB})` };
-}
