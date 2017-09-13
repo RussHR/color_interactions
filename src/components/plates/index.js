@@ -7,6 +7,7 @@ import TwoDifferentColorsLookAlike from './TwoDifferentColorsLookAlike';
 import AfterImage from './AfterImage';
 import IllusionOfTransparence from './IllusionOfTransparence';
 import AdditiveAndSubtractive from './AdditiveAndSubtractive';
+import SpaceIllusion from './SpaceIllusion';
 
 export {
     AColorHasManyFaces,
@@ -17,5 +18,6 @@ export {
     TwoDifferentColorsLookAlike,
     AfterImage,
     IllusionOfTransparence,
-    AdditiveAndSubtractive
+    AdditiveAndSubtractive,
+    SpaceIllusion
 };

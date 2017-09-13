@@ -10,7 +10,8 @@ import {
     TwoDifferentColorsLookAlike,
     AfterImage,
     IllusionOfTransparence,
-    AdditiveAndSubtractive
+    AdditiveAndSubtractive,
+    SpaceIllusion
 } from './components/plates';
 
 import 'normalize.css';
@@ -31,6 +32,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/after-image" component={AfterImage} />
                     <Route path="/illusion-of-transparence" component={IllusionOfTransparence} />
                     <Route path="/additive-and-subtractive" component={AdditiveAndSubtractive} />
+                    <Route path="/space-illusion" component={SpaceIllusion} />
 
                     <Route exact path="/" component={Home} />
                 </div>
