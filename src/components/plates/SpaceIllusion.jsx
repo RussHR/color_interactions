@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
-import { validatePropColors } from '../../helpers/colorHelpers';
+import { validatePropColors, getBetweenColor } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
 import './space_illusion.scss';
@@ -96,11 +96,3 @@ TwoDifferentColorsLookAlike.propTypes = {
 TwoDifferentColorsLookAlike = connect(mapStateToProps)(TwoDifferentColorsLookAlike);
 
 export default TwoDifferentColorsLookAlike;
-
-function getBetweenColor({ r: r0, g: g0, b: b0 }, { r: r1, g: g1, b: b1 }, ratio) {
-    const newR = Math.round(r0 * (1 - ratio) + r1 * ratio);
-    const newG = Math.round(g0 * (1 - ratio) + g1 * ratio);
-    const newB = Math.round(b0 * (1 - ratio) + b1 * ratio);
-
-    return { backgroundColor: `rgb(${newR}, ${newG}, ${newB})` };
-}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { pick, times } from 'lodash';
 import HomeLink from '../HomeLink';
 import CornerMenu from '../CornerMenu';
+import { getBetweenColor } from '../../helpers/colorHelpers';
 
 import './home.scss';
 
@@ -282,6 +283,78 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 0)} />
+                    </div>
+                </HomeLink>
+
+                <HomeLink href="#space-illusion" title="space-illusion">
+                    <div className="homeLink__thumbnail">
+
+                        <div className="full-width SpaceIllusion__top display-flex justify-content-space-evenly">
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                        </div>
+
+                        <div
+                            className="full-width SpaceIllusion__middle display-flex justify-content-space-evenly"
+                            style={color0Style}
+                        >
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.1)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.2)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.3)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.4)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.5)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.6)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.7)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.8)}
+                            />
+                            <div
+                                className="SpaceIllusion__smallBarInner full-height"
+                                style={getBetweenColor(color0, color1, 0.9)}
+                            />
+                        </div>
+
+                        <div className="full-width SpaceIllusion__bottom display-flex justify-content-space-evenly">
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                            <div className="SpaceIllusion__smallBarOuter" style={color1Style} />
+                        </div>
+
                     </div>
                 </HomeLink>
             </div>

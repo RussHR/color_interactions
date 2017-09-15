@@ -36,3 +36,11 @@ export function validatePropColors(numColors) {
         });
     };
 }
+
+export function getBetweenColor({ r: r0, g: g0, b: b0 }, { r: r1, g: g1, b: b1 }, ratio) {
+    const newR = Math.round(r0 * (1 - ratio) + r1 * ratio);
+    const newG = Math.round(g0 * (1 - ratio) + g1 * ratio);
+    const newB = Math.round(b0 * (1 - ratio) + b1 * ratio);
+
+    return { backgroundColor: `rgb(${newR}, ${newG}, ${newB})` };
+}
