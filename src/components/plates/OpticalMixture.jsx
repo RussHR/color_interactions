@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { merge, pick, times } from 'lodash';
-import classNames from 'classnames';
+import { pick } from 'lodash';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
-
-import './optical_mixture.scss';
 
 function mapStateToProps(state) {
     return pick(state, 'colors');
@@ -16,12 +13,10 @@ class OpticalMixture extends Component {
         super(props);
 
         this.state = {
-            numCirclesInRow: 3,
-            circlesInCircles: false
+            stripeWidth: 3
         };
 
-        this.changeNumCircles = this.changeNumCircles.bind(this);
-        this.toggleCirclesInCircles = this.toggleCirclesInCircles.bind(this);
+        this.setStripeWidth = this.setStripeWidth.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
     }
 
@@ -33,84 +28,69 @@ class OpticalMixture extends Component {
         window.document.removeEventListener('keydown', this.handleKeydown);
     }
 
-    toggleCirclesInCircles() {
-        this.setState({ circlesInCircles: !this.state.circlesInCircles });
-    }
-
     /**
      * Maps keydowns to functions.
      * @returns {void}
      */
     handleKeydown({ keyCode }) {
-        // if key is 'k'
-        if (keyCode === 75) {
-            this.toggleCirclesInCircles();
+        // if key is 'k' or up
+        if (keyCode === 75 || keyCode === 38) {
+            this.setState({ stripeWidth: Math.min(this.state.stripeWidth + 1, 30) });
+        } else if (keyCode === 76 || keyCode === 40) {
+            // if key is 'l' or down
+            this.setState({ stripeWidth: Math.max(this.state.stripeWidth - 1, 1) });
         }
     }
 
-    changeNumCircles({ currentTarget: { value: numCirclesInRow } }) {
-        this.setState({ numCirclesInRow });
+    /**
+     * Maps keydowns to functions.
+     * @param {object} e - js event object whose currentTarget has a value for stripe width in px
+     * @returns {void}
+     */
+    setStripeWidth({ currentTarget: { value: stripeWidth } }) {
+        this.setState({ stripeWidth });
     }
 
     render() {
         const { colors } = this.props;
-        const { color0, color1, color2 } = colors;
-        const { numCirclesInRow, circlesInCircles } = this.state;
-        const backgroundColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
-        const circle1Color = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` }
-        const circle2Color = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` }
+        const { color0, color1 } = colors;
+        const { stripeWidth } = this.state;
 
-        let circles;
-
-        if (circlesInCircles) {
-            circles = times(numCirclesInRow * numCirclesInRow, (i) => {
-                const outerCircleStyle = merge({
-                    height: `${100 / numCirclesInRow}%`,
-                    width: `${100 / numCirclesInRow}%`
-                }, circle1Color);
-
-                return (
-                    <div
-                        key={i}
-                        style={outerCircleStyle}
-                        className="display-inline-block position-relative circle"
-                    >
-                        <div className="OpticalMixture__innerCircle circle absolute-center" style={circle2Color} />
-                    </div>
-                );
-            });
-        } else {
-            circles = times(numCirclesInRow * numCirclesInRow, (i) => {
-                const style = merge({
-                    height: `${100 / numCirclesInRow}%`,
-                    width: `${100 / numCirclesInRow}%`
-                }, (i % 2 == 0 ? circle1Color : circle2Color));
-                return <div key={i} style={style} className="display-inline-block circle" />;
-            });
-        }
+        const style = {
+            background: `repeating-linear-gradient(90deg,
+                rgb(${color0.r},
+                ${color0.g}, ${color0.b}),
+                rgb(${color0.r}, ${color0.g},
+                ${color0.b}) ${stripeWidth}px,
+                rgb(${color1.r},
+                ${color1.g},
+                ${color1.b}) ${stripeWidth}px,
+                rgb(${color1.r},
+                ${color1.g},
+                ${color1.b}) ${stripeWidth * 2}px )`
+        };
 
         return (
-            <div className="full-screen OpticalMixture" style={backgroundColor}>
-                <CornerMenu colorLabels={['background color', 'circle color 1', 'circle color 2']}>
-                    <label htmlFor="num-circles">number of circles in a row: </label>
+            <div className="full-screen" style={style}>
+                <CornerMenu colorLabels={['stripe color 1', 'stripe color 2']}>
+                    <label htmlFor="stripe-width">stripe width: </label>
                     <input
-                        id="num-circles"
-                        type="number"
+                        id="stripe-width"
+                        type="range"
                         min="1"
-                        max="50"
-                        value={numCirclesInRow}
-                        onChange={this.changeNumCircles}
+                        max="30"
+                        value={stripeWidth}
+                        onChange={this.setStripeWidth}
                     />
                     <br />
                 </CornerMenu>
-                    {circles}
             </div>
         );
     }
 }
 
 OpticalMixture.propTypes = {
-    colors: validatePropColors(3)
+    colors: validatePropColors(2)
 };
 
 OpticalMixture = connect(mapStateToProps)(OpticalMixture);
