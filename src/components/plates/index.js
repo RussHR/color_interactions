@@ -8,6 +8,7 @@ import AfterImage from './AfterImage';
 import IllusionOfTransparence from './IllusionOfTransparence';
 import AdditiveAndSubtractive from './AdditiveAndSubtractive';
 import SpaceIllusion from './SpaceIllusion';
+import OpticalMixture from './OpticalMixture';
 
 export {
     AColorHasManyFaces,
@@ -19,5 +20,6 @@ export {
     AfterImage,
     IllusionOfTransparence,
     AdditiveAndSubtractive,
-    SpaceIllusion
+    SpaceIllusion,
+    OpticalMixture
 };
