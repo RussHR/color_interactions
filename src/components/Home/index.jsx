@@ -59,6 +59,20 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
     const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
     const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
+    const opticalMixtureBackground = {
+        background: `repeating-linear-gradient(90deg,
+            rgb(${color0.r},
+            ${color0.g}, ${color0.b}),
+            rgb(${color0.r}, ${color0.g},
+            ${color0.b}) 2px,
+            rgb(${color1.r},
+            ${color1.g},
+            ${color1.b}) 2px,
+            rgb(${color1.r},
+            ${color1.g},
+            ${color1.b}) 4px )`
+    };
+
     return (
         <div className="full-screen Home">
             <CornerMenu colorLabels={colorLabels} />
@@ -359,19 +373,7 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#optical-mixture" title="optical mixture">
-                    <div className="homeLink__thumbnail">
-                        <div className="half-width full-height display-inline-block position-relative">
-                            <div className="position-absolute IllusionOfTransparence__leftBlock" style={color0Style}>
-                                <div
-                                    className="position-absolute IllusionOfTransparence__leftInnerBlock"
-                                    style={color2Style}
-                                />
-                            </div>
-                        </div>
-                        <div className="half-width full-height display-inline-block position-relative">
-                            <div className="position-absolute IllusionOfTransparence__rightBlock" style={color1Style} />
-                        </div>
-                    </div>
+                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
                 </HomeLink>
             </div>
         </div>
