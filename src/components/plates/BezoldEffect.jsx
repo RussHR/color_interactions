@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
-import classNames from 'classnames';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -52,7 +51,7 @@ class BezoldEffect extends Component {
 
     render() {
         const { colors } = this.props;
-        const { color0, color1 } = colors;
+        const { color0 } = colors;
         const { customMortarColors } = this.state;
         const brickColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
 
