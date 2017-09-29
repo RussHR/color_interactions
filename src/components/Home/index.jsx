@@ -375,6 +375,10 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                 <HomeLink href="#optical-mixture" title="optical mixture">
                     <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
                 </HomeLink>
+
+                <HomeLink href="#bezold-effect" title="bezold effect">
+                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
+                </HomeLink>
             </div>
         </div>
     );

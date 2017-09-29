@@ -9,6 +9,7 @@ import IllusionOfTransparence from './IllusionOfTransparence';
 import AdditiveAndSubtractive from './AdditiveAndSubtractive';
 import SpaceIllusion from './SpaceIllusion';
 import OpticalMixture from './OpticalMixture';
+import BezoldEffect from './BezoldEffect';
 
 export {
     AColorHasManyFaces,
@@ -21,5 +22,6 @@ export {
     IllusionOfTransparence,
     AdditiveAndSubtractive,
     SpaceIllusion,
-    OpticalMixture
+    OpticalMixture,
+    BezoldEffect
 };
