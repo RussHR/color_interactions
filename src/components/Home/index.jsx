@@ -377,7 +377,10 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#bezold-effect" title="bezold effect">
-                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
+                    <div className="homeLink__thumbnail display-flex justify-content-space-evenly align-items-center">
+                        <div className="BezoldEffect__bricks" style={color0Style} />
+                        <div className="BezoldEffect__bricks" style={color0Style} />
+                    </div>
                 </HomeLink>
             </div>
         </div>
