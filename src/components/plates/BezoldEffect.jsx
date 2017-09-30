@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { pick } from 'lodash';
+import { assign, pick } from 'lodash';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -53,11 +53,26 @@ class BezoldEffect extends Component {
         const { colors } = this.props;
         const { color0 } = colors;
         const { customMortarColors } = this.state;
-        const brickColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
 
         const colorLabels = customMortarColors
             ? ['brick color', 'mortar color 1', 'mortar color 2']
             : ['brick color'];
+
+        const commonStyle = {
+            backgroundImage:
+                `linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+                    linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+                    linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+                    linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+
+                    linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px),
+                    linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px),
+                    linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px),
+                    linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px)`
+        };
+
+        const leftBlockStyle = assign({ backgroundColor: 'white' }, commonStyle)
+        const rightBlockStyle = assign({ backgroundColor: 'black' }, commonStyle)
 
         return (
             <div className="full-screen display-flex justify-content-space-evenly align-items-center">
@@ -71,8 +86,8 @@ class BezoldEffect extends Component {
                     />
                     <br/>
                 </CornerMenu>
-                <div className="BezoldEffect__bricks" style={brickColor} />
-                <div className="BezoldEffect__bricks" style={brickColor} />
+                <div className="BezoldEffect__bricks" style={leftBlockStyle} />
+                <div className="BezoldEffect__bricks" style={rightBlockStyle} />
             </div>
         );
     }
