@@ -51,7 +51,7 @@ class BezoldEffect extends Component {
 
     render() {
         const { colors } = this.props;
-        const { color0 } = colors;
+        const { color0, color1, color2 } = colors;
         const { customMortarColors } = this.state;
 
         const colorLabels = customMortarColors
@@ -71,8 +71,8 @@ class BezoldEffect extends Component {
                     linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px)`
         };
 
-        const leftBlockStyle = assign({ backgroundColor: 'white' }, commonStyle)
-        const rightBlockStyle = assign({ backgroundColor: 'black' }, commonStyle)
+        const leftBlockStyle = assign({ backgroundColor: customMortarColors ? `rgb(${color1.r}, ${color1.g}, ${color1.b})` : 'white' }, commonStyle);
+        const rightBlockStyle = assign({ backgroundColor: customMortarColors ? `rgb(${color2.r}, ${color2.g}, ${color2.b})` : 'black' }, commonStyle);
 
         return (
             <div className="full-screen display-flex justify-content-space-evenly align-items-center">
