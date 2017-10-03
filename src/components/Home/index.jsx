@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { pick, times } from 'lodash';
+import { assign, pick, times } from 'lodash';
 import HomeLink from '../HomeLink';
 import CornerMenu from '../CornerMenu';
 import { getBetweenColor } from '../../helpers/colorHelpers';
@@ -72,6 +72,22 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
             ${color1.g},
             ${color1.b}) 4px )`
     };
+
+    const commonBezoldStyle = {
+        backgroundImage:
+            `linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+                linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+                linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+                linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 23px, transparent 23px),
+
+                linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px),
+                linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px),
+                linear-gradient(335deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px),
+                linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px)`
+    };
+
+    const leftBezoldStyle = assign({ backgroundColor: 'white' }, commonBezoldStyle);
+    const rightBezoldStyle = assign({ backgroundColor: 'black' }, commonBezoldStyle);
 
     return (
         <div className="full-screen Home">
@@ -378,8 +394,8 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
 
                 <HomeLink href="#bezold-effect" title="bezold effect">
                     <div className="homeLink__thumbnail display-flex justify-content-space-evenly align-items-center">
-                        <div className="BezoldEffect__bricks" style={color0Style} />
-                        <div className="BezoldEffect__bricks" style={color0Style} />
+                        <div className="BezoldEffect__bricks" style={leftBezoldStyle} />
+                        <div className="BezoldEffect__bricks" style={rightBezoldStyle} />
                     </div>
                 </HomeLink>
             </div>
