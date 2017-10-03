@@ -10,6 +10,7 @@ import AdditiveAndSubtractive from './AdditiveAndSubtractive';
 import SpaceIllusion from './SpaceIllusion';
 import OpticalMixture from './OpticalMixture';
 import BezoldEffect from './BezoldEffect';
+import ColorIntervals from './ColorIntervals';
 
 export {
     AColorHasManyFaces,
@@ -23,5 +24,6 @@ export {
     AdditiveAndSubtractive,
     SpaceIllusion,
     OpticalMixture,
-    BezoldEffect
+    BezoldEffect,
+    ColorIntervals
 };

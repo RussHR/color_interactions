@@ -398,6 +398,10 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         <div className="BezoldEffect__bricks" style={rightBezoldStyle} />
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#color-intervals" title="color intervals">
+                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
+                </HomeLink>
             </div>
         </div>
     );

@@ -13,7 +13,8 @@ import {
     AdditiveAndSubtractive,
     SpaceIllusion,
     OpticalMixture,
-    BezoldEffect
+    BezoldEffect,
+    ColorIntervals
 } from './components/plates';
 
 import 'normalize.css';
@@ -37,6 +38,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/space-illusion" component={SpaceIllusion} />
                     <Route path="/optical-mixture" component={OpticalMixture} />
                     <Route path="/bezold-effect" component={BezoldEffect} />
+                    <Route path="/color-intervals" component={ColorIntervals} />
 
                     <Route exact path="/" component={Home} />
                 </div>
