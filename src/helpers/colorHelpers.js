@@ -44,3 +44,27 @@ export function getBetweenColor({ r: r0, g: g0, b: b0 }, { r: r1, g: g1, b: b1 }
 
     return { backgroundColor: `rgb(${newR}, ${newG}, ${newB})` };
 }
+
+/*
+ * Returns an adjusted offset so that an rgb value plus an offset won't be outside the rand of 0 to 255.
+ * @param {number} originalOffset - a number to offset the rgb value by
+ * @param {number} color0Val - an r, g, or b value of 0 to 255
+ * @param {number} color1Val - an r, g, or b value of 0 to 255
+ * @returns {number} an actual number that is safe to offset by
+ */
+export function getRgbOffset(originalOffset, color0Val, color1Val) {
+    if (originalOffset < 0) {
+        // get the lower of the two values
+        const lowerOfTwo = Math.min(color0Val, color1Val);
+
+        // if the value plus the offset is less than 0, set the actual offset to the difference between the val and 0
+        return lowerOfTwo + originalOffset < 0 ? -(lowerOfTwo) : originalOffset;
+    }
+
+    // in this case, the adjusted value may be higher than 255
+    // get the higher of the two values
+    const higherOfTwo = Math.max(color0Val, color1Val);
+
+    // if the value plus the offset is greater than 255, set the actual offset to the difference between 255 and val
+    return higherOfTwo + originalOffset > 255 ? 255 - higherOfTwo : originalOffset;
+}
