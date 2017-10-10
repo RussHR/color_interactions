@@ -49,7 +49,25 @@ class ColorIntervals extends Component {
      * @returns {void}
      */
     randomizeIntervals() {
-        console.log('hi');
+        this.setState({
+            colorModifiers: {
+                topRight: {
+                    r: Math.round((Math.random() * 100) - 50),
+                    g: Math.round((Math.random() * 100) - 50),
+                    b: Math.round((Math.random() * 100) - 50)
+                },
+                bottomRight: {
+                    r: Math.round((Math.random() * 100) - 50),
+                    g: Math.round((Math.random() * 100) - 50),
+                    b: Math.round((Math.random() * 100) - 50)
+                },
+                bottomLeft: {
+                    r: Math.round((Math.random() * 100) - 50),
+                    g: Math.round((Math.random() * 100) - 50),
+                    b: Math.round((Math.random() * 100) - 50)
+                }
+            }
+        });
     }
 
     /**
