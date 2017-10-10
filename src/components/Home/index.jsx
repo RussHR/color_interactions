@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { assign, pick, times } from 'lodash';
 import HomeLink from '../HomeLink';
 import CornerMenu from '../CornerMenu';
-import { getBetweenColor } from '../../helpers/colorHelpers';
+import { getBetweenColor, getRgbOffset } from '../../helpers/colorHelpers';
 
 import './home.scss';
 
@@ -88,6 +88,47 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
 
     const leftBezoldStyle = assign({ backgroundColor: 'white' }, commonBezoldStyle);
     const rightBezoldStyle = assign({ backgroundColor: 'black' }, commonBezoldStyle);
+
+    // START for COLOR INTERVALS
+    // colors for top right
+    const actualTopRightOffsetR = getRgbOffset(25, color0.r, color1.r);
+    const actualTopRightOffsetG = getRgbOffset(25, color0.g, color1.g);
+    const actualTopRightOffsetB = getRgbOffset(25, color0.b, color1.b);
+    const outerTopRightStyle = {
+        backgroundColor:`rgb(${color0.r + actualTopRightOffsetR}, ${color0.g + actualTopRightOffsetG},
+            ${color0.b + actualTopRightOffsetB})`
+    };
+    const innerTopRightStyle = {
+        backgroundColor: `rgb(${color1.r + actualTopRightOffsetR}, ${color1.g + actualTopRightOffsetG},
+            ${color1.b + actualTopRightOffsetB})`
+    };
+
+    // colors for bottom right
+    const actualBottomRightOffsetR = getRgbOffset(-25, color0.r, color1.r);
+    const actualBottomRightOffsetG = getRgbOffset(25, color0.g, color1.g);
+    const actualBottomRightOffsetB = getRgbOffset(-25, color0.b, color1.b);
+    const outerBottomRightStyle = {
+        backgroundColor: `rgb(${color0.r + actualBottomRightOffsetR}, ${color0.g + actualBottomRightOffsetG},
+            ${color0.b + actualBottomRightOffsetB})`
+    };
+    const innerBottomRightStyle = {
+        backgroundColor: `rgb(${color1.r + actualBottomRightOffsetR}, ${color1.g + actualBottomRightOffsetG},
+            ${color1.b + actualBottomRightOffsetB})`
+    };
+
+    // colors for bottom left
+    const actualBottomLeftOffsetR = getRgbOffset(25, color0.r, color1.r);
+    const actualBottomLeftOffsetG = getRgbOffset(-25, color0.g, color1.g);
+    const actualBottomLeftOffsetB = getRgbOffset(25, color0.b, color1.b);
+    const outerBottomLeftStyle = {
+        backgroundColor: `rgb(${color0.r + actualBottomLeftOffsetR}, ${color0.g + actualBottomLeftOffsetG},
+            ${color0.b + actualBottomLeftOffsetB})`
+    };
+    const innerBottomLeftStyle = {
+        backgroundColor: `rgb(${color1.r + actualBottomLeftOffsetR}, ${color1.g + actualBottomLeftOffsetG},
+            ${color1.b + actualBottomLeftOffsetB})`
+    };
+    // END OF COLOR INTERVALS
 
     return (
         <div className="full-screen Home">
@@ -400,7 +441,47 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#color-intervals" title="color intervals">
-                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
+                    <div className="homeLink__thumbnail">
+                        <div
+                            className="display-inline-block half-height half-width position-relative"
+                            style={color0Style}
+                        >
+                            <div
+                                className="position-absolute right-0 bottom-0 half-height half-width"
+                                style={color1Style}
+                            />
+                        </div>
+
+                        <div
+                            className="display-inline-block half-height half-width position-relative"
+                            style={outerTopRightStyle}
+                        >
+                            <div
+                                className="position-absolute bottom-0 left-0 half-height half-width"
+                                style={innerTopRightStyle}
+                            />
+                        </div>
+
+                        <div
+                            className="display-inline-block half-height half-width position-relative"
+                            style={outerBottomLeftStyle}
+                        >
+                            <div
+                                className="position-absolute top-0 right-0 half-height half-width"
+                                style={innerBottomLeftStyle}
+                            />
+                        </div>
+
+                        <div
+                            className="display-inline-block half-height half-width position-relative"
+                            style={outerBottomRightStyle}
+                        >
+                            <div
+                                className="position-absolute top-0 left-0 half-height half-width"
+                                style={innerBottomRightStyle}
+                            />
+                        </div>
+                    </div>
                 </HomeLink>
             </div>
         </div>
