@@ -1,0 +1,13 @@
+.IntersectingColors__smallPlate {
+    width: 33.3%;
+}
+.IntersectingColors__smallPlate--inner {
+    left: 33.3%;
+}
+.IntersectingColors__smallPlate--right {
+    left: 66.6%;
+    transition: transform 3s linear;
+}
+.IntersectingColors__smallPlate--rightShifted {
+    transform: translate3d(-32%, 0, 0);
+}

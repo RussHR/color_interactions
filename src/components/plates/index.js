@@ -11,6 +11,7 @@ import SpaceIllusion from './SpaceIllusion';
 import OpticalMixture from './OpticalMixture';
 import BezoldEffect from './BezoldEffect';
 import ColorIntervals from './ColorIntervals';
+import IntersectingColors from './IntersectingColors';
 
 export {
     AColorHasManyFaces,
@@ -25,5 +26,6 @@ export {
     SpaceIllusion,
     OpticalMixture,
     BezoldEffect,
-    ColorIntervals
+    ColorIntervals,
+    IntersectingColors
 };

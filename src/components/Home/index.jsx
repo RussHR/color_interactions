@@ -483,6 +483,10 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         </div>
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#intersecting-colors" title="intersecting colors">
+                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
+                </HomeLink>
             </div>
         </div>
     );
