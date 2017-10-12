@@ -16,11 +16,13 @@ class IntersectingColors extends Component {
         super(props);
 
         this.state = {
-            rightPlateShifted: false
+            rightPlateShifted: false,
+            setMiddleColor: false
         };
 
         this.toggleRightPlateShifted = this.toggleRightPlateShifted.bind(this);
         this.toggleRightPlateShiftedViaKeyboard = this.toggleRightPlateShiftedViaKeyboard.bind(this);
+        this.toggleSetMiddleColor = this.toggleSetMiddleColor.bind(this);
     }
 
     componentDidMount() {
@@ -50,15 +52,33 @@ class IntersectingColors extends Component {
         }
     }
 
+    /**
+     * Toggles the state of whether the middle color is set to color2.
+     * @returns {void}
+     */
+    toggleSetMiddleColor() {
+        this.setState({ setMiddleColor: !this.state.setMiddleColor });
+    }
+
     render() {
         const { colors } = this.props;
         const { color0, color1 } = colors;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const averageR = Math.floor((color0.r + color1.r) / 2);
-        const averageG = Math.floor((color0.g + color1.g) / 2);
-        const averageB = Math.floor((color0.b + color1.b) / 2);
-        const innerPlateColor = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
+
+        let innerPlateColor;
+        let colorLabels = ['left background color', 'right background color'];
+
+        if (this.state.setMiddleColor) {
+            const { color2 } = colors;
+            innerPlateColor = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+            colorLabels.push('middle background color');
+        } else {
+            const averageR = Math.floor((color0.r + color1.r) / 2);
+            const averageG = Math.floor((color0.g + color1.g) / 2);
+            const averageB = Math.floor((color0.b + color1.b) / 2);
+            innerPlateColor = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
+        }
 
         const rightPlateClassNames = classNames(
             'IntersectingColors__smallPlate--right',
@@ -70,9 +90,17 @@ class IntersectingColors extends Component {
 
         return (
             <div className="full-screen overflow-hidden">
-                <CornerMenu colorLabels={['left background color', 'right background color']}>
+                <CornerMenu colorLabels={colorLabels}>
                     <button onClick={this.toggleRightPlateShifted}>shift right plate (k)</button>
                     <br/>
+                    <label htmlFor="custom-middle-color">custom middle color: </label>
+                    <input
+                        id="custom-middle-color"
+                        type="checkbox"
+                        onChange={this.toggleSetMiddleColor}
+                        checked={this.state.setMiddleColor}
+                    />
+                    <br />
                 </CornerMenu>
                 <div>
                     <div
@@ -92,7 +120,7 @@ class IntersectingColors extends Component {
 }
 
 IntersectingColors.propTypes = {
-    colors: validatePropColors(2)
+    colors: validatePropColors(3)
 };
 
 IntersectingColors = connect(mapStateToProps)(IntersectingColors);

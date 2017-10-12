@@ -485,7 +485,21 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#intersecting-colors" title="intersecting colors">
-                    <div className="homeLink__thumbnail" style={opticalMixtureBackground} />
+                    <div className="homeLink__thumbnail position-relative overflow-hidden">
+                        <div
+                            className="IntersectingColors__smallPlate full-height position-absolute top-0 left-0"
+                            style={color0Style}
+                        />
+                        <div
+                            className={`IntersectingColors__smallPlate IntersectingColors__smallPlate--inner full-height
+                                position-absolute top-0`}
+                            style={averageRGB}
+                        />
+                        <div
+                            className="IntersectingColors__smallPlate--right full-height full-width position-absolute"
+                            style={color1Style}
+                        />
+                    </div>
                 </HomeLink>
             </div>
         </div>
