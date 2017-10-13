@@ -4,7 +4,7 @@ import { assign, pick, times } from 'lodash';
 import { ChromePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
+import { changeColorAction, randomColorsAction } from '../../actions/colorActions';
 
 import './corner_menu.scss';
 
@@ -55,7 +55,7 @@ class CornerMenu extends Component {
      * @returns {void}
      */
     randomizeColors() {
-        this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
+        this.props.dispatch(randomColorsAction(this.state.lockedColors));
     }
 
     toggleOpen() {
@@ -76,11 +76,8 @@ class CornerMenu extends Component {
      * @param {object} payload - data for colors to be changed including new color in rgb format
      * @returns {void}
      */
-    changeColor(payload) {
-        this.props.dispatch({
-            type: CHANGE_COLOR,
-            payload
-        });
+    changeColor(newColorChange) {
+        this.props.dispatch(changeColorAction(newColorChange));
     }
 
     /**
