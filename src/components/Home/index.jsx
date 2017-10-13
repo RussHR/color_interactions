@@ -11,7 +11,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-let Home = ({ colors: { color0, color1, color2, color3 } }) => {
+let Home = ({ colors: { color0, color1, color2 } }) => {
     const falseGradientBars = times(5, (i) => {
         let style;
         if (i % 2 == 0) {
@@ -48,6 +48,26 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
         );
     });
 
+    // START TwoDifferentColorsLookAlike Thumbnail stuff
+    const innerBlockLeftColor = {
+        r: Math.round((color0.r * 0.25) + color2.r * 0.75),
+        g: Math.round((color0.g * 0.25) + color2.g * 0.75),
+        b: Math.round((color0.b * 0.25) + color2.b * 0.75)
+    };
+    const innerBlockRightColor = {
+        r: Math.round((color1.r * 0.25) + color2.r * 0.75),
+        g: Math.round((color1.g * 0.25) + color2.g * 0.75),
+        b: Math.round((color1.b * 0.25) + color2.b * 0.75)
+    };
+
+    const innerBlockLeftStyle = {
+        backgroundColor: `rgb(${innerBlockLeftColor.r}, ${innerBlockLeftColor.g}, ${innerBlockLeftColor.b})`
+    };
+    const innerBlockRightStyle = {
+        backgroundColor: `rgb(${innerBlockRightColor.r}, ${innerBlockRightColor.g}, ${innerBlockRightColor.b})`
+    };
+    // END TwoDifferentColorsLookAlike Thumbnail stuff
+
     const averageR = Math.floor((color0.r + color1.r) / 2);
     const averageG = Math.floor((color0.g + color1.g) / 2);
     const averageB = Math.floor((color0.b + color1.b) / 2);
@@ -57,7 +77,6 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
     const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
     const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
-    const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
     const opticalMixtureBackground = {
         background: `repeating-linear-gradient(90deg,
@@ -220,7 +239,7 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         >
                             <div
                                 className="TwoDifferentColorsLookAlike__innerBlock position-absolute"
-                                style={color2Style}
+                                style={innerBlockLeftStyle}
                             />
                         </div>
                         <div
@@ -229,7 +248,7 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         >
                             <div
                                 className="TwoDifferentColorsLookAlike__innerBlock position-absolute"
-                                style={color3Style}
+                                style={innerBlockRightStyle}
                             />
                         </div>
                     </div>
