@@ -10,7 +10,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-let TwoDifferentColorsLookAlike = ({ colors }) => {
+let IllusionOfTransparence = ({ colors }) => {
     const { color0, color1, color2 } = colors;
     const leftBlockColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const rightBlockColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
@@ -37,10 +37,10 @@ let TwoDifferentColorsLookAlike = ({ colors }) => {
     );
 };
 
-TwoDifferentColorsLookAlike.propTypes = {
+IllusionOfTransparence.propTypes = {
     colors: validatePropColors(3)
 };
 
-TwoDifferentColorsLookAlike = connect(mapStateToProps)(TwoDifferentColorsLookAlike);
+IllusionOfTransparence = connect(mapStateToProps)(IllusionOfTransparence);
 
-export default TwoDifferentColorsLookAlike;
+export default IllusionOfTransparence;

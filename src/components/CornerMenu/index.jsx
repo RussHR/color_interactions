@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CHANGE_COLOR,
     RANDOMIZE_COLORS,
-    RANDOMIZE_ALIKE_COLORS,
     RANDOMIZE_WITH_AVERAGE
 } from '../../constants/actionTypes';
 
@@ -29,7 +28,6 @@ class CornerMenu extends Component {
             isHidden: false,
             activeColor: 'color0',
             lockedColors,
-            randomAlike: false,
             randomAverage: false
         };
         this.toggleOpen = this.toggleOpen.bind(this);
@@ -61,10 +59,7 @@ class CornerMenu extends Component {
      * @returns {void}
      */
     randomizeColors() {
-        if (this.state.randomAlike) {
-            this.props.dispatch({ type: RANDOMIZE_ALIKE_COLORS, payload: { lockedColors: this.state.lockedColors } });
-            return;
-        } else if (this.state.randomAverage) {
+        if (this.state.randomAverage) {
             this.props.dispatch({ type: RANDOMIZE_WITH_AVERAGE, payload: { lockedColors: this.state.lockedColors } });
             return;
         }
@@ -144,14 +139,6 @@ class CornerMenu extends Component {
     }
 
     /**
-     * Toggles the state of whether to randomize two colors with two more that look similar
-     * @returns {void}
-     */
-    toggleRandomAlike() {
-        this.setState({ randomAlike: !this.state.randomAlike });
-    }
-
-    /**
      * Toggles the state of whether to randomize two colors the third as an average
      * @returns {void}
      */
@@ -176,7 +163,7 @@ class CornerMenu extends Component {
             );
         }
 
-        const { colors, children, enableRandomAlikeColors, enableColor2AsAverage } = this.props;
+        const { colors, children, enableColor2AsAverage } = this.props;
         const { activeColor } = this.state;
 
         return (
@@ -201,20 +188,6 @@ class CornerMenu extends Component {
                     <br />
                     <button onClick={() => this.randomizeColors()}>randomizeColors (j)</button>
                     <br />
-
-                    {enableRandomAlikeColors &&
-                        <div>
-                            <label htmlFor="random-alike">enable random alike colors</label>
-                            <input
-                                type="checkbox"
-                                name="color"
-                                id="random-alike"
-                                checked={this.state.randomAlike}
-                                onChange={() => this.toggleRandomAlike()}
-                            />
-                            <br />
-                        </div>
-                    }
 
                     {enableColor2AsAverage &&
                         <div>
@@ -244,7 +217,6 @@ class CornerMenu extends Component {
 CornerMenu.propTypes = {
     colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
     children: PropTypes.node,
-    enableRandomAlikeColors: PropTypes.bool,
     enableColor2AsAverage: PropTypes.bool
 };
 

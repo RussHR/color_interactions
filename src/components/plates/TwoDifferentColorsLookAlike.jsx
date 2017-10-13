@@ -95,8 +95,12 @@ class TwoDifferentColorsLookAlike extends Component {
                 b: Math.round((color1.b * 0.25) + color2.b * 0.75)
             };
 
-            innerBlockLeftStyle = { backgroundColor: `rgb(${innerBlockLeftColor.r}, ${innerBlockLeftColor.g}, ${innerBlockLeftColor.b})` };
-            innerBlockRightStyle = { backgroundColor: `rgb(${innerBlockRightColor.r}, ${innerBlockRightColor.g}, ${innerBlockRightColor.b})` };
+            innerBlockLeftStyle = {
+                backgroundColor: `rgb(${innerBlockLeftColor.r}, ${innerBlockLeftColor.g}, ${innerBlockLeftColor.b})`
+            };
+            innerBlockRightStyle = {
+                backgroundColor: `rgb(${innerBlockRightColor.r}, ${innerBlockRightColor.g}, ${innerBlockRightColor.b})`
+            };
 
             colorLabels.push('base middle color');
         }
@@ -105,10 +109,7 @@ class TwoDifferentColorsLookAlike extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu
-                    colorLabels={colorLabels}
-                    enableRandomAlikeColors={true}
-                >
+                <CornerMenu colorLabels={colorLabels}>
                     <button onClick={this.toggleTouchingInnerBlocks}>touch inner blocks (k)</button>
                     <br/>
                     <label htmlFor="set-left-right-blocks">set inner block colors separately: </label>
