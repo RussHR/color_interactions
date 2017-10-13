@@ -1,10 +1,6 @@
 import { assign, forOwn } from 'lodash';
 import { generateRandomColor } from '../helpers/colorHelpers';
-import {
-    CHANGE_COLOR,
-    RANDOMIZE_COLORS,
-    RANDOMIZE_WITH_AVERAGE
-} from '../constants/actionTypes';
+import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../constants/actionTypes';
 
 export default function colors(state = getDefaultColors(), action = {}) {
     switch (action.type) {
@@ -12,8 +8,6 @@ export default function colors(state = getDefaultColors(), action = {}) {
             return assign({}, state, action.payload);
         case RANDOMIZE_COLORS:
             return newColorsWithLocks(state, action.payload);
-        case RANDOMIZE_WITH_AVERAGE:
-            return newColorsWithAverage(state, action.payload);
         default:
             return state;
     }
@@ -37,16 +31,5 @@ function newColorsWithLocks(prevState, { lockedColors }) {
             newColors[color] = prevState[color];
         }
     });
-    return newColors;
-}
-
-function newColorsWithAverage(prevState, payload) {
-    const newColors = newColorsWithLocks(prevState, payload);
-    newColors.color2 = {
-        r: Math.round((newColors.color0.r * 0.5) + newColors.color1.r * 0.5),
-        g: Math.round((newColors.color0.g * 0.5) + newColors.color1.g * 0.5),
-        b: Math.round((newColors.color0.b * 0.5) + newColors.color1.b * 0.5)
-    };
-
     return newColors;
 }

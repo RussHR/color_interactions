@@ -4,10 +4,7 @@ import { assign, pick, times } from 'lodash';
 import { ChromePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { CHANGE_COLOR,
-    RANDOMIZE_COLORS,
-    RANDOMIZE_WITH_AVERAGE
-} from '../../constants/actionTypes';
+import { CHANGE_COLOR, RANDOMIZE_COLORS } from '../../constants/actionTypes';
 
 import './corner_menu.scss';
 
@@ -27,8 +24,7 @@ class CornerMenu extends Component {
             isOpen: false,
             isHidden: false,
             activeColor: 'color0',
-            lockedColors,
-            randomAverage: false
+            lockedColors
         };
         this.toggleOpen = this.toggleOpen.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
@@ -59,11 +55,6 @@ class CornerMenu extends Component {
      * @returns {void}
      */
     randomizeColors() {
-        if (this.state.randomAverage) {
-            this.props.dispatch({ type: RANDOMIZE_WITH_AVERAGE, payload: { lockedColors: this.state.lockedColors } });
-            return;
-        }
-
         this.props.dispatch({ type: RANDOMIZE_COLORS, payload: { lockedColors: this.state.lockedColors } });
     }
 
@@ -138,14 +129,6 @@ class CornerMenu extends Component {
         });
     }
 
-    /**
-     * Toggles the state of whether to randomize two colors the third as an average
-     * @returns {void}
-     */
-    toggleRandomAverage() {
-        this.setState({ randomAverage: !this.state.randomAverage });
-    }
-
     render() {
         const menuClasses = classNames(
             'CornerMenu',
@@ -163,52 +146,36 @@ class CornerMenu extends Component {
             );
         }
 
-        const { colors, children, enableColor2AsAverage } = this.props;
+        const { colors, children } = this.props;
         const { activeColor } = this.state;
 
         return (
             <div className={menuClasses}>
-                <div>
-                    <button
-                        aria-label="Close"
-                        className="CornerMenu__close position-absolute top-0 right-0"
-                        onClick={this.toggleOpen}
-                    >
-                        X
-                    </button>
+                <button
+                    aria-label="Close"
+                    className="CornerMenu__close position-absolute top-0 right-0"
+                    onClick={this.toggleOpen}
+                >
+                    X
+                </button>
 
-                    {this.renderActiveColorRadios()}
+                {this.renderActiveColorRadios()}
 
-                    <ChromePicker
-                        disableAlpha={true}
-                        color={colors[activeColor]}
-                        onChange={({ rgb: { r, g, b } }) => this.changeColor({ [`${activeColor}`]: { r, g, b } })}
-                    />
+                <ChromePicker
+                    disableAlpha={true}
+                    color={colors[activeColor]}
+                    onChange={({ rgb: { r, g, b } }) => this.changeColor({ [`${activeColor}`]: { r, g, b } })}
+                />
 
-                    <br />
-                    <button onClick={() => this.randomizeColors()}>randomizeColors (j)</button>
-                    <br />
+                <br />
+                <button onClick={() => this.randomizeColors()}>randomizeColors (j)</button>
+                <br />
 
-                    {enableColor2AsAverage &&
-                        <div>
-                            <label htmlFor="random-with-average">enable a third random color as average</label>
-                            <input
-                                type="checkbox"
-                                name="color"
-                                id="random-with-average"
-                                checked={this.state.randomAverage}
-                                onChange={() => this.toggleRandomAverage()}
-                            />
-                            <br />
-                        </div>
-                    }
+                {this.renderLockedColorCheckboxes()}
 
-                    {this.renderLockedColorCheckboxes()}
+                {children}
 
-                    {children}
-
-                    <a href="#">Home</a>
-                </div>
+                <a href="#">Home</a>
             </div>
         );
     }
@@ -216,8 +183,7 @@ class CornerMenu extends Component {
 
 CornerMenu.propTypes = {
     colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
-    children: PropTypes.node,
-    enableColor2AsAverage: PropTypes.bool
+    children: PropTypes.node
 };
 
 CornerMenu = connect(mapStateToProps)(CornerMenu);
