@@ -16,11 +16,13 @@ class ReversedGrounds extends Component {
         super(props);
 
         this.state = {
-            innerShapesTouching: false
+            innerShapesTouching: false,
+            setInnerColor: false
         };
 
         this.toggleInnerShapesTouching = this.toggleInnerShapesTouching.bind(this);
         this.toggleInnerShapesTouchingViaKeyboard = this.toggleInnerShapesTouchingViaKeyboard.bind(this);
+        this.toggleSetInnerColor = this.toggleSetInnerColor.bind(this);
     }
 
     componentDidMount() {
@@ -50,15 +52,20 @@ class ReversedGrounds extends Component {
         }
     }
 
+    /**
+     * Toggles the state of whether the middle color is set to color2.
+     * @returns {void}
+     */
+    toggleSetInnerColor() {
+        this.setState({ setInnerColor: !this.state.setInnerColor });
+    }
+
     render() {
         const { colors } = this.props;
         const { color0, color1 } = colors;
         const leftPlateColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const rightPlateColor = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
-        const averageR = Math.floor((color0.r + color1.r) / 2);
-        const averageG = Math.floor((color0.g + color1.g) / 2);
-        const averageB = Math.floor((color0.b + color1.b) / 2);
-        const innerPlateColor = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
+
 
         const leftInnerShapeClass = classNames(
             'ReversedGrounds__innerBlock',
@@ -74,11 +81,34 @@ class ReversedGrounds extends Component {
             { 'ReversedGrounds__innerBlock--touching': this.state.innerShapesTouching }
         );
 
+        const colorLabels = ['left background color', 'right background color'];
+        let innerShapeStyle;
+
+        if (this.state.setInnerColor) {
+            colorLabels.push('inner color');
+
+            const { color2 } = this.props.colors;
+            innerShapeStyle = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+        } else {
+            const averageR = Math.floor((color0.r + color1.r) / 2);
+            const averageG = Math.floor((color0.g + color1.g) / 2);
+            const averageB = Math.floor((color0.b + color1.b) / 2);
+            innerShapeStyle = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
+        }
+
         return (
             <div className="full-screen display-flex overflow-hidden">
-                <CornerMenu colorLabels={['left background color', 'right background color']}>
+                <CornerMenu colorLabels={colorLabels}>
                     <button onClick={this.toggleInnerShapesTouching}>touch inner blocks (k)</button>
                     <br/>
+                    <label htmlFor="custom-inner-color">custom inner color: </label>
+                    <input
+                        id="custom-inner-color"
+                        type="checkbox"
+                        onChange={this.toggleSetInnerColor}
+                        checked={this.state.setInnerColor}
+                    />
+                    <br />
                 </CornerMenu>
                 <div
                     className="justify-content-center align-items-center display-flex half-width full-height"
@@ -86,7 +116,7 @@ class ReversedGrounds extends Component {
                 >
                     <div
                         className={leftInnerShapeClass}
-                        style={innerPlateColor}
+                        style={innerShapeStyle}
                     />
                 </div>
                 <div
@@ -95,7 +125,7 @@ class ReversedGrounds extends Component {
                 >
                     <div
                         className={rightInnerShapeClass}
-                        style={innerPlateColor}
+                        style={innerShapeStyle}
                     />
                 </div>
             </div>
@@ -104,7 +134,7 @@ class ReversedGrounds extends Component {
 }
 
 ReversedGrounds.propTypes = {
-    colors: validatePropColors(2)
+    colors: validatePropColors(3)
 };
 
 ReversedGrounds = connect(mapStateToProps)(ReversedGrounds);
