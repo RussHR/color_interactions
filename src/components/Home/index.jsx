@@ -72,7 +72,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const averageG = Math.floor((color0.g + color1.g) / 2);
     const averageB = Math.floor((color0.b + color1.b) / 2);
     const averageRGB = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
-    const colorLabels = ['Color 1', 'Color 2', 'Color 3', 'Color 4'];
+    const colorLabels = ['Color 1', 'Color 2', 'Color 3'];
 
     const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
@@ -272,7 +272,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                             <div className="position-absolute IllusionOfTransparence__leftBlock" style={color0Style}>
                                 <div
                                     className="position-absolute IllusionOfTransparence__leftInnerBlock"
-                                    style={color2Style}
+                                    style={averageRGB}
                                 />
                             </div>
                         </div>
