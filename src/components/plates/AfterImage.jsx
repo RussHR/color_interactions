@@ -101,7 +101,7 @@ class AfterImage extends Component {
 
         return (
             <div className="full-screen display-flex justify-content-center align-items-center AfterImage">
-                <CornerMenu colorLabels={['left background color', 'right background color']}>
+                <CornerMenu colorLabels={['circle color']}>
                     <button onClick={this.toggleCircleFilled}>toggle circle fill (k)</button>
                     <br/>
                     <button onClick={this.toggleMultipleCircles}>toggle multiple circles (l)</button>
