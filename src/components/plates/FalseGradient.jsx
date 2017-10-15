@@ -13,7 +13,7 @@ class FalseGradient extends Component {
         super(props);
 
         this.state = {
-            numBars: 5
+            numBars: 40
         };
         this.changeNumBars = this.changeNumBars.bind(this);
     }

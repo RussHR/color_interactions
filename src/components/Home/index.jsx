@@ -12,7 +12,7 @@ function mapStateToProps(state) {
 }
 
 let Home = ({ colors: { color0, color1, color2 } }) => {
-    const falseGradientBars = times(5, (i) => {
+    const falseGradientBars = times(18, (i) => {
         let style;
         if (i % 2 == 0) {
             style = {
