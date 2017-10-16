@@ -12,6 +12,7 @@ import OpticalMixture from './OpticalMixture';
 import BezoldEffect from './BezoldEffect';
 import ColorIntervals from './ColorIntervals';
 import IntersectingColors from './IntersectingColors';
+import HarmonyBars from './HarmonyBars';
 
 export {
     AColorHasManyFaces,
@@ -27,5 +28,6 @@ export {
     OpticalMixture,
     BezoldEffect,
     ColorIntervals,
-    IntersectingColors
+    IntersectingColors,
+    HarmonyBars
 };
