@@ -81,6 +81,7 @@ class HarmonyBars extends Component {
                     <div className="position-absolute full-height width-2" style={merge({}, block0.width2_2, color1Style)} />
                     <div className="position-absolute full-height width-1" style={merge({}, block0.width1_6, color2Style)} />
                 </div>
+
                 {/* top right */}
                 <div className="HarmonyBars__barsGroup position-relative" style={color1Style}>
                     <div className="position-absolute full-height width-5" style={merge({}, block1.width5_0, color0Style)} />
@@ -88,6 +89,7 @@ class HarmonyBars extends Component {
                     <div className="position-absolute full-height width-1" style={merge({}, block1.width1_1, color2Style)} />
                     <div className="position-absolute full-height width-4" style={merge({}, block1.width4_0, color3Style)} />
                 </div>
+
                 {/* bottom left */}
                 <div className="HarmonyBars__barsGroup position-relative" style={color2Style}>
                     <div className="position-absolute full-height width-2" style={merge({}, block2.width2_0, color1Style)} />
@@ -106,8 +108,24 @@ class HarmonyBars extends Component {
                     <div className="position-absolute full-height width-3" style={merge({}, block2.width3_2, color3Style)} />
                     <div className="position-absolute full-height width-4" style={merge({}, block2.width4_0, color1Style)} />
                 </div>
+
                 {/* bottom right */}
                 <div className="HarmonyBars__barsGroup position-relative" style={color3Style}>
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_0, color0Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_1, color1Style)} />
+                    <div className="position-absolute full-height width-2" style={merge({}, block3.width2_0, color0Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_2, color2Style)} />
+                    <div className="position-absolute full-height width-3" style={merge({}, block3.width3_0, color0Style)} />
+                    <div className="position-absolute full-height width-2" style={merge({}, block3.width2_1, color0Style)} />
+                    <div className="position-absolute full-height width-3" style={merge({}, block3.width3_1, color0Style)} />
+                    <div className="position-absolute full-height width-2" style={merge({}, block3.width2_2, color0Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_3, color1Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_4, color0Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_5, color1Style)} />
+                    <div className="position-absolute full-height width-2" style={merge({}, block3.width2_3, color0Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block3.width1_6, color1Style)} />
+                    <div className="position-absolute full-height width-2" style={merge({}, block3.width2_4, color1Style)} />
+                    <div className="position-absolute full-height width-2" style={merge({}, block3.width2_5, color0Style)} />
                 </div>
             </div>
         );
@@ -160,7 +178,24 @@ function generateNewLeftValues() {
             width2_2: { left: `${Math.random() * 98}%` },
             width1_7: { left: `${Math.random() * 99}%` },
             width3_2: { left: `${Math.random() * 97}%` },
-            width4_0: { left: `${Math.random() * 96}%` },
+            width4_0: { left: `${Math.random() * 96}%` }
+        },
+        block3: {
+            width1_0: { left: `${Math.random() * 99}%` },
+            width1_1: { left: `${Math.random() * 99}%` },
+            width2_0: { left: `${Math.random() * 98}%` },
+            width1_2: { left: `${Math.random() * 99}%` },
+            width3_0: { left: `${Math.random() * 97}%` },
+            width2_1: { left: `${Math.random() * 98}%` },
+            width3_1: { left: `${Math.random() * 97}%` },
+            width2_2: { left: `${Math.random() * 98}%` },
+            width1_3: { left: `${Math.random() * 99}%` },
+            width1_4: { left: `${Math.random() * 99}%` },
+            width1_5: { left: `${Math.random() * 99}%` },
+            width2_3: { left: `${Math.random() * 98}%` },
+            width1_6: { left: `${Math.random() * 99}%` },
+            width2_4: { left: `${Math.random() * 98}%` },
+            width2_5: { left: `${Math.random() * 98}%` }
         }
     };
 }
