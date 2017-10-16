@@ -295,9 +295,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         <div style={positionToColor(color0, 0)} />
 
                         <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
+                        <div style={positionToColor(color0, 1)} />
+                        <div style={positionToColor(color0, 1)} />
+                        <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 0)} />
@@ -305,9 +305,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         <div style={positionToColor(color0, 0)} />
 
                         <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 1)} />
+                        <div style={positionToColor(color0, 1)} />
+                        <div style={positionToColor(color0, 2)} />
                         <div style={positionToColor(color0, 2)} />
                         <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 1)} />
@@ -315,9 +315,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         <div style={positionToColor(color0, 0)} />
 
                         <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 2)} />
+                        <div style={positionToColor(color0, 3)} />
                         <div style={positionToColor(color0, 3)} />
                         <div style={positionToColor(color0, 2)} />
                         <div style={positionToColor(color0, 1)} />
@@ -339,9 +339,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 2)} />
                         <div style={positionToColor(color0, 3)} />
+                        <div style={positionToColor(color0, 3)} />
                         <div style={positionToColor(color0, 2)} />
                         <div style={positionToColor(color0, 1)} />
-                        <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 0)} />
 
                         <div style={positionToColor(color0, 0)} />
@@ -349,9 +349,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 2)} />
+                        <div style={positionToColor(color0, 2)} />
                         <div style={positionToColor(color0, 1)} />
-                        <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
+                        <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 0)} />
 
                         <div style={positionToColor(color0, 0)} />
@@ -359,9 +359,9 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                         <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 0)} />
                         <div style={positionToColor(color0, 1)} />
-                        <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
-                        <div style={positionToColor(color0, 0)} />
+                        <div style={positionToColor(color0, 1)} />
+                        <div style={positionToColor(color0, 1)} />
+                        <div style={positionToColor(color0, 1)} />
                         <div style={positionToColor(color0, 0)} />
 
                         <div style={positionToColor(color0, 0)} />

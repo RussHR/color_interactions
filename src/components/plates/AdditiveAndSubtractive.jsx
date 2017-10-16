@@ -19,6 +19,7 @@ class AdditiveAndSubtractive extends Component {
         };
 
         this.toggleColorIsSubtractive = this.toggleColorIsSubtractive.bind(this);
+        this.toggleColorIsSubtractiveViaKeyboard = this.toggleColorIsSubtractiveViaKeyboard.bind(this);
     }
 
     componentDidMount() {
@@ -30,13 +31,21 @@ class AdditiveAndSubtractive extends Component {
     }
 
     /**
-     * Toggles the state of whether to show additive or subtractive color.
+     * Toggles the state of whether to show additive or subtractive color via keyboard.
      * @returns {void}
      */
-    toggleColorIsSubtractive({ keyCode }) {
+    toggleColorIsSubtractive() {
+        this.setState({ colorIsSubtractive: !this.state.colorIsSubtractive });
+    }
+
+    /**
+     * Toggles the state of whether to show additive or subtractive color via keyboard.
+     * @returns {void}
+     */
+    toggleColorIsSubtractiveViaKeyboard({ keyCode }) {
         // if key is 'k'
         if (keyCode === 75) {
-            this.setState({ colorIsSubtractive: !this.state.colorIsSubtractive });
+            this.toggleColorIsSubtractive();
         }
     }
 
@@ -52,8 +61,8 @@ class AdditiveAndSubtractive extends Component {
     render() {
         return (
             <div className="full-screen display-grid AdditiveAndSubtractive">
-                <CornerMenu colorLabels={['left background color', 'right background color']}>
-                    <button onClick={this.toggleCircleFilled}>toggle subtractive/additive color (k)</button>
+                <CornerMenu colorLabels={['base color']}>
+                    <button onClick={this.toggleColorIsSubtractive}>toggle subtractive/additive color (k)</button>
                     <br/>
                 </CornerMenu>
 
@@ -68,9 +77,9 @@ class AdditiveAndSubtractive extends Component {
                 <div style={this.positionAndStateToColor(0)} />
 
                 <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(0)} />
                 <div style={this.positionAndStateToColor(0)} />
@@ -78,9 +87,9 @@ class AdditiveAndSubtractive extends Component {
                 <div style={this.positionAndStateToColor(0)} />
 
                 <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
                 <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(2)} />
                 <div style={this.positionAndStateToColor(2)} />
                 <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(1)} />
@@ -88,9 +97,9 @@ class AdditiveAndSubtractive extends Component {
                 <div style={this.positionAndStateToColor(0)} />
 
                 <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
                 <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(3)} />
                 <div style={this.positionAndStateToColor(3)} />
                 <div style={this.positionAndStateToColor(2)} />
                 <div style={this.positionAndStateToColor(1)} />
@@ -112,9 +121,9 @@ class AdditiveAndSubtractive extends Component {
                 <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(2)} />
                 <div style={this.positionAndStateToColor(3)} />
+                <div style={this.positionAndStateToColor(3)} />
                 <div style={this.positionAndStateToColor(2)} />
                 <div style={this.positionAndStateToColor(1)} />
-                <div style={this.positionAndStateToColor(0)} />
                 <div style={this.positionAndStateToColor(0)} />
 
                 <div style={this.positionAndStateToColor(0)} />
@@ -122,9 +131,9 @@ class AdditiveAndSubtractive extends Component {
                 <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(2)} />
+                <div style={this.positionAndStateToColor(2)} />
                 <div style={this.positionAndStateToColor(1)} />
-                <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(0)} />
 
                 <div style={this.positionAndStateToColor(0)} />
@@ -132,9 +141,9 @@ class AdditiveAndSubtractive extends Component {
                 <div style={this.positionAndStateToColor(0)} />
                 <div style={this.positionAndStateToColor(0)} />
                 <div style={this.positionAndStateToColor(1)} />
-                <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
-                <div style={this.positionAndStateToColor(0)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
+                <div style={this.positionAndStateToColor(1)} />
                 <div style={this.positionAndStateToColor(0)} />
 
                 <div style={this.positionAndStateToColor(0)} />
