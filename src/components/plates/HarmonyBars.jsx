@@ -51,7 +51,7 @@ class HarmonyBars extends Component {
 
     render() {
         const { color0, color1, color2, color3 } = this.props.colors;
-        const { block0 } = this.state.leftValues;
+        const { block0, block1 } = this.state.leftValues;
         const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
         const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
         const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
@@ -82,7 +82,11 @@ class HarmonyBars extends Component {
                     <div className="position-absolute full-height width-1" style={merge({}, block0.width1_6, color2Style)} />
                 </div>
                 {/* top right */}
-                <div className="HarmonyBars__barsGroup" style={color1Style}>
+                <div className="HarmonyBars__barsGroup position-relative" style={color1Style}>
+                    <div className="position-absolute full-height width-5" style={merge({}, block1.width5_0, color0Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block1.width1_0, color2Style)} />
+                    <div className="position-absolute full-height width-1" style={merge({}, block1.width1_1, color2Style)} />
+                    <div className="position-absolute full-height width-4" style={merge({}, block1.width4_0, color3Style)} />
                 </div>
                 {/* bottom left */}
                 <div className="HarmonyBars__barsGroup" style={color2Style}>
@@ -118,7 +122,13 @@ function generateNewLeftValues() {
             width1_6: { left: `${Math.random() * 99}%` },
             width2_1: { left: `${Math.random() * 98}%` },
             width2_2: { left: `${Math.random() * 98}%` },
-            width1_7: { left: `${Math.random() * 99}%` },
+            width1_7: { left: `${Math.random() * 99}%` }
+        },
+        block1: {
+            width5_0: { left: `${Math.random() * 95}%` },
+            width1_0: { left: `${Math.random() * 99}%` },
+            width1_1: { left: `${Math.random() * 99}%` },
+            width4_0: { left: `${Math.random() * 96}%` }
         }
     };
 }
