@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { assign, pick, times } from 'lodash';
+import { merge, pick, times } from 'lodash';
 import HomeLink from '../HomeLink';
 import CornerMenu from '../CornerMenu';
 import { getBetweenColor, getRgbOffset } from '../../helpers/colorHelpers';
@@ -11,7 +11,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-let Home = ({ colors: { color0, color1, color2 } }) => {
+let Home = ({ colors: { color0, color1, color2, color3 } }) => {
     const falseGradientBars = times(18, (i) => {
         let style;
         if (i % 2 == 0) {
@@ -77,6 +77,7 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
     const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
     const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
+    const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
     const opticalMixtureBackground = {
         background: `repeating-linear-gradient(90deg,
@@ -105,8 +106,8 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                 linear-gradient(155deg, rgb(${color0.r}, ${color0.g}, ${color0.b}) 10px, transparent 10px)`
     };
 
-    const leftBezoldStyle = assign({ backgroundColor: 'white' }, commonBezoldStyle);
-    const rightBezoldStyle = assign({ backgroundColor: 'black' }, commonBezoldStyle);
+    const leftBezoldStyle = merge({ backgroundColor: 'white' }, commonBezoldStyle);
+    const rightBezoldStyle = merge({ backgroundColor: 'black' }, commonBezoldStyle);
 
     // START for COLOR INTERVALS
     // colors for top right
@@ -148,6 +149,15 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
             ${color1.b + actualBottomLeftOffsetB})`
     };
     // END OF COLOR INTERVALS
+
+    // START FOR HARMONY - BARS
+    const leftValues = {
+        width5: { left: `${Math.random() * 95}%` },
+        width1_0: { left: `${Math.random() * 99}%` },
+        width1_1: { left: `${Math.random() * 99}%` },
+        width4: { left: `${Math.random() * 96}%` }
+    };
+    // END FOR HARMONY - BARS
 
     return (
         <div className="full-screen Home">
@@ -522,20 +532,24 @@ let Home = ({ colors: { color0, color1, color2 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#harmony-bars" title="harmony - bars">
-                    <div className="homeLink__thumbnail position-relative overflow-hidden">
+                    <div className="homeLink__thumbnail position-relative" style={color1Style}>
                         <div
-                            className="IntersectingColors__smallPlate full-height position-absolute top-0 left-0"
-                            style={color0Style}
+                            className="position-absolute full-height width-5"
+                            style={merge({}, leftValues.width5, color0Style)}
                         />
                         <div
-                            className={`IntersectingColors__smallPlate IntersectingColors__smallPlate--inner full-height
-                                position-absolute top-0`}
-                            style={averageRGB}
+                            className="position-absolute full-height width-1"
+                            style={merge({}, leftValues.width1_0, color2Style)}
                         />
                         <div
-                            className="IntersectingColors__smallPlate--right full-height full-width position-absolute"
-                            style={color1Style}
+                            className="position-absolute full-height width-1"
+                            style={merge({}, leftValues.width1_1, color2Style)}
                         />
+                        <div
+                            className="position-absolute full-height width-4"
+                            style={merge({}, leftValues.width4, color3Style)}
+                        />
+
                     </div>
                 </HomeLink>
             </div>
