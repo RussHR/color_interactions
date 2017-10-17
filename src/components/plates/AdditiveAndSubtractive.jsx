@@ -23,11 +23,11 @@ class AdditiveAndSubtractive extends Component {
     }
 
     componentDidMount() {
-        window.document.addEventListener('keydown', this.toggleColorIsSubtractive);
+        window.document.addEventListener('keydown', this.toggleColorIsSubtractiveViaKeyboard);
     }
 
     componentWillUnmount() {
-        window.document.removeEventListener('keydown', this.toggleColorIsSubtractive);
+        window.document.removeEventListener('keydown', this.toggleColorIsSubtractiveViaKeyboard);
     }
 
     /**
