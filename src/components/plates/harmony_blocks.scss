@@ -1,0 +1,27 @@
+.HarmonyBlocks {
+    padding: 32px;
+    grid-template-columns: 16.66% 16.67% 16.67% 16.67% 16.67% 16.66%;
+}
+.HarmonyBlocks__block {
+    height: calc(100% - 32px);
+    width: calc(100% - 32px);
+    margin: 16px;
+}
+.HarmonyBlocks__innerBlock--first {
+    height: 80%;
+    width: 80%;
+    top: 16%;
+    left: 10%;
+}
+.HarmonyBlocks__innerBlock--second {
+    height: 60%;
+    width: 80%;
+    top: 5%;
+    left: 10%;
+}
+.HarmonyBlocks__innerBlock--third {
+    height: 80%;
+    width: 80%;
+    top: 14%;
+    left: 10%;
+}

@@ -13,6 +13,7 @@ import BezoldEffect from './BezoldEffect';
 import ColorIntervals from './ColorIntervals';
 import IntersectingColors from './IntersectingColors';
 import HarmonyBars from './HarmonyBars';
+import HarmonyBlocks from './HarmonyBlocks';
 
 export {
     AColorHasManyFaces,
@@ -29,5 +30,6 @@ export {
     BezoldEffect,
     ColorIntervals,
     IntersectingColors,
-    HarmonyBars
+    HarmonyBars,
+    HarmonyBlocks
 };

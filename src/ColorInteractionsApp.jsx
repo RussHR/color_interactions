@@ -16,7 +16,8 @@ import {
     BezoldEffect,
     ColorIntervals,
     IntersectingColors,
-    HarmonyBars
+    HarmonyBars,
+    HarmonyBlocks
 } from './components/plates';
 
 import 'normalize.css';
@@ -43,6 +44,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/color-intervals" component={ColorIntervals} />
                     <Route path="/intersecting-colors" component={IntersectingColors} />
                     <Route path="/harmony-bars" component={HarmonyBars} />
+                    <Route path="/harmony-blocks" component={HarmonyBlocks} />
 
                     <Route exact path="/" component={Home} />
                 </div>

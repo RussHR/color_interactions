@@ -552,6 +552,28 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
 
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#harmony-blocks" title="harmony - blocks">
+                    <div className="homeLink__thumbnail position-relative" style={color1Style}>
+                        <div
+                            className="position-absolute full-height width-5"
+                            style={merge({}, leftValues.width5, color0Style)}
+                        />
+                        <div
+                            className="position-absolute full-height width-1"
+                            style={merge({}, leftValues.width1_0, color2Style)}
+                        />
+                        <div
+                            className="position-absolute full-height width-1"
+                            style={merge({}, leftValues.width1_1, color2Style)}
+                        />
+                        <div
+                            className="position-absolute full-height width-4"
+                            style={merge({}, leftValues.width4, color3Style)}
+                        />
+
+                    </div>
+                </HomeLink>
             </div>
         </div>
     );
