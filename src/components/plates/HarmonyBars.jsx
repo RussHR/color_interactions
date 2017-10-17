@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import { merge, pick } from 'lodash';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
@@ -15,11 +16,13 @@ class HarmonyBars extends Component {
         super(props);
 
         this.state = {
-            leftValues: generateNewLeftValues()
+            leftValues: generateNewLeftValues(),
+            alternateLayout: false
         };
 
         this.randomizeBarPositions = this.randomizeBarPositions.bind(this);
         this.randomizeBarPositionsViaKeyboard = this.randomizeBarPositionsViaKeyboard.bind(this);
+        this.alternateLayout = this.alternateLayout.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +52,14 @@ class HarmonyBars extends Component {
         }
     }
 
+    /**
+     * Alternates the layout.
+     * @returns {void}
+     */
+    alternateLayout() {
+        this.setState({ alternateLayout: !this.state.alternateLayout });
+    }
+
     render() {
         const { color0, color1, color2, color3 } = this.props.colors;
         const { block0, block1, block2, block3 } = this.state.leftValues;
@@ -57,11 +68,16 @@ class HarmonyBars extends Component {
         const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
         const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
+        const harmonyBarsClassName = classNames('full-screen', 'display-grid',{
+            'HarmonyBars': !this.state.alternateLayout
+        });
 
         return (
-            <div className="full-screen HarmonyBars display-grid">
+            <div className={harmonyBarsClassName}>
                 <CornerMenu colorLabels={['color 1', 'color 2', 'color 3', 'color 4']}>
                     <button onClick={this.randomizeBarPositions}>randomize bar positions (k)</button>
+                    <br />
+                    <button onClick={this.alternateLayout}>alternate layout</button>
                     <br />
                 </CornerMenu>
 
