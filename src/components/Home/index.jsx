@@ -565,6 +565,19 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
                         </div>
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#harmony-circles" title="harmony - circles">
+                    <div className="homeLink__thumbnail" style={color0Style}>
+                        <div className="HarmonyBlocks__innerBlock--first position-relative" style={color1Style}>
+                            <div className="HarmonyBlocks__innerBlock--second position-relative" style={color2Style}>
+                                <div
+                                    className="HarmonyBlocks__innerBlock--third position-relative"
+                                    style={color3Style}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </HomeLink>
             </div>
         </div>
     );

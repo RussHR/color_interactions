@@ -16,7 +16,7 @@ export default function colors(state = getDefaultColors(), action = {}) {
 function getDefaultColors() {
     const defaultColors = {};
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
         defaultColors[`color${i}`] = generateRandomColor();
     }
 

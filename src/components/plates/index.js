@@ -14,6 +14,7 @@ import ColorIntervals from './ColorIntervals';
 import IntersectingColors from './IntersectingColors';
 import HarmonyBars from './HarmonyBars';
 import HarmonyBlocks from './HarmonyBlocks';
+import HarmonyCircles from './HarmonyCircles';
 
 export {
     AColorHasManyFaces,
@@ -31,5 +32,6 @@ export {
     ColorIntervals,
     IntersectingColors,
     HarmonyBars,
-    HarmonyBlocks
+    HarmonyBlocks,
+    HarmonyCircles
 };
