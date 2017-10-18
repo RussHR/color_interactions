@@ -11,7 +11,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-let Home = ({ colors: { color0, color1, color2, color3 } }) => {
+let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
     const falseGradientBars = times(18, (i) => {
         let style;
         if (i % 2 == 0) {
@@ -78,6 +78,7 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
     const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
     const color2Style = { backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
     const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
+    const color4Style = { backgroundColor: `rgb(${color4.r}, ${color4.g}, ${color4.b})` };
 
     const opticalMixtureBackground = {
         background: `repeating-linear-gradient(90deg,
@@ -568,12 +569,19 @@ let Home = ({ colors: { color0, color1, color2, color3 } }) => {
 
                 <HomeLink href="#harmony-circles" title="harmony - circles">
                     <div className="homeLink__thumbnail" style={color0Style}>
-                        <div className="HarmonyBlocks__innerBlock--first position-relative" style={color1Style}>
-                            <div className="HarmonyBlocks__innerBlock--second position-relative" style={color2Style}>
-                                <div
-                                    className="HarmonyBlocks__innerBlock--third position-relative"
-                                    style={color3Style}
-                                />
+                        <div className="full-width full-height circle position-relative" style={color1Style}>
+                            <div className="HarmonyCircles__secondaryCircle circle absolute-center" style={color2Style}>
+                                <div className="half-width half-height circle absolute-center" style={color3Style}>
+                                    <div
+                                        className="HarmonyCircles__fourthCircle circle absolute-center"
+                                        style={color2Style}
+                                    >
+                                        <div
+                                            className="HarmonyCircles__innermostCircle circle absolute-center"
+                                            style={color4Style}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
