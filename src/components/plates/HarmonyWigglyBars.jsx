@@ -24,6 +24,10 @@ class HarmonyWigglyBars extends Component {
         this.animate();
     }
 
+    componentWillUnmount() {
+        window.cancelAnimationFrame(this.animationRequestId);
+    }
+
     animate(timestamp = 0) {
         this.wigglyBars.forEach((wigglyBar, i) => {
             if (wigglyBar) {
@@ -33,7 +37,7 @@ class HarmonyWigglyBars extends Component {
             }
         });
 
-        requestAnimationFrame(this.animate);
+        this.animationRequestId = window.requestAnimationFrame(this.animate);
     }
 
     render() {
@@ -44,7 +48,7 @@ class HarmonyWigglyBars extends Component {
         const color3Style = { backgroundColor: `rgb(${color3.r}, ${color3.g}, ${color3.b})` };
 
         return (
-            <div className="full-screen">
+            <div className="full-screen overflow-hidden">
                 <CornerMenu colorLabels={['color 1', 'color 2', 'color 3', 'color 4']} />
 
                 <div className="HarmonyWigglyBars__bgBar full-height display-inline-block" style={color0Style}>
