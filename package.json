@@ -40,6 +40,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
+    "noisejs": "^2.1.0",
     "normalize.css": "^4.2.0",
     "prop-types": "^15.5.10",
     "react-color": "^2.13.1",
