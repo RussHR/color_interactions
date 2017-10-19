@@ -27,7 +27,9 @@ class HarmonyWigglyBars extends Component {
     animate(timestamp = 0) {
         this.wigglyBars.forEach((wigglyBar, i) => {
             if (wigglyBar) {
-                wigglyBar.style.transform = `rotate(${this.noise.simplex2(i, timestamp / 1000) * 10}deg)`;
+                wigglyBar.style.transform = `translate3d(${this.noise.simplex2(i, timestamp / 1000) * 5}%, 
+                    ${this.noise.simplex2(timestamp / 1000, i) * 10}%, 0)
+                    rotate(${this.noise.simplex2(i, timestamp / 1000) * 5}deg)`;
             }
         });
 
@@ -46,95 +48,415 @@ class HarmonyWigglyBars extends Component {
                 <CornerMenu colorLabels={['color 1', 'color 2', 'color 3', 'color 4']} />
 
                 <div className="HarmonyWigglyBars__bgBar full-height display-inline-block" style={color0Style}>
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
                 </div>
 
                 <div className="HarmonyWigglyBars__bgBar full-height display-inline-block" style={color3Style}>
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
                 </div>
 
                 <div className="HarmonyWigglyBars__bgBar full-height display-inline-block" style={color1Style}>
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color2Style} ref={c => this.wigglyBars.push(c)} />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color2Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
                 </div>
 
                 <div className="HarmonyWigglyBars__bgBar full-height display-inline-block" style={color2Style}>
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color3Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color1Style} ref={c => this.wigglyBars.push(c)} />
-                    <div className="HarmonyWigglyBars__figureBar full-width" style={color0Style} ref={c => this.wigglyBars.push(c)} />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color3Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color1Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
+                    <div
+                        className="HarmonyWigglyBars__figureBar full-width"
+                        style={color0Style}
+                        ref={c => this.wigglyBars.push(c)}
+                    />
                 </div>
             </div>
         );
