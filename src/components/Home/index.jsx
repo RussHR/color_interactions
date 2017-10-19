@@ -588,22 +588,27 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#harmony-wiggly-bars" title="harmony - wiggly bars">
-                    <div className="homeLink__thumbnail" style={color0Style}>
-                        <div className="full-width full-height circle position-relative" style={color1Style}>
-                            <div className="HarmonyCircles__secondaryCircle circle absolute-center" style={color2Style}>
-                                <div className="half-width half-height circle absolute-center" style={color3Style}>
-                                    <div
-                                        className="HarmonyCircles__fourthCircle circle absolute-center"
-                                        style={color2Style}
-                                    >
-                                        <div
-                                            className="HarmonyCircles__innermostCircle circle absolute-center"
-                                            style={color4Style}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="homeLink__thumbnail overflow-hidden" style={color0Style}>
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color1Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color3Style)} />
                     </div>
                 </HomeLink>
             </div>
@@ -621,4 +626,12 @@ function positionToColor({ r, g, b }, numLayers) {
     const newG = Math.min(255, g + whiteLevel * 30);
     const newB = Math.min(255, b + whiteLevel * 30);
     return { backgroundColor: `rgb(${newR}, ${newG}, ${newB})` };
+}
+
+function wigglyBarStyle(color) {
+    return merge({}, color, {
+        transform: `translate3d(${Math.random() * 10 - 5}%,
+            ${Math.random() * 20 - 10}%, 0)
+            rotate(${Math.random() * 10 - 5}deg)`
+    });
 }
