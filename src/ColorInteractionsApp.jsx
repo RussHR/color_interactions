@@ -18,7 +18,8 @@ import {
     IntersectingColors,
     HarmonyBars,
     HarmonyBlocks,
-    HarmonyCircles
+    HarmonyCircles,
+    HarmonyWigglyBars
 } from './components/plates';
 
 import 'normalize.css';
@@ -47,6 +48,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/harmony-bars" component={HarmonyBars} />
                     <Route path="/harmony-blocks" component={HarmonyBlocks} />
                     <Route path="/harmony-circles" component={HarmonyCircles} />
+                    <Route path="/harmony-wiggly-bars" component={HarmonyWigglyBars} />
 
                     <Route exact path="/" component={Home} />
                 </div>

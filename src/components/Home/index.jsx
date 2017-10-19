@@ -586,6 +586,26 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                         </div>
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#harmony-wiggly-bars" title="harmony - wiggly bars">
+                    <div className="homeLink__thumbnail" style={color0Style}>
+                        <div className="full-width full-height circle position-relative" style={color1Style}>
+                            <div className="HarmonyCircles__secondaryCircle circle absolute-center" style={color2Style}>
+                                <div className="half-width half-height circle absolute-center" style={color3Style}>
+                                    <div
+                                        className="HarmonyCircles__fourthCircle circle absolute-center"
+                                        style={color2Style}
+                                    >
+                                        <div
+                                            className="HarmonyCircles__innermostCircle circle absolute-center"
+                                            style={color4Style}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </HomeLink>
             </div>
         </div>
     );
