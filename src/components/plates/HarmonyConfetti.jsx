@@ -18,9 +18,7 @@ class HarmonyConfetti extends Component {
         this.noise = new Noise(Math.random());
         this.animate = this.animate.bind(this);
         this.state = {};
-        this.state.smallBoxPositions = times(90, i => {
-            return { top: `${(Math.random() * 100).toFixed(1)}%`, left: `${(Math.random() * 100).toFixed(1)}%` };
-        });
+        this.state.smallBoxPositions = this.randomSmallBoxPositions();
 
         this.randomizeSmallBoxes = this.randomizeSmallBoxes.bind(this);
         this.randomizeSmallBoxesViaKeyboard = this.randomizeSmallBoxesViaKeyboard.bind(this);
@@ -49,7 +47,11 @@ class HarmonyConfetti extends Component {
     }
 
     randomizeSmallBoxes() {
-        const smallBoxPositions = times(90, i => {
+        this.setState({ smallBoxPositions: this.randomSmallBoxPositions() });
+    }
+
+    randomSmallBoxPositions() {
+        return times(90, i => {
             const { color1, color2, color3, color4 } = this.props.colors;
             const colorRoll = Math.random();
             let backgroundColor;
@@ -63,15 +65,13 @@ class HarmonyConfetti extends Component {
             } else {
                 backgroundColor = `rgb(${color1.r}, ${color1.g}, ${color1.b})`;
             }
-            console.log(backgroundColor)
+
             return {
                 top: `${(Math.random() * 100).toFixed(1)}%`,
                 left: `${(Math.random() * 100).toFixed(1)}%`,
                 backgroundColor
             };
         });
-
-        this.setState({ smallBoxPositions });
     }
 
     randomizeSmallBoxesViaKeyboard({ keyCode }) {
