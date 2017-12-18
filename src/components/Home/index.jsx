@@ -611,6 +611,31 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                         <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color3Style)} />
                     </div>
                 </HomeLink>
+
+                <HomeLink href="#harmony-confetti" title="harmony - confetti">
+                    <div className="homeLink__thumbnail overflow-hidden" style={color0Style}>
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color1Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
+                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color3Style)} />
+                    </div>
+                </HomeLink>
             </div>
         </div>
     );

@@ -1,0 +1,49 @@
+.HarmonyConfetti_mainBar {
+    height: 25%;
+}
+.HarmonyConfetti_smallBar {
+    height: 80%;
+    width: 3%;
+
+    &--first {
+       top: 10%;
+       left: 20%;
+    }
+    &--second {
+        top: 10%;
+        left: 40%;
+    }
+    &--third {
+        top: 10%;
+        left: 60%;
+    }
+    &--fourth {
+        top: 10%;
+        left: 80%;
+    }
+}
+.HarmonyConfetti_largeBox {
+    height: 40%;
+    width: 14%;
+
+    &--first {
+       top: 37%;
+       left: 11%;
+    }
+    &--second {
+        top: 7%;
+        left: 29%;
+    }
+    &--third {
+        top: 40%;
+        left: 48%;
+    }
+    &--fourth {
+        top: 31%;
+        left: 78%;
+    }
+}
+.HarmonyConfetti_smallBox {
+    height: 15%;
+    width: 5%;
+}

@@ -16,6 +16,7 @@ import HarmonyBars from './HarmonyBars';
 import HarmonyBlocks from './HarmonyBlocks';
 import HarmonyCircles from './HarmonyCircles';
 import HarmonyWigglyBars from './HarmonyWigglyBars';
+import HarmonyConfetti from './HarmonyConfetti';
 
 export {
     AColorHasManyFaces,
@@ -35,5 +36,6 @@ export {
     HarmonyBars,
     HarmonyBlocks,
     HarmonyCircles,
-    HarmonyWigglyBars
+    HarmonyWigglyBars,
+    HarmonyConfetti
 };
