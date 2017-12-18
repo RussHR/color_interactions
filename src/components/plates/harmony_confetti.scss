@@ -1,5 +1,8 @@
 .HarmonyConfetti_mainBar {
-    height: 25%;
+    height: 21.25%;
+}
+.HarmonyConfetti_mainBar + .HarmonyConfetti_mainBar {
+    margin-top: 5%;
 }
 .HarmonyConfetti_smallBar {
     height: 80%;
