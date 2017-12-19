@@ -17,6 +17,7 @@ class HarmonyConfetti extends Component {
 
         this.noise = new Noise(Math.random());
         this.animate = this.animate.bind(this);
+        this.animatingElements = [];
         this.state = {};
         this.state.smallBoxProperties = this.randomSmallBoxProperties();
 
@@ -25,7 +26,12 @@ class HarmonyConfetti extends Component {
     }
 
     componentDidMount() {
-        // this.animate();
+        // get the individual box elements
+        const smallBars = Array.prototype.slice.call(window.document.getElementsByClassName('HarmonyConfetti_smallBar'));
+        const largeBoxes = Array.prototype.slice.call(window.document.getElementsByClassName('HarmonyConfetti_largeBox'));
+        const smallBoxes = Array.prototype.slice.call(window.document.getElementsByClassName('HarmonyConfetti_smallBox'));
+        this.animatingElements = this.animatingElements.concat(smallBars).concat(largeBoxes).concat(smallBoxes);
+        this.animate();
         window.document.addEventListener('keydown', this.randomizeSmallBoxesViaKeyboard);
     }
 
@@ -35,13 +41,13 @@ class HarmonyConfetti extends Component {
     }
 
     animate(timestamp = 0) {
-        // this.wigglyBars.forEach((wigglyBar, i) => {
-        //     if (wigglyBar) {
-        //         wigglyBar.style.transform = `translate3d(${this.noise.simplex2(i, timestamp / 1000) * 5}%, 
-        //             ${this.noise.simplex2(timestamp / 1000, i) * 10}%, 0)
-        //             rotate(${this.noise.simplex2(i, timestamp / 1000) * 5}deg)`;
-        //     }
-        // });
+        this.animatingElements.forEach((elem, i) => {
+            if (elem) {
+                elem.style.transform = `translate3d(${this.noise.simplex2(i, timestamp / 1000) * 5}%,
+                    ${this.noise.simplex2(timestamp / 1000, i) * 10}%, 0)
+                    rotate(${this.noise.simplex2(i, timestamp / 1000) * 5}deg)`;
+            }
+        });
 
         this.animationRequestId = window.requestAnimationFrame(this.animate);
     }
