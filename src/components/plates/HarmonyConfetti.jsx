@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { assign, pick, times } from 'lodash';
+import { pick, times } from 'lodash';
 import { Noise } from 'noisejs';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
@@ -27,9 +27,9 @@ class HarmonyConfetti extends Component {
 
     componentDidMount() {
         // get the individual box elements
-        const smallBars = Array.prototype.slice.call(window.document.getElementsByClassName('HarmonyConfetti_smallBar'));
-        const largeBoxes = Array.prototype.slice.call(window.document.getElementsByClassName('HarmonyConfetti_largeBox'));
-        const smallBoxes = Array.prototype.slice.call(window.document.getElementsByClassName('HarmonyConfetti_smallBox'));
+        const smallBars = [].slice.call(window.document.getElementsByClassName('HarmonyConfetti_smallBar'));
+        const largeBoxes = [].slice.call(window.document.getElementsByClassName('HarmonyConfetti_largeBox'));
+        const smallBoxes = [].slice.call(window.document.getElementsByClassName('HarmonyConfetti_smallBox'));
         this.animatingElements = this.animatingElements.concat(smallBars).concat(largeBoxes).concat(smallBoxes);
         this.animate();
         window.document.addEventListener('keydown', this.randomizeSmallBoxesViaKeyboard);
@@ -57,8 +57,7 @@ class HarmonyConfetti extends Component {
     }
 
     randomSmallBoxProperties() {
-        return times(90, i => {
-            const { color1, color2, color3, color4 } = this.props.colors;
+        return times(90, () => {
             const colorRoll = Math.random();
             let backgroundColor;
 
@@ -167,7 +166,7 @@ function HarmonyConfettiMainBar(props) {
                 key={i}
             />
         );
-    })
+    });
 
     return (
         <div className="HarmonyConfetti_mainBar full-width position-relative">

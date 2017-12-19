@@ -613,27 +613,39 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                 </HomeLink>
 
                 <HomeLink href="#harmony-confetti" title="harmony - confetti">
-                    <div className="homeLink__thumbnail overflow-hidden" style={color0Style}>
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color1Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color2Style)} />
-                        <div className="HarmonyWigglyBars__figureBar full-width" style={wigglyBarStyle(color3Style)} />
+                    <div className="homeLink__thumbnail overflow-hidden position-relative" style={color0Style}>
+                            <div
+                                className="HarmonyConfetti_smallBar HarmonyConfetti_smallBar--first position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_smallBar HarmonyConfetti_smallBar--second position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_smallBar HarmonyConfetti_smallBar--third position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_smallBar HarmonyConfetti_smallBar--fourth position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_largeBox HarmonyConfetti_largeBox--first position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_largeBox HarmonyConfetti_largeBox--second position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_largeBox HarmonyConfetti_largeBox--third position-absolute"
+                                style={color1Style}
+                            />
+                            <div
+                                className="HarmonyConfetti_largeBox HarmonyConfetti_largeBox--fourth position-absolute"
+                                style={color1Style}
+                            />
                     </div>
                 </HomeLink>
             </div>
