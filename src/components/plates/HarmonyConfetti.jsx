@@ -43,9 +43,9 @@ class HarmonyConfetti extends Component {
     animate(timestamp = 0) {
         this.animatingElements.forEach((elem, i) => {
             if (elem) {
-                elem.style.transform = `translate3d(${this.noise.simplex2(i, timestamp / 1000) * 5}%,
+                elem.style.transform = `translate3d(${this.noise.simplex2(i, timestamp / 5000) * 5}%,
                     ${this.noise.simplex2(timestamp / 1000, i) * 10}%, 0)
-                    rotate(${this.noise.simplex2(i, timestamp / 1000) * 5}deg)`;
+                    rotate3d(0, 0, 1, ${this.noise.simplex2(i, timestamp / 750) * 20 + 45}deg)`;
             }
         });
 
