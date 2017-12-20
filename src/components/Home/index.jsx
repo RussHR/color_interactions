@@ -160,9 +160,11 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
     };
     // END FOR HARMONY - BARS
 
+    const modalContents = 'modal contents!';
+
     return (
         <div className="full-screen Home">
-            <CornerMenu colorLabels={colorLabels} />
+            <CornerMenu colorLabels={colorLabels} modalContents={modalContents} />
             <h1>color interactions</h1>
 
             <div className="display-flex Home__homeLinks">

@@ -5,6 +5,7 @@ import { ChromePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { changeColorAction, randomColorsAction } from '../../actions/colorActions';
+import Modal from '../Modal';
 
 import './corner_menu.scss';
 
@@ -24,10 +25,12 @@ class CornerMenu extends Component {
             isOpen: false,
             isHidden: false,
             activeColor: 'color0',
+            showingModal: false,
             lockedColors
         };
         this.toggleOpen = this.toggleOpen.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     componentDidMount() {
@@ -90,6 +93,10 @@ class CornerMenu extends Component {
         this.setState({ lockedColors });
     }
 
+    toggleModal() {
+        this.setState({ showingModal: !this.state.showingModal });
+    }
+
     renderActiveColorRadios() {
         return this.props.colorLabels.map((label, i) => {
             return (
@@ -143,17 +150,22 @@ class CornerMenu extends Component {
             );
         }
 
-        const { colors, children } = this.props;
-        const { activeColor } = this.state;
+        const { colors, children, modalContents } = this.props;
+        const { activeColor, showingModal } = this.state;
 
         return (
             <div className={menuClasses}>
+                <Modal isShowing={showingModal} onClose={this.toggleModal} contents={modalContents} />
                 <button
                     aria-label="Close"
                     className="CornerMenu__close position-absolute top-0 right-0"
                     onClick={this.toggleOpen}
                 >
                     X
+                </button>
+
+                <button onClick={this.toggleModal}>
+                    what is this?
                 </button>
 
                 {this.renderActiveColorRadios()}
@@ -180,7 +192,8 @@ class CornerMenu extends Component {
 
 CornerMenu.propTypes = {
     colorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
-    children: PropTypes.node
+    children: PropTypes.node,
+    modalContents: PropTypes.node.isRequired
 };
 
 CornerMenu = connect(mapStateToProps)(CornerMenu);
