@@ -12,6 +12,13 @@ export default function Modal({ isShowing, onClose, contents }) {
         <div>
             <div className="Modal__backdrop" onClick={onClose} />
             <div className="Modal__contents">
+                <button
+                aria-label="Close"
+                className="Modal__closeButton position-absolute"
+                onClick={onClose}
+                >
+                    X
+                </button>
                 {contents}
             </div>
         </div>

@@ -1,3 +1,10 @@
+.Modal__closeButton {
+    padding: 16px;
+    top: -43px;
+    right: -36px;
+    background-color: black;
+    color: white;
+}
 .Modal__backdrop {
     position: fixed;
     height: 100vh;
@@ -10,6 +17,7 @@
 .Modal__contents {
     padding: 16px;
     position: fixed;
+    max-width: 90vw;;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
