@@ -17,10 +17,11 @@
 .Modal__contents {
     padding: 16px;
     position: fixed;
-    max-width: 90vw;;
+    width: 80vw;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
     background-color: white;
-    z-index: 1;
+    z-index: 3;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
