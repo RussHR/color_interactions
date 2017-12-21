@@ -46,6 +46,15 @@ const modalContents = (
     </div>
 );
 
+// START FOR HARMONY - BARS
+const leftValues = {
+    width5: { left: `${Math.random() * 95}%` },
+    width1_0: { left: `${Math.random() * 99}%` },
+    width1_1: { left: `${Math.random() * 99}%` },
+    width4: { left: `${Math.random() * 96}%` }
+};
+// END FOR HARMONY - BARS
+
 let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
     const falseGradientBars = times(18, (i) => {
         let style;
@@ -185,15 +194,6 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
             ${color1.b + actualBottomLeftOffsetB})`
     };
     // END OF COLOR INTERVALS
-
-    // START FOR HARMONY - BARS
-    const leftValues = {
-        width5: { left: `${Math.random() * 95}%` },
-        width1_0: { left: `${Math.random() * 99}%` },
-        width1_1: { left: `${Math.random() * 99}%` },
-        width4: { left: `${Math.random() * 96}%` }
-    };
-    // END FOR HARMONY - BARS
 
     return (
         <div className="full-screen Home">

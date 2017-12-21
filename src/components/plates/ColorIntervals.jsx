@@ -133,7 +133,7 @@ class ColorIntervals extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={['outer base color', 'inner base color']}>
+                <CornerMenu colorLabels={['top left outer color', 'top left inner color']}>
                     <button onClick={this.randomizeIntervals}>randomize intervals (k)</button>
                     <br/>
                 </CornerMenu>
