@@ -34,6 +34,15 @@ class ColorIntervals extends Component {
 
         this.randomizeIntervals = this.randomizeIntervals.bind(this);
         this.randomizeIntervalsViaKeyboard = this.randomizeIntervalsViaKeyboard.bind(this);
+
+        this.modalContents = (
+            <p>
+                Much like how different scales in music can be created by transposing all
+                of the notes by the same amount, colors can be shifted in parallel patterns.
+                In this case, going from the top left in a clockwise fashion, the same adjustments
+                via RGB values are be applied equally to both the inner and outer colors.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -133,7 +142,7 @@ class ColorIntervals extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={['top left outer color', 'top left inner color']}>
+                <CornerMenu colorLabels={['top left outer color', 'top left inner color']} modalContents={this.modalContents}>
                     <button onClick={this.randomizeIntervals}>randomize intervals (k)</button>
                     <br/>
                 </CornerMenu>

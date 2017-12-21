@@ -23,6 +23,15 @@ class IntersectingColors extends Component {
         this.toggleRightPlateShifted = this.toggleRightPlateShifted.bind(this);
         this.toggleRightPlateShiftedViaKeyboard = this.toggleRightPlateShiftedViaKeyboard.bind(this);
         this.toggleSetMiddleColor = this.toggleSetMiddleColor.bind(this);
+
+        this.modalContents = (
+            <p>
+                In this case, the middle bar is once again a middle mixture of the two outer colors.
+                Interestingly, as the middle bar grows larger, you can see a shroud of the
+                leftmost color in the right part of the middle bar, and you can see the rightmost
+                color in the left part of the middle bar.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -90,7 +99,7 @@ class IntersectingColors extends Component {
 
         return (
             <div className="full-screen overflow-hidden">
-                <CornerMenu colorLabels={colorLabels}>
+                <CornerMenu colorLabels={colorLabels} modalContents={this.modalContents}>
                     <button onClick={this.toggleRightPlateShifted}>shift right plate (k)</button>
                     <br/>
                     <label htmlFor="custom-middle-color">custom middle color: </label>

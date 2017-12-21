@@ -18,6 +18,16 @@ class HarmonyWigglyBars extends Component {
         this.noise = new Noise(Math.random());
         this.animate = this.animate.bind(this);
         this.wigglyBars = [];
+
+        this.modalContents = (
+            <p>
+                There are hardly any absolute rules for making a harmonious or pleasant image;
+                these are subjective values. That said, almost any combination of colors
+                can usually be arranged harmoniously by adjusting two factors: their frequency
+                and their amount. In these four columns, the same four colors are used in
+                different ways, but notice how some columns are more pleasant than others.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -49,7 +59,10 @@ class HarmonyWigglyBars extends Component {
 
         return (
             <div className="full-screen overflow-hidden">
-                <CornerMenu colorLabels={['color 1', 'color 2', 'color 3', 'color 4']} />
+                <CornerMenu
+                    colorLabels={['color 1', 'color 2', 'color 3', 'color 4']}
+                    modalContents={this.modalContents}
+                />
 
                 <div className="HarmonyWigglyBars__bgBar full-height display-inline-block" style={color0Style}>
                     <div

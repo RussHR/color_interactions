@@ -18,6 +18,18 @@ class OpticalMixture extends Component {
 
         this.setStripeWidth = this.setStripeWidth.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
+
+        this.modalContents = (
+            <p>
+                Much like looking at <a
+                href="https://www.google.com/culturalinstitute/beta/asset/a-sunday-on-la-grande-jatte/twGyqq52R-lYpA"
+                target="_blank">a Seurat painting</a> or even your very computer screen, colors can
+                blend optically once they are small enough without having to literally be
+                combined with each other. When the stripes are wide, it’s very easy to notice the
+                two different colors, but at their smallest, it’s hard not to see a field of a
+                mixture of the two colors.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -72,7 +84,7 @@ class OpticalMixture extends Component {
 
         return (
             <div className="full-screen" style={style}>
-                <CornerMenu colorLabels={['stripe color 1', 'stripe color 2']}>
+                <CornerMenu colorLabels={['stripe color 1', 'stripe color 2']} modalContents={this.modalContents}>
                     <label htmlFor="stripe-width">stripe width: </label>
                     <input
                         id="stripe-width"

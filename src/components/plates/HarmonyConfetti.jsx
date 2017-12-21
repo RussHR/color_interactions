@@ -23,6 +23,17 @@ class HarmonyConfetti extends Component {
 
         this.randomizeSmallBoxes = this.randomizeSmallBoxes.bind(this);
         this.randomizeSmallBoxesViaKeyboard = this.randomizeSmallBoxesViaKeyboard.bind(this);
+
+        this.modalContents = (
+            <p>
+                There are hardly any absolute rules for making a harmonious or pleasant image;
+                these are subjective values. That said, almost any combination of colors can
+                usually be arranged harmoniously by adjusting two factors: their frequency
+                and their amount. Here, we have roughly four „bars“ with similar compositions.
+                The same four colors are used in different amounts and frequencies, but
+                notice how some compositions are more pleasant than others.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -96,7 +107,10 @@ class HarmonyConfetti extends Component {
 
         return (
             <div className="full-screen overflow-hidden" style={mainBgStyle}>
-                <CornerMenu colorLabels={['background color', 'color 1', 'color 2', 'color 3', 'color 4']}>
+                <CornerMenu
+                    colorLabels={['background color', 'color 1', 'color 2', 'color 3', 'color 4']}
+                    modalContents={this.modalContents}
+                >
                     <button onClick={this.randomizeSmallBoxes}>randomize confetti (k)</button>
                     <br/>
                 </CornerMenu>

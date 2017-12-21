@@ -20,6 +20,16 @@ class AdditiveAndSubtractive extends Component {
 
         this.toggleColorIsSubtractive = this.toggleColorIsSubtractive.bind(this);
         this.toggleColorIsSubtractiveViaKeyboard = this.toggleColorIsSubtractiveViaKeyboard.bind(this);
+
+        this.modalContents = (
+            <p>
+                Just like Illusion of Transparence, this exercise doesn’t actually have any
+                elements that are overlapping each other. In the case of being additive,
+                each “sheet” is a mixture of the innermost color and white. By controlling how
+                much of each is in each block, an illusion of transparency is created, making
+                it look like translucent sheets are lying on top of each other.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -61,7 +71,7 @@ class AdditiveAndSubtractive extends Component {
     render() {
         return (
             <div className="full-screen display-grid AdditiveAndSubtractive">
-                <CornerMenu colorLabels={['base color']}>
+                <CornerMenu colorLabels={['base color']} modalContents={this.modalContents}>
                     <button onClick={this.toggleColorIsSubtractive}>toggle subtractive/additive color (k)</button>
                     <br/>
                 </CornerMenu>

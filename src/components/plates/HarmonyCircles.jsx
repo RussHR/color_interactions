@@ -10,6 +10,16 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
+const modalContents = (
+    <p>
+        There are hardly any absolute rules for making a harmonious or pleasant image;
+        these are subjective values. That said, almost any combination of colors can
+        usually be arranged harmoniously by adjusting two factors: their frequency and
+        their amount. In these four ellipses, the same four colors are used in different
+        amounts and frequencies, but notice how some compositions are more pleasant than others.
+    </p>
+);
+
 let HarmonyCircles = ({ colors }) => {
     const { color0, color1, color2, color3, color4, color5 } = colors;
     const mainBgStyle = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
@@ -33,7 +43,7 @@ let HarmonyCircles = ({ colors }) => {
             className="full-screen display-flex flex-direction-column align-items-center justify-content-space-evenly"
             style={mainBgStyle}
         >
-            <CornerMenu colorLabels={colorLabels} />
+            <CornerMenu colorLabels={colorLabels} modalContents={modalContents} />
             <div
                 className="HarmonyCircles__block display-flex align-items-center justify-content-space-evenly"
                 style={blockBgStyle}

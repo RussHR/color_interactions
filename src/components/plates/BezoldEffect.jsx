@@ -23,6 +23,20 @@ class BezoldEffect extends Component {
         this.toggleCustomMortarColors = this.toggleCustomMortarColors.bind(this);
         this.toggleBlocksTouching = this.toggleBlocksTouching.bind(this);
         this.toggleBlocksTouchingViaKeyboard = this.toggleBlocksTouchingViaKeyboard.bind(this);
+
+        this.modalContents = (
+            <p>
+                Wikipedia explains this pretty well: <a
+                href="https://en.wikipedia.org/wiki/Bezold_effect" target="_blank">
+                https://en.wikipedia.org/wiki/Bezold_effect</a>
+                <br />
+                Note that the color with white stripes looks lighter that the color with the black stripes, but they are in fact the same color.
+                <br />
+                CSS Pattern by Nicolas Gallagher and found here: <a
+                href="http://lea.verou.me/css3patterns/#steps"
+                target="_blank">http://lea.verou.me/css3patterns/#steps</a>
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -96,7 +110,7 @@ class BezoldEffect extends Component {
 
         return (
             <div className="full-screen display-flex justify-content-space-evenly align-items-center">
-                <CornerMenu colorLabels={colorLabels}>
+                <CornerMenu colorLabels={colorLabels} modalContents={this.modalContents}>
                     <label htmlFor="custom-mortar-colors">custom mortar colors: </label>
                     <input
                         id="custom-mortar-colors"

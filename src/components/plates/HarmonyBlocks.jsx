@@ -10,6 +10,16 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
+const modalContents = (
+    <p>
+        There are hardly any absolute rules for making a harmonious or pleasant image;
+        these are subjective values. That said, almost any combination of colors can
+        usually be arranged harmoniously by adjusting two factors: their frequency and
+        their amount. In these blocks, the same four colors are used in different ways,
+        but notice how some compositions are more pleasant than others.
+    </p>
+);
+
 let HarmonyBlocks = ({ colors }) => {
     const { color0, color1, color2, color3 } = colors;
     const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
@@ -20,7 +30,7 @@ let HarmonyBlocks = ({ colors }) => {
 
     return (
         <div className="full-screen HarmonyBlocks display-grid">
-            <CornerMenu colorLabels={['color 1', 'color 2', 'color 3', 'color 4']} />
+            <CornerMenu colorLabels={['color 1', 'color 2', 'color 3', 'color 4']} modalContents={modalContents} />
 
             <HarmonyBlock bg0={color0Style} bg1={color3Style} bg2={color2Style} bg3={color1Style} />
             <HarmonyBlock bg0={color0Style} bg1={color3Style} bg2={color1Style} bg3={color2Style} />

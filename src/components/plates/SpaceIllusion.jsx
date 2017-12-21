@@ -10,6 +10,17 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
+const modalContents = (
+    <p>
+        Just like Illusion of Transparence and Additive and Subtractive,
+        there actually aren't any overlapping sections in this exercise. The sections in
+        the middle where it looks like one bar is overlapping another are actually mixtures
+        of the two main colors, but in different ratios. The further away the mixture is
+        from the color of the bar lying horizontally, the more likely it’s going to look
+        like it’s lying on top.
+    </p>
+);
+
 let SpaceIllusion = ({ colors }) => {
     const { color0, color1 } = colors;
     const longBarColor = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
@@ -19,6 +30,7 @@ let SpaceIllusion = ({ colors }) => {
         <div className="full-screen">
             <CornerMenu
                 colorLabels={['long bar color', 'small bars color']}
+                modalContents={modalContents}
             />
             <div className="full-width SpaceIllusion__top display-flex justify-content-space-evenly">
                 <div className="SpaceIllusion__smallBarOuter" style={smallBarsColor} />
