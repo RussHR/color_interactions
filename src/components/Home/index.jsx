@@ -11,6 +11,41 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
+const modalContents = (
+    <div>
+        <p>
+            This site is a collection of interactive exercises that explore different phenomena of color.
+            The exercises are loosely based on ones present in <a
+            href="https://en.wikipedia.org/wiki/Josef_Albers" target="_blank">Josef Albers</a>’s renowned book, <a
+            href="https://yalebooks.yale.edu/book/9780300179354/interaction-color" target="_blank">
+            Interaction of Color.</a> This site exists as a non-profit, educational resource.
+        </p>
+        <p>
+            For the best experience, use an up-to-date desktop browser, such as <a
+            href="https://www.google.com/chrome/browser/" target="_blank">Chrome</a>.
+            The exercises are not guaranteed to work in other browsers, and they have not been optimized for mobile.
+        </p>
+        <p>
+            To see the project code, visit <a href="https://github.com/RussHR/color_interactions" target="_blank"
+            >https://github.com/RussHR/color_interactions</a>.
+            <br />
+            To find out more about the creator, visit <a href="http://russrinzler.com/" target="_blank"
+            >russrinzler.com</a>, or check him out at Mastodon: <a href="https://mastodon.social/@soot" target="_blank"
+            >mastodon.social/@soot</a>. And there's <a href="https://twitter.com/russ_rinzler" target="_blank"
+            >Twitter</a>, if you absolutely must.
+        </p>
+        <p>
+            Credits:
+            <br />
+            Color Picker: <a href="https://casesandberg.github.io/react-color/" target="_blank">
+            https://casesandberg.github.io/react-color/</a>
+            <br />
+            Bezold Effect CSS: <a href="http://lea.verou.me/css3patterns/#steps" target="_blank">
+            http://lea.verou.me/css3patterns/#steps</a>
+        </p>
+    </div>
+);
+
 let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
     const falseGradientBars = times(18, (i) => {
         let style;
@@ -159,41 +194,6 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
         width4: { left: `${Math.random() * 96}%` }
     };
     // END FOR HARMONY - BARS
-
-    const modalContents = (
-        <div>
-            <p>
-                This site is a collection of interactive exercises that explore different phenomena of color.
-                The exercises are loosely based on ones present in <a
-                href="https://en.wikipedia.org/wiki/Josef_Albers" target="_blank">Josef Albers</a>’s renowned book, <a
-                href="https://yalebooks.yale.edu/book/9780300179354/interaction-color" target="_blank">
-                Interaction of Color.</a> This site exists as a non-profit, educational resource.
-            </p>
-            <p>
-                For the best experience, use an up-to-date desktop browser, such as <a
-                href="https://www.google.com/chrome/browser/" target="_blank">Chrome</a>.
-                The exercises are not guaranteed to work in other browsers, and they have not been optimized for mobile.
-            </p>
-            <p>
-                To see the project code, visit <a href="https://github.com/RussHR/color_interactions" target="_blank"
-                >https://github.com/RussHR/color_interactions</a>.
-                <br />
-                To find out more about the creator, visit <a href="http://russrinzler.com/" target="_blank"
-                >russrinzler.com</a>, or check him out at Mastodon: <a href="https://mastodon.social/@soot" target="_blank"
-                >mastodon.social/@soot</a>. And there's <a href="https://twitter.com/russ_rinzler" target="_blank"
-                >Twitter</a>, if you absolutely must.
-            </p>
-            <p>
-                Credits:
-                <br />
-                Color Picker: <a href="https://casesandberg.github.io/react-color/" target="_blank">
-                https://casesandberg.github.io/react-color/</a>
-                <br />
-                Bezold Effect CSS: <a href="http://lea.verou.me/css3patterns/#steps" target="_blank">
-                http://lea.verou.me/css3patterns/#steps</a>
-            </p>
-        </div>
-    );
 
     return (
         <div className="full-screen Home">
