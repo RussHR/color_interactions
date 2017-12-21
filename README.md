@@ -47,6 +47,7 @@ Running `npm run build` will create a `dist/` directory with an `index.html`, `b
 * [normalize.css](https://necolas.github.io/normalize.css/) - makes browsers render elements more consistently
 * [Redux](https://redux.js.org/) - a predictable state container for JavaScript apps
 * [React Router](https://github.com/ReactTraining/react-router) - creates a client-side, hash-dependent router
+* [es6 boilerplate](https://github.com/RussHR/es6-boilerplate) - a personal boilerplate for es6 projects
 
 ## Random thoughts
 
