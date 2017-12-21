@@ -137,7 +137,6 @@ class CornerMenu extends Component {
         if (!this.state.isOpen) {
             const menuClasses = classNames(
                 'CornerMenu__cornerButton',
-                'position-absolute',
                 'top-0',
                 'right-0',
                 { 'hidden': this.state.isHidden }
@@ -150,7 +149,6 @@ class CornerMenu extends Component {
 
         const menuClasses = classNames(
             'CornerMenu',
-            'position-absolute',
             'top-0',
             'right-0',
             { 'hidden': this.state.isHidden }
