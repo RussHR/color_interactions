@@ -2,6 +2,8 @@
 
 This is the source code for a collection of interactive exercises that explore different phenomena of color. The exercises are loosely based on ones present in [Josef Albers](https://en.wikipedia.org/wiki/Josef_Albers)’s renowned book, [Interaction of Color](https://yalebooks.yale.edu/book/9780300179354/interaction-color). This site exists as a non-profit, educational resource.
 
+[russrinzler.com/color-interactions](http://russrinzler.com/color-interactions/#/)
+
 
 ## Getting Started
 
