@@ -134,6 +134,20 @@ class CornerMenu extends Component {
     }
 
     render() {
+        if (!this.state.isOpen) {
+            const menuClasses = classNames(
+                'CornerMenu__cornerButton',
+                'position-absolute',
+                'top-0',
+                'right-0',
+                { 'hidden': this.state.isHidden }
+            );
+
+            return (
+                <button className={menuClasses} onClick={this.toggleOpen}>menu</button>
+            );
+        }
+
         const menuClasses = classNames(
             'CornerMenu',
             'position-absolute',
@@ -141,14 +155,6 @@ class CornerMenu extends Component {
             'right-0',
             { 'hidden': this.state.isHidden }
         );
-
-        if (!this.state.isOpen) {
-            return (
-                <div className={menuClasses}>
-                    <button className="CornerMenu__cornerButton no-padding" onClick={this.toggleOpen}>menu</button>
-                </div>
-            );
-        }
 
         const { colors, children, modalContents } = this.props;
         const { activeColor, showingModal } = this.state;
@@ -161,10 +167,10 @@ class CornerMenu extends Component {
                     className="CornerMenu__close position-absolute top-0 right-0"
                     onClick={this.toggleOpen}
                 >
-                    X
+                    &times;
                 </button>
 
-                <button onClick={this.toggleModal}>
+                <button onClick={this.toggleModal} className="CornerMenu__button">
                     what is this?
                 </button>
 

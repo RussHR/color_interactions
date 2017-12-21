@@ -7,6 +7,19 @@
     background-color: rgba(255, 255, 255, 0.8);
 }
 .CornerMenu__cornerButton {
-    border-style: none;
+    padding: 16px;
+    border: 3px solid rgb(60, 60, 60);
     background: none;
+}
+.CornerMenu__close {
+    height: 48px;
+    width: 48px;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.CornerMenu__button {
+    padding: 16px;
+    border: 3px solid black;
 }

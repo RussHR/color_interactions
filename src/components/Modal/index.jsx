@@ -17,7 +17,7 @@ export default function Modal({ isShowing, onClose, contents }) {
                 className="Modal__closeButton position-absolute"
                 onClick={onClose}
                 >
-                    X
+                    &times;
                 </button>
                 {contents}
             </div>
