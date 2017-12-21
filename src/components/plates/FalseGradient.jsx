@@ -16,6 +16,16 @@ class FalseGradient extends Component {
             numBars: 40
         };
         this.changeNumBars = this.changeNumBars.bind(this);
+
+        this.modalContents = (
+                <p>
+                    Note that the odd numbered bars are the only ones with a “true” gradient.
+                    The bars in-between are of a solid color, but they sometimes appear to have a
+                    gradient due to the influence of the gradient on both sides. This is particularly
+                    evident when the gradient goes from black to white and the solid color is an
+                    in-between gray.
+                </p>
+        );
     }
 
     changeNumBars({ currentTarget: { value: numBars } }) {
@@ -44,7 +54,10 @@ class FalseGradient extends Component {
 
         return (
             <div className="full-screen display-flex">
-                <CornerMenu colorLabels={['gradient color 1', 'gradient color 2', 'solid color']}>
+                <CornerMenu
+                    colorLabels={['gradient color 1', 'gradient color 2', 'solid color']}
+                    modalContents={this.modalContents}
+                >
                     <label htmlFor="num-bars">number of bars: </label>
                     <input
                         id="num-bars"

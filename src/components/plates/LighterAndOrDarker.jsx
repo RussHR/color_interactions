@@ -21,6 +21,16 @@ class LighterAndOrDarker extends Component {
 
         this.toggleTouchingSquares = this.toggleTouchingSquares.bind(this);
         this.toggleTouchingSquaresViaKeyboard = this.toggleTouchingSquaresViaKeyboard.bind(this);
+        this.modalContents = (
+            <p>
+                Sometimes, it can be difficult to tell whether one color is higher or lower in value
+                (or, brightness) than another. In these cases, you can stare at a point where one color
+                overlaps another. When separating the two colors, if the exposed spot on the bottom
+                color momentarily seems darker than the rest of the shape, then the top color has a
+                lighter value. Likewise, if the newly exposed spot seems lighter, then the top color
+                is darker.
+            </p>
+        );
     }
 
     componentDidMount() {
@@ -65,7 +75,10 @@ class LighterAndOrDarker extends Component {
 
         return (
             <div className="full-screen position-relative" style={bgColor}>
-                <CornerMenu colorLabels={['left block color', 'right block color', 'background color']}>
+                <CornerMenu
+                    colorLabels={['left block color', 'right block color', 'background color']}
+                    modalContents={this.modalContents}
+                >
                     <button onClick={this.toggleTouchingSquares}>separate squares (k)</button>
                     <br/>
                 </CornerMenu>

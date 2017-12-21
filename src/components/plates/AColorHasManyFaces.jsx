@@ -21,6 +21,13 @@ class AColorHasManyFaces extends Component {
 
         this.toggleBlocksTouching = this.toggleBlocksTouching.bind(this);
         this.toggleInnerBlocksTouchingViaKeyboard = this.toggleInnerBlocksTouchingViaKeyboard.bind(this);
+
+        this.modalContents = (
+                <p>
+                    The same color will appear differently depending on the colors around it.
+                    In this case, the colors of the smaller, inner blocks are always the same.
+                </p>
+        );
     }
 
     componentDidMount() {
@@ -60,7 +67,10 @@ class AColorHasManyFaces extends Component {
 
         return (
             <div className="full-screen display-flex overflow-hidden">
-                <CornerMenu colorLabels={['left background color', 'right background color', 'inner color']}>
+                <CornerMenu
+                    colorLabels={['left background color', 'right background color', 'inner color']}
+                    modalContents={this.modalContents}
+                >
                     <button onClick={this.toggleBlocksTouching}>touch inner blocks (k)</button>
                     <br/>
                 </CornerMenu>

@@ -19,6 +19,15 @@ class IllusionOfTransparence extends Component {
         };
 
         this.toggleSetOverlappingColor = this.toggleSetOverlappingColor.bind(this);
+
+        this.modalContents = (
+            <p>
+                From a structural standpoint, there are technically no overlapping colors
+                in this exercise, or rather, the colors shown here are completely opaque.
+                Yet, it looks as if one “sheet” is overlapping the other. This phenomenon
+                can be created when the “overlap” region is a color in between the two others.
+            </p>
+        );
     }
 
     /**
@@ -54,7 +63,7 @@ class IllusionOfTransparence extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={colorLabels}>
+                <CornerMenu colorLabels={colorLabels} modalContents={this.modalContents}>
                     <label htmlFor="custom-overlapping-color">custom overlapping color: </label>
                     <input
                         id="custom-overlapping-color"

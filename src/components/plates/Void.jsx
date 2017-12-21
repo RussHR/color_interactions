@@ -16,6 +16,14 @@ class Void extends Component {
             numBars: 12
         };
         this.changeNumBars = this.changeNumBars.bind(this);
+
+        this.modalContents = (
+                <p>
+                    This exercise consists of gradients with the same colors going in the
+                    opposite direction. When two colors become more similar, their position
+                    in space relative to each other becomes more ambiguous.
+                </p>
+        );
     }
 
     changeNumBars({ currentTarget: { value: numBars } }) {
@@ -47,7 +55,7 @@ class Void extends Component {
 
         return (
             <div className="full-screen display-flex">
-                <CornerMenu colorLabels={['Color 1', 'Color 2']}>
+                <CornerMenu colorLabels={['Color 1', 'Color 2']} modalContents={this.modalContents}>
                     <label htmlFor="num-bars">number of bars: </label>
                     <input
                         id="num-bars"

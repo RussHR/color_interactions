@@ -22,6 +22,22 @@ class AfterImage extends Component {
         this.toggleCircleFilled = this.toggleCircleFilled.bind(this);
         this.toggleMultipleCircles = this.toggleMultipleCircles.bind(this);
         this.handleKeydown = this.handleKeydown.bind(this);
+
+        this.modalContents = (
+            <div>
+                <p>
+                    This demonstrates that how long we look at something can also
+                    affect how we perceive color. Recommended with a strong red,
+                    stare at the small circle in the middle of the large circle for about a minute.
+                    Then, when you take the color away to reveal the white underneath,
+                    you will see an after-image of the “negative” of that circle.
+                </p>
+                <p>
+                    Interestingly, when trying the same exercise with the grid of circles,
+                    the after image is of the diamonds between the circles.
+                </p>
+            </div>
+        );
     }
 
     componentDidMount() {
@@ -101,7 +117,7 @@ class AfterImage extends Component {
 
         return (
             <div className="full-screen display-flex justify-content-center align-items-center AfterImage">
-                <CornerMenu colorLabels={['circle color']}>
+                <CornerMenu colorLabels={['circle color']} modalContents={this.modalContents}>
                     <button onClick={this.toggleCircleFilled}>toggle circle fill (k)</button>
                     <br/>
                     <button onClick={this.toggleMultipleCircles}>toggle multiple circles (l)</button>

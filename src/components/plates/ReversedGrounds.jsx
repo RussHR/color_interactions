@@ -23,6 +23,15 @@ class ReversedGrounds extends Component {
         this.toggleInnerShapesTouching = this.toggleInnerShapesTouching.bind(this);
         this.toggleInnerShapesTouchingViaKeyboard = this.toggleInnerShapesTouchingViaKeyboard.bind(this);
         this.toggleSetInnerColor = this.toggleSetInnerColor.bind(this);
+
+        this.modalContents = (
+                <p>
+                    In this case, the color of the inside shapes is a mathematical approximation
+                    of the color in between the two larger blocks. In these cases, the inner
+                    colors almost always appears to appear differently from each other when in
+                    fact they are the same.
+                </p>
+        );
     }
 
     componentDidMount() {
@@ -98,7 +107,7 @@ class ReversedGrounds extends Component {
 
         return (
             <div className="full-screen display-flex overflow-hidden">
-                <CornerMenu colorLabels={colorLabels}>
+                <CornerMenu colorLabels={colorLabels} modalContents={this.modalContents}>
                     <button onClick={this.toggleInnerShapesTouching}>touch inner blocks (k)</button>
                     <br/>
                     <label htmlFor="custom-inner-color">custom inner color: </label>

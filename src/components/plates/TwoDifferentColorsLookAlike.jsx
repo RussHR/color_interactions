@@ -23,6 +23,18 @@ class TwoDifferentColorsLookAlike extends Component {
         this.toggleTouchingInnerBlocks = this.toggleTouchingInnerBlocks.bind(this);
         this.toggleTouchingInnerBlocksViaKeyboard = this.toggleTouchingInnerBlocksViaKeyboard.bind(this);
         this.toggleSetInnerBlocksSeparately = this.toggleSetInnerBlocksSeparately.bind(this);
+
+        this.modalContents = (
+                <p>
+                    Here, the two slender bars are actually two separate colors.
+                    What’s happening is there is a middle color calculated in between the two
+                    larger grounds, and that the color of a bar is actually between that middle
+                    color and the color of the larger rectangle it inhabits. What’s being demonstrated
+                    is that when a color is being influenced by another, especially a smaller one
+                    in a larger one, the similarities between the two visually negate, thus pushing
+                    one color visually farther from the other.
+                </p>
+        );
     }
 
     componentDidMount() {
@@ -109,7 +121,7 @@ class TwoDifferentColorsLookAlike extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={colorLabels}>
+                <CornerMenu colorLabels={colorLabels} modalContents={this.modalContents}>
                     <button onClick={this.toggleTouchingInnerBlocks}>touch inner blocks (k)</button>
                     <br/>
                     <label htmlFor="set-left-right-blocks">set inner block colors separately: </label>
