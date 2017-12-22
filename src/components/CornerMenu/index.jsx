@@ -198,6 +198,8 @@ class CornerMenu extends Component {
                 )}
 
                 <a href="#">Home</a>
+                <br/>
+                press h to toggle corner menu
             </div>
         );
     }
