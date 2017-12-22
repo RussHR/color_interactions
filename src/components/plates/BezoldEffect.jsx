@@ -30,7 +30,8 @@ class BezoldEffect extends Component {
                 href="https://en.wikipedia.org/wiki/Bezold_effect" target="_blank">
                 https://en.wikipedia.org/wiki/Bezold_effect</a>
                 <br />
-                Note that the color with white stripes looks lighter that the color with the black stripes, but they are in fact the same color.
+                Note that the color with white stripes looks lighter that the color with the black stripes,
+                but they are in fact the same color.
                 <br />
                 CSS Pattern by Nicolas Gallagher and found here: <a
                 href="http://lea.verou.me/css3patterns/#steps"

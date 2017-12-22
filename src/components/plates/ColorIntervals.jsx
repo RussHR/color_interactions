@@ -142,7 +142,10 @@ class ColorIntervals extends Component {
 
         return (
             <div className="full-screen">
-                <CornerMenu colorLabels={['top left outer color', 'top left inner color']} modalContents={this.modalContents}>
+                <CornerMenu
+                    colorLabels={['top left outer color', 'top left inner color']}
+                    modalContents={this.modalContents}
+                >
                     <button onClick={this.randomizeIntervals}>randomize intervals (k)</button>
                     <br/>
                 </CornerMenu>

@@ -21,8 +21,8 @@ class HarmonyBars extends Component {
         };
 
         this.randomizeBarPositions = this.randomizeBarPositions.bind(this);
-        this.randomizeBarPositionsViaKeyboard = this.randomizeBarPositionsViaKeyboard.bind(this);
         this.alternateLayout = this.alternateLayout.bind(this);
+        this.handleKeydown = this.handleKeydown.bind(this);
 
         this.modalContents = (
             <p>
@@ -36,11 +36,11 @@ class HarmonyBars extends Component {
     }
 
     componentDidMount() {
-        window.document.addEventListener('keydown', this.randomizeBarPositionsViaKeyboard);
+        window.document.addEventListener('keydown', this.handleKeydown);
     }
 
     componentWillUnmount() {
-        window.document.removeEventListener('keydown', this.randomizeBarPositionsViaKeyboard);
+        window.document.removeEventListener('keydown', this.handleKeydown);
     }
 
     /**
@@ -52,13 +52,16 @@ class HarmonyBars extends Component {
     }
 
     /**
-     * Randomizes positions of the bars via keyboard.
+     * Handles keydown events
      * @returns {void}
      */
-    randomizeBarPositionsViaKeyboard({ keyCode }) {
+    handleKeydown({ keyCode }) {
         // if key is 'k'
         if (keyCode === 75) {
             this.randomizeBarPositions();
+        } else if (keyCode === 76) {
+            // if key is 'l'
+            this.alternateLayout();
         }
     }
 
@@ -90,7 +93,7 @@ class HarmonyBars extends Component {
                 >
                     <button onClick={this.randomizeBarPositions}>randomize bar positions (k)</button>
                     <br />
-                    <button onClick={this.alternateLayout}>alternate layout</button>
+                    <button onClick={this.alternateLayout}>alternate layout (l)</button>
                     <br />
                 </CornerMenu>
 
