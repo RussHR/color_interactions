@@ -35,7 +35,7 @@ const modalContents = (
             >Twitter</a>, if you absolutely must.
         </p>
         <p>
-            Credits:
+            Acknowledgements:
             <br />
             Color Picker: <a href="https://casesandberg.github.io/react-color/" target="_blank">
             https://casesandberg.github.io/react-color/</a>
