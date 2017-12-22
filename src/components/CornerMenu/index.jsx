@@ -101,7 +101,7 @@ class CornerMenu extends Component {
         return this.props.colorLabels.map((label, i) => {
             return (
                 <div key={`color-radio-${i}`}>
-                    <label htmlFor={`color${i}`}>{label}</label>
+                    <label htmlFor={`color${i}`}>{label}: </label>
                     <input
                         type="radio"
                         name="color"
@@ -119,7 +119,7 @@ class CornerMenu extends Component {
         return this.props.colorLabels.map((label, i) => {
             return (
                 <div key={`locked-color${i}`}>
-                    <label htmlFor={`color${i}-lock`}>Lock {label}</label>
+                    <label htmlFor={`color${i}-lock`}>{label} </label>
                     <input
                         type="checkbox"
                         name="color"
@@ -168,11 +168,14 @@ class CornerMenu extends Component {
                     &times;
                 </button>
 
-                <button onClick={this.toggleModal} className="CornerMenu__button">
+                <button onClick={this.toggleModal}>
                     what is this?
                 </button>
 
-                {this.renderActiveColorRadios()}
+                <div className="CornerMenu__miniForm">
+                    color picker<br />
+                    {this.renderActiveColorRadios()}
+                </div>
 
                 <ChromePicker
                     disableAlpha={true}
@@ -181,12 +184,18 @@ class CornerMenu extends Component {
                 />
 
                 <br />
-                <button onClick={() => this.randomizeColors()}>randomizeColors (j)</button>
-                <br />
+                <div className="CornerMenu__miniForm">
+                    <button onClick={() => this.randomizeColors()}>randomize colors (j)</button>
+                    <br />
+                    prevent randomization of:
+                    {this.renderLockedColorCheckboxes()}
+                </div>
 
-                {this.renderLockedColorCheckboxes()}
-
-                {children}
+                {children && (
+                    <div className="CornerMenu__miniForm">
+                        {children}
+                    </div>
+                )}
 
                 <a href="#">Home</a>
             </div>

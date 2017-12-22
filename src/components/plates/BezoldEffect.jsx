@@ -111,6 +111,8 @@ class BezoldEffect extends Component {
         return (
             <div className="full-screen display-flex justify-content-space-evenly align-items-center">
                 <CornerMenu colorLabels={colorLabels} modalContents={this.modalContents}>
+                    <button onClick={this.toggleBlocksTouching}>touch blocks (k)</button>
+                    <br/>
                     <label htmlFor="custom-mortar-colors">custom mortar colors: </label>
                     <input
                         id="custom-mortar-colors"
@@ -118,9 +120,6 @@ class BezoldEffect extends Component {
                         onChange={this.toggleCustomMortarColors}
                         checked={customMortarColors}
                     />
-                    <br />
-                    <button onClick={this.toggleBlocksTouching}>touch blocks (k)</button>
-                    <br/>
                 </CornerMenu>
                 <div className={brickClassNames} style={leftBlockStyle} />
                 <div className={brickClassNames} style={rightBlockStyle} />

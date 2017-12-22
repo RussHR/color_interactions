@@ -29,7 +29,7 @@ class HarmonyConfetti extends Component {
                 There are hardly any absolute rules for making a harmonious or pleasant image;
                 these are subjective values. That said, almost any combination of colors can
                 usually be arranged harmoniously by adjusting two factors: their frequency
-                and their amount. Here, we have roughly four „bars“ with similar compositions.
+                and their amount. Here, we have roughly four “bars” with similar compositions.
                 The same four colors are used in different amounts and frequencies, but
                 notice how some compositions are more pleasant than others.
             </p>

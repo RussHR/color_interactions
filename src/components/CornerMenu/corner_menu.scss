@@ -1,11 +1,13 @@
 @import '../../style/_z_index.scss';
 
 .CornerMenu {
+    max-height: 100vh;
+    overflow: scroll;
     z-index: $zIndex-1;
     padding: 8px;
     position: fixed;
     border: 3px solid rgb(60, 60, 60);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 .CornerMenu__cornerButton {
     z-index: $zIndex-1;
@@ -23,8 +25,14 @@
     font-size: 1.5rem;
     font-weight: 900;
 }
-.CornerMenu__button {
+.CornerMenu button:not(.CornerMenu__close) {
     z-index: $zIndex-1;
     padding: 16px;
     border: 3px solid black;
+    margin-bottom: 8px;
+}
+.CornerMenu__miniForm {
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px dashed black;
 }
