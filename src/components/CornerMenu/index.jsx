@@ -169,7 +169,7 @@ class CornerMenu extends Component {
                 </button>
 
                 <button onClick={this.toggleModal}>
-                    what is this?
+                    ?
                 </button>
 
                 <div className="CornerMenu__miniForm">
