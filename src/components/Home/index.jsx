@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { merge, pick, times } from 'lodash';
+import { merge, pick } from 'lodash';
 import HomeLink from '../HomeLink';
 import CornerMenu from '../CornerMenu';
 import { getBetweenColor, getRgbOffset } from '../../helpers/colorHelpers';
+import {
+    AColorHasManyFacesThumb,
+    LighterAndOrDarkerThumb,
+    FalseGradientThumb,
+    VoidThumb,
+    ReversedGroundsThumb,
+    TwoDifferentColorsLookAlikeThumb
+} from './thumbnails';
 
 import './home.scss';
 
@@ -55,68 +63,13 @@ const leftValues = {
 };
 // END FOR HARMONY - BARS
 
+const colorLabels = ['Color 1', 'Color 2', 'Color 3', 'Color 4', 'Color 5'];
+
 let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
-    const falseGradientBars = times(18, (i) => {
-        let style;
-        if (i % 2 == 0) {
-            style = {
-                width: '20%',
-                background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}),
-                    rgb(${color1.r}, ${color1.g}, ${color1.b}))`
-            };
-        } else {
-            style = { width: '20%', backgroundColor: `rgb(${color2.r}, ${color2.g}, ${color2.b})` };
-        }
-        return (
-            <div key={`gradient-${i}`} style={style} />
-        );
-    });
-
-    const voidBars = times(12, (i) => {
-        let style;
-        if (i % 2 == 0) {
-            style = {
-                width: '20%',
-                background: `linear-gradient(rgb(${color0.r}, ${color0.g}, ${color0.b}),
-                    rgb(${color1.r}, ${color1.g}, ${color1.b}))`
-            };
-        } else {
-            style = {
-                width: '20%',
-                background: `linear-gradient(rgb(${color1.r}, ${color1.g}, ${color1.b}),
-                    rgb(${color0.r}, ${color0.g}, ${color0.b}))`
-            };
-        }
-        return (
-            <div key={`void-${i}`} style={style} />
-        );
-    });
-
-    // START TwoDifferentColorsLookAlike Thumbnail stuff
-    const innerBlockLeftColor = {
-        r: Math.round((color0.r * 0.25) + color2.r * 0.75),
-        g: Math.round((color0.g * 0.25) + color2.g * 0.75),
-        b: Math.round((color0.b * 0.25) + color2.b * 0.75)
-    };
-    const innerBlockRightColor = {
-        r: Math.round((color1.r * 0.25) + color2.r * 0.75),
-        g: Math.round((color1.g * 0.25) + color2.g * 0.75),
-        b: Math.round((color1.b * 0.25) + color2.b * 0.75)
-    };
-
-    const innerBlockLeftStyle = {
-        backgroundColor: `rgb(${innerBlockLeftColor.r}, ${innerBlockLeftColor.g}, ${innerBlockLeftColor.b})`
-    };
-    const innerBlockRightStyle = {
-        backgroundColor: `rgb(${innerBlockRightColor.r}, ${innerBlockRightColor.g}, ${innerBlockRightColor.b})`
-    };
-    // END TwoDifferentColorsLookAlike Thumbnail stuff
-
     const averageR = Math.floor((color0.r + color1.r) / 2);
     const averageG = Math.floor((color0.g + color1.g) / 2);
     const averageB = Math.floor((color0.b + color1.b) / 2);
-    const averageRGB = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
-    const colorLabels = ['Color 1', 'Color 2', 'Color 3'];
+    const colorAverageStyle = { backgroundColor: `rgb(${averageR}, ${averageG}, ${averageB})` };
 
     const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
     const color1Style = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
@@ -201,104 +154,42 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
             <h1>color interactions</h1>
 
             <div className="display-flex Home__homeLinks">
-                <HomeLink href="#a-color-has-many-faces" title="a color has many faces">
-                    <div className="homeLink__thumbnail display-flex">
-                        <div
-                            className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={color0Style}
-                        >
-                            <div
-                                className="aColorHasManyFaces__innerBlock"
-                                style={color2Style}
-                            />
-                        </div>
-                        <div
-                            className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={color1Style}
-                        >
-                            <div
-                                className="aColorHasManyFaces__innerBlock"
-                                style={color2Style}
-                            />
-                        </div>
-                    </div>
-                </HomeLink>
+                <AColorHasManyFacesThumb
+                    color0Style={color0Style}
+                    color1Style={color1Style}
+                    color2Style={color2Style}
+                />
 
-                <HomeLink href="#lighter-and-or-darker" title="lighter and/or darker">
-                    <div
-                        className="homeLink__thumbnail position-relative"
-                        style={color2Style}
-                    >
-                        <div
-                            className="LighterAndOrDarker__leftBlock position-absolute
-                                LighterAndOrDarker__block--thumbnail"
-                            style={color0Style}
-                        />
-                        <div
-                            className="LighterAndOrDarker__rightBlock position-absolute
-                                LighterAndOrDarker__block--thumbnail"
-                            style={color1Style}
-                        />
-                    </div>
-                </HomeLink>
+                <LighterAndOrDarkerThumb
+                    color0Style={color0Style}
+                    color1Style={color1Style}
+                    color2Style={color2Style}
+                />
 
-                <HomeLink href="#false-gradient" title="false gradient">
-                    <div className="homeLink__thumbnail display-flex">
-                        {falseGradientBars}
-                    </div>
-                </HomeLink>
+                <FalseGradientThumb
+                    color0Rgb={color0}
+                    color1Rgb={color1}
+                    color2Rgb={color2}
+                />
 
-                <HomeLink href="#void" title="void">
-                    <div className="homeLink__thumbnail display-flex">
-                        {voidBars}
-                    </div>
-                </HomeLink>
+                <VoidThumb
+                    color0Rgb={color0}
+                    color1Rgb={color1}
+                />
 
-                <HomeLink href="#reversed-grounds" title="reversed grounds">
-                    <div className="homeLink__thumbnail display-flex">
-                        <div
-                            className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={color0Style}
-                        >
-                            <div
-                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--left"
-                                style={averageRGB}
-                            />
-                        </div>
-                        <div
-                            className="justify-content-center align-items-center display-flex half-width full-height"
-                            style={color1Style}
-                        >
-                            <div
-                                className="ReversedGrounds__innerBlock ReversedGrounds__innerBlock--right"
-                                style={averageRGB}
-                            />
-                        </div>
-                    </div>
-                </HomeLink>
+                <ReversedGroundsThumb
+                    color0Style={color0Style}
+                    color1Style={color1Style}
+                    colorAverageStyle={colorAverageStyle}
+                />
 
-                <HomeLink href="#two-different-colors-look-alike" title="two different colors look alike">
-                    <div className="homeLink__thumbnail display-flex">
-                        <div
-                            className="half-width full-height display-inline-block overflow-hidden position-relative"
-                            style={color0Style}
-                        >
-                            <div
-                                className="TwoDifferentColorsLookAlike__innerBlock position-absolute"
-                                style={innerBlockLeftStyle}
-                            />
-                        </div>
-                        <div
-                            className="half-width full-height display-inline-block overflow-hidden position-relative"
-                            style={color1Style}
-                        >
-                            <div
-                                className="TwoDifferentColorsLookAlike__innerBlock position-absolute"
-                                style={innerBlockRightStyle}
-                            />
-                        </div>
-                    </div>
-                </HomeLink>
+                <TwoDifferentColorsLookAlikeThumb
+                    color0Style={color0Style}
+                    color1Style={color1Style}
+                    color0Rgb={color0}
+                    color1Rgb={color1}
+                    color2Rgb={color2}
+                />
 
                 <HomeLink href="#after-image" title="after image">
                     <div className={`homeLink__thumbnail AfterImage display-flex justify-content-center
@@ -318,7 +209,7 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                             <div className="position-absolute IllusionOfTransparence__leftBlock" style={color0Style}>
                                 <div
                                     className="position-absolute IllusionOfTransparence__leftInnerBlock"
-                                    style={averageRGB}
+                                    style={colorAverageStyle}
                                 />
                             </div>
                         </div>
@@ -558,7 +449,7 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                         <div
                             className={`IntersectingColors__smallPlate IntersectingColors__smallPlate--inner full-height
                                 position-absolute top-0`}
-                            style={averageRGB}
+                            style={colorAverageStyle}
                         />
                         <div
                             className="IntersectingColors__smallPlate--right full-height full-width position-absolute"
