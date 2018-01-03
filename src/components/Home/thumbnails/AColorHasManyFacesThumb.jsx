@@ -32,5 +32,5 @@ export default function AColorHasManyFacesThumb({ color0Style, color1Style, colo
 AColorHasManyFacesThumb.propTypes = {
     color0Style: PropTypes.object.isRequired,
     color1Style: PropTypes.object.isRequired,
-    color2Style: PropTypes.object.isRequired,
+    color2Style: PropTypes.object.isRequired
 };
