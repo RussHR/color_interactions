@@ -10,7 +10,9 @@ import {
     FalseGradientThumb,
     VoidThumb,
     ReversedGroundsThumb,
-    TwoDifferentColorsLookAlikeThumb
+    TwoDifferentColorsLookAlikeThumb,
+    AfterImageThumb,
+    IllusionOfTransparenceThumb
 } from './thumbnails';
 
 import './home.scss';
@@ -191,33 +193,13 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                     color2Rgb={color2}
                 />
 
-                <HomeLink href="#after-image" title="after image">
-                    <div className={`homeLink__thumbnail AfterImage display-flex justify-content-center
-                        align-items-center`}>
-                        <div
-                            className="homeLink__thumbnailPiece--AfterImageCircle position-relative circle"
-                            style={color0Style}
-                        >
-                            <div className="AfterImage__centerDot absolute-center" />
-                        </div>
-                    </div>
-                </HomeLink>
+                <AfterImageThumb color0Style={color0Style} />
 
-                <HomeLink href="#illusion-of-transparence" title="illusion of transparence">
-                    <div className="homeLink__thumbnail">
-                        <div className="half-width full-height display-inline-block position-relative">
-                            <div className="position-absolute IllusionOfTransparence__leftBlock" style={color0Style}>
-                                <div
-                                    className="position-absolute IllusionOfTransparence__leftInnerBlock"
-                                    style={colorAverageStyle}
-                                />
-                            </div>
-                        </div>
-                        <div className="half-width full-height display-inline-block position-relative">
-                            <div className="position-absolute IllusionOfTransparence__rightBlock" style={color1Style} />
-                        </div>
-                    </div>
-                </HomeLink>
+                <IllusionOfTransparenceThumb
+                    color0Style={color0Style}
+                    color1Style={color1Style}
+                    colorAverageStyle={colorAverageStyle}
+                />
 
                 <HomeLink href="#additive-and-subtractive" title="additive and subtractive">
                     <div className="homeLink__thumbnail AdditiveAndSubtractive display-grid">
