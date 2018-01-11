@@ -14,7 +14,14 @@ const defaultFilmIntensity = 20;
 
 const modalContents = (
     <p>
-        description of film color
+        Seeing color through a film or in a transparent,
+        colored liquid are physical phenomena that usually cannot be reproduced through
+        2-dimensional means. However, certain mixtures of colors can give the illusion
+        of films, liquids, etc. In this case, the
+        illusion of a clear film is made simply by adding the same amount of white,
+        i.e. the same values of R(ed), G(reen) and
+        B(lue), to each color in the strip. A similar effect can be achieved with
+        traditional media.
     </p>
 );
 
