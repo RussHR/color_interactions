@@ -10,7 +10,7 @@ function mapStateToProps(state) {
     return pick(state, 'colors');
 }
 
-const defaultFilmIntensity = 20;
+const defaultFilmIntensity = 25;
 
 const modalContents = (
     <p>

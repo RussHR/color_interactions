@@ -17,6 +17,7 @@ import HarmonyBlocksThumb from './HarmonyBlocksThumb';
 import HarmonyCirclesThumb from './HarmonyCirclesThumb';
 import HarmonyWigglyBarsThumb from './HarmonyWigglyBarsThumb';
 import HarmonyConfettiThumb from './HarmonyConfettiThumb';
+import FilmColorThumb from './FilmColorThumb';
 
 export {
     AColorHasManyFacesThumb,
@@ -37,5 +38,6 @@ export {
     HarmonyBlocksThumb,
     HarmonyCirclesThumb,
     HarmonyWigglyBarsThumb,
-    HarmonyConfettiThumb
+    HarmonyConfettiThumb,
+    FilmColorThumb
 };

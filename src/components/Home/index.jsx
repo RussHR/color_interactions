@@ -21,7 +21,8 @@ import {
     HarmonyBlocksThumb,
     HarmonyCirclesThumb,
     HarmonyWigglyBarsThumb,
-    HarmonyConfettiThumb
+    HarmonyConfettiThumb,
+    FilmColorThumb
 } from './thumbnails';
 
 import './home.scss';
@@ -191,6 +192,17 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                     color2Style={color2Style}
                     color3Style={color3Style}
                     color4Style={color4Style}
+                />
+
+                <FilmColorThumb
+                    color0Style={color0Style}
+                    color1Style={color1Style}
+                    color2Style={color2Style}
+                    color3Style={color3Style}
+                    color0Rgb={color0}
+                    color1Rgb={color1}
+                    color2Rgb={color2}
+                    color3Rgb={color3}
                 />
             </div>
         </div>
