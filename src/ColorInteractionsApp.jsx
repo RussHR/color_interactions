@@ -20,7 +20,8 @@ import {
     HarmonyBlocks,
     HarmonyCircles,
     HarmonyWigglyBars,
-    HarmonyConfetti
+    HarmonyConfetti,
+    FilmColor
 } from './components/plates';
 
 import 'normalize.css';
@@ -51,6 +52,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/harmony-circles" component={HarmonyCircles} />
                     <Route path="/harmony-wiggly-bars" component={HarmonyWigglyBars} />
                     <Route path="/harmony-confetti" component={HarmonyConfetti} />
+                    <Route path="/film-color" component={FilmColor} />
 
                     <Route exact path="/" component={Home} />
                 </div>

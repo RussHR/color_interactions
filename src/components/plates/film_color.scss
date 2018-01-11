@@ -1,0 +1,28 @@
+$width-inner-bar: 60%;
+$width-side: (100% - $width-inner-bar) / 2;
+
+.FilmColor__bars {
+    height: 80%;
+    width: 40%;
+}
+.FilmColor__bar--noInner {
+    height: 15%;
+}
+.FilmColor__bar--sideWidth {
+    width: $width-side;
+}
+.FilmColor__bar--innerWidth {
+    width: $width-inner-bar;
+}
+.FilmColor__bar--firstWithInnerHeight {
+    height: 12%;
+}
+.FilmColor__bar--secondWithInnerHeight {
+    height: 5%;
+}
+.FilmColor__bar--thirdWithInnerHeight {
+    height: 28%;
+}
+.FilmColor__bar--fourthWithInnerHeight {
+    height: 25%;
+}

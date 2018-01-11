@@ -17,6 +17,7 @@ import HarmonyBlocks from './HarmonyBlocks';
 import HarmonyCircles from './HarmonyCircles';
 import HarmonyWigglyBars from './HarmonyWigglyBars';
 import HarmonyConfetti from './HarmonyConfetti';
+import FilmColor from './FilmColor';
 
 export {
     AColorHasManyFaces,
@@ -37,5 +38,6 @@ export {
     HarmonyBlocks,
     HarmonyCircles,
     HarmonyWigglyBars,
-    HarmonyConfetti
+    HarmonyConfetti,
+    FilmColor
 };
