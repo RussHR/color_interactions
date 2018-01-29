@@ -18,6 +18,7 @@ import HarmonyCirclesThumb from './HarmonyCirclesThumb';
 import HarmonyWigglyBarsThumb from './HarmonyWigglyBarsThumb';
 import HarmonyConfettiThumb from './HarmonyConfettiThumb';
 import FilmColorThumb from './FilmColorThumb';
+import TheWeberFechnerLawThumb from './TheWeberFechnerLawThumb';
 
 export {
     AColorHasManyFacesThumb,
@@ -39,5 +40,6 @@ export {
     HarmonyCirclesThumb,
     HarmonyWigglyBarsThumb,
     HarmonyConfettiThumb,
-    FilmColorThumb
+    FilmColorThumb,
+    TheWeberFechnerLawThumb
 };

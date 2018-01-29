@@ -22,7 +22,8 @@ import {
     HarmonyCirclesThumb,
     HarmonyWigglyBarsThumb,
     HarmonyConfettiThumb,
-    FilmColorThumb
+    FilmColorThumb,
+    TheWeberFechnerLawThumb
 } from './thumbnails';
 
 import './home.scss';
@@ -204,6 +205,8 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                     color2Rgb={color2}
                     color3Rgb={color3}
                 />
+
+                <TheWeberFechnerLawThumb color0Rgb={color0} />
             </div>
         </div>
     );
