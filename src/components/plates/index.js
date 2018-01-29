@@ -18,6 +18,7 @@ import HarmonyCircles from './HarmonyCircles';
 import HarmonyWigglyBars from './HarmonyWigglyBars';
 import HarmonyConfetti from './HarmonyConfetti';
 import FilmColor from './FilmColor';
+import TheWeberFechnerLaw from './TheWeberFechnerLaw';
 
 export {
     AColorHasManyFaces,
@@ -39,5 +40,6 @@ export {
     HarmonyCircles,
     HarmonyWigglyBars,
     HarmonyConfetti,
-    FilmColor
+    FilmColor,
+    TheWeberFechnerLaw
 };
