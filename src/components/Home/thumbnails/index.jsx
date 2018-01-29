@@ -19,7 +19,7 @@ import HarmonyWigglyBarsThumb from './HarmonyWigglyBarsThumb';
 import HarmonyConfettiThumb from './HarmonyConfettiThumb';
 import FilmColorThumb from './FilmColorThumb';
 import TheWeberFechnerLawThumb from './TheWeberFechnerLawThumb';
-
+import VibratingBoundariesThumb from './VibratingBoundariesThumb';
 export {
     AColorHasManyFacesThumb,
     LighterAndOrDarkerThumb,
@@ -41,5 +41,6 @@ export {
     HarmonyWigglyBarsThumb,
     HarmonyConfettiThumb,
     FilmColorThumb,
-    TheWeberFechnerLawThumb
+    TheWeberFechnerLawThumb,
+    VibratingBoundariesThumb
 };
