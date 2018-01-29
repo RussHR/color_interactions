@@ -19,6 +19,7 @@ import HarmonyWigglyBars from './HarmonyWigglyBars';
 import HarmonyConfetti from './HarmonyConfetti';
 import FilmColor from './FilmColor';
 import TheWeberFechnerLaw from './TheWeberFechnerLaw';
+import VibratingBoundaries from './VibratingBoundaries';
 
 export {
     AColorHasManyFaces,
@@ -41,5 +42,6 @@ export {
     HarmonyWigglyBars,
     HarmonyConfetti,
     FilmColor,
-    TheWeberFechnerLaw
+    TheWeberFechnerLaw,
+    VibratingBoundaries
 };

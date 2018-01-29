@@ -58,7 +58,6 @@ let TheWeberFechnerLaw = ({ colors: { color0 } }) => {
     };
 
     // left bar color styles; adds black multiplicatively
-
     // right bar color styles; adds black exponentially
     return (
         <div className="full-screen display-flex justify-content-space-evenly align-items-center">
