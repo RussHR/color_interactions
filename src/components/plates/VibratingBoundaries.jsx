@@ -12,7 +12,8 @@ function mapStateToProps(state) {
 
 const modalContents = (
     <p>
-        something
+        Sometimes, colors can seem as if they’re vibrating. This tends to happen
+        more often with complementary colors and those similar in value.
     </p>
 );
 
