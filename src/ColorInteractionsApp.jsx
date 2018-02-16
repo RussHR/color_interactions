@@ -23,7 +23,8 @@ import {
     HarmonyConfetti,
     FilmColor,
     TheWeberFechnerLaw,
-    VibratingBoundaries
+    VibratingBoundaries,
+    VanishingBoundaries
 } from './components/plates';
 
 import 'normalize.css';
@@ -57,6 +58,7 @@ class ColorInteractionsApp extends Component {
                     <Route path="/film-color" component={FilmColor} />
                     <Route path="/the-weber-fechner-law" component={TheWeberFechnerLaw} />
                     <Route path="/vibrating-boundaries" component={VibratingBoundaries} />
+                    <Route path="/vanishing-boundaries" component={VanishingBoundaries} />
 
                     <Route exact path="/" component={Home} />
                 </div>
