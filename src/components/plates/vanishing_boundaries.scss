@@ -1,6 +1,10 @@
 .VanishingBoundaries__verticalBar {
     width: 10%;
 }
+.VanishingBoundaries__skewedBar--transitionBg {
+    transition: background-color 1s;
+}
 .VanishingBoundaries__skewedBar {
     height: 10%;
+    transform: skew(20deg) scale3d(1.5, 1.5, 1);
 }

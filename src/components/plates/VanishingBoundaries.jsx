@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pick } from 'lodash';
+import Color from 'color';
+import classNames from 'classnames';
 import { validatePropColors } from '../../helpers/colorHelpers';
 import CornerMenu from '../CornerMenu';
 
@@ -34,12 +36,23 @@ class VanishingBoundaries extends Component {
                 target="_blank">http://lea.verou.me/css3patterns/#steps</a>
             </p>
         );
+
+        this.similarLightnessColor = this.getSimilarLightnessColor();
     }
 
     /**
-     * Toggles whether the user has full control over the second color.
-     * @returns {void}
+     * Uses math™ to get a color with a similar HSL lightness value as this.props.colors.color0
+     * @returns {object}
      */
+    getSimilarLightnessColor() {
+        const { colors: { color0, color1, color2 } } = this.props;
+        const color0Hsl = new Color.rgb(color0, color1, color2).hsl().object();
+
+        return {
+            backgroundColor: `hsl(${color0Hsl.h  + (Math.random() * 50) - 25}, ${color0Hsl.s}%, ${color0Hsl.l}%)`
+        };
+    }
+
     toggleFullControlOverSecondColor() {
         this.setState({ customSecondColor: !this.state.customSecondColor });
     }
@@ -50,7 +63,18 @@ class VanishingBoundaries extends Component {
 
         const { customSecondColor } = this.state;
 
-        const colorLabels = this.state.customSecondColor ? ['color 1', 'color 2'] : ['color 1'];
+        let colorLabels;
+        let secondColorStyle;
+
+        if (customSecondColor) {
+            colorLabels = ['color 1', 'color 2'];
+            secondColorStyle = { backgroundColor: `rgb(${color1.r}, ${color1.g}, ${color1.b})` };
+        } else {
+            colorLabels = ['color 1'];
+            secondColorStyle = this.getSimilarLightnessColor();
+        }
+
+        const color0Style = { backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})` };
 
         return (
             <div className="full-screen overflow-hidden">
@@ -64,16 +88,17 @@ class VanishingBoundaries extends Component {
                     />
                 </CornerMenu>
 
-                <SkewedBar bgColor={color0} />
-                <SkewedBar bgColor={color1} />
-                <SkewedBar bgColor={color0} />
-                <SkewedBar bgColor={color1} />
-                <SkewedBar bgColor={color0} />
-                <SkewedBar bgColor={color1} />
-                <SkewedBar bgColor={color0} />
-                <SkewedBar bgColor={color1} />
-                <SkewedBar bgColor={color0} />
-                <SkewedBar bgColor={color1} />
+                {/* add a transition to the bg color if it auto-changes */}
+                <SkewedBar bgColorStyle={color0Style} />
+                <SkewedBar bgColorStyle={secondColorStyle} transitionBg={!customSecondColor} />
+                <SkewedBar bgColorStyle={color0Style} />
+                <SkewedBar bgColorStyle={secondColorStyle} transitionBg={!customSecondColor} />
+                <SkewedBar bgColorStyle={color0Style} />
+                <SkewedBar bgColorStyle={secondColorStyle} transitionBg={!customSecondColor} />
+                <SkewedBar bgColorStyle={color0Style} />
+                <SkewedBar bgColorStyle={secondColorStyle} transitionBg={!customSecondColor} />
+                <SkewedBar bgColorStyle={color0Style} />
+                <SkewedBar bgColorStyle={secondColorStyle} transitionBg={!customSecondColor} />
             </div>
         );
     }
@@ -87,21 +112,23 @@ VanishingBoundaries = connect(mapStateToProps)(VanishingBoundaries);
 
 export default VanishingBoundaries;
 
-const SkewedBar = ({ bgColor }) => {
-    const bgColorStyle = { backgroundColor: `rgb(${bgColor.r}, ${bgColor.g}, ${bgColor.b})` };
+const SkewedBar = ({ bgColorStyle, transitionBg }) => {
+    const skewedBarClasses = classNames('VanishingBoundaries__skewedBar', 'full-width', {
+        'VanishingBoundaries__skewedBar--transitionBg': transitionBg
+    });
 
     return (
         <div className="VanishingBoundaries__verticalBar full-height display-inline-block">
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
-            <div className="VanishingBoundaries__skewedBar full-width" style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
+            <div className={skewedBarClasses} style={bgColorStyle} />
         </div>
     );
 };
