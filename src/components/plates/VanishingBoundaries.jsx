@@ -44,8 +44,8 @@ class VanishingBoundaries extends Component {
      * @returns {object}
      */
     getSimilarLightnessColor() {
-        const { colors: { color0, color1, color2 } } = this.props;
-        const color0Hsl = new Color.rgb(color0, color1, color2).hsl().object();
+        const { colors: { color0 } } = this.props;
+        const color0Hsl = new Color.rgb(color0).hsl().object();
 
         return {
             backgroundColor: `hsl(${color0Hsl.h  + (Math.random() * 50) - 25}, ${color0Hsl.s}%, ${color0Hsl.l}%)`

@@ -24,7 +24,8 @@ import {
     HarmonyConfettiThumb,
     FilmColorThumb,
     TheWeberFechnerLawThumb,
-    VibratingBoundariesThumb
+    VibratingBoundariesThumb,
+    VanishingBoundariesThumb
 } from './thumbnails';
 
 import './home.scss';
@@ -210,6 +211,8 @@ let Home = ({ colors: { color0, color1, color2, color3, color4 } }) => {
                 <TheWeberFechnerLawThumb color0Rgb={color0} />
 
                 <VibratingBoundariesThumb color0Style={color0Style} color1Rgb={color1} />
+
+                <VanishingBoundariesThumb color0Rgb={color0} />
             </div>
         </div>
     );
