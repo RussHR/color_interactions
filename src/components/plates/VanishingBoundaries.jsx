@@ -24,16 +24,15 @@ class VanishingBoundaries extends Component {
 
         this.modalContents = (
             <p>
-                Wikipedia explains this pretty well: <a
-                href="https://en.wikipedia.org/wiki/Bezold_effect" target="_blank">
-                https://en.wikipedia.org/wiki/Bezold_effect</a>
-                <br />
-                Note that the color with white stripes looks lighter that the color with the black stripes,
-                but they are in fact the same color.
-                <br />
-                CSS Pattern by Nicolas Gallagher and found here: <a
-                href="http://lea.verou.me/css3patterns/#steps"
-                target="_blank">http://lea.verou.me/css3patterns/#steps</a>
+                In contrast with <a href="#/vibrating-boundaries">vibrating
+                boundaries</a>, boundaries between very similar colors can “vanish” or
+                become very difficult to discern. By default, the second color in this
+                exercise will be close in hue with a matching saturation and lightness
+                (following the <a target="_blank"
+                href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSL</a> color scheme)
+                to the first color.
+                Yet, sometimes it’s still hard to make the boundaries vanish,
+                especially when the colors are particularly saturated.
             </p>
         );
 
