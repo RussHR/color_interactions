@@ -30,6 +30,8 @@ class OpticalMixture extends Component {
                 mixture of the two colors. Checkerboard pattern was adopted from here: <a target="_blank"
                 href="https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern">
                 https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern</a>
+                <br />
+                Also, hitting the up/down keys will change the square size.
             </p>
         );
     }
@@ -52,7 +54,7 @@ class OpticalMixture extends Component {
             this.setState({ squareSize: Math.min(this.state.squareSize + 1, 30) });
         } else if (keyCode === 76 || keyCode === 40) {
             // if key is 'l' or down
-            this.setState({ squareSize: Math.max(this.state.squareSize - 1, 1) });
+            this.setState({ squareSize: Math.max(this.state.squareSize - 1, 3) });
         }
     }
 
