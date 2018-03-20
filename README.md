@@ -48,6 +48,7 @@ Running `npm run build` will create a `dist/` directory with an `index.html`, `b
 * [Redux](https://redux.js.org/) - a predictable state container for JavaScript apps
 * [React Router](https://github.com/ReactTraining/react-router) - creates a client-side, hash-dependent router
 * [es6 boilerplate](https://github.com/RussHR/es6-boilerplate) - a personal boilerplate for es6 projects
+* [color](https://www.npmjs.com/package/color) - does color calculations
 
 ## Random thoughts
 
@@ -60,4 +61,6 @@ Running `npm run build` will create a `dist/` directory with an `index.html`, `b
 ## Acknowledgments
 
 * This gist for providing an excellent README.md template: [https://gist.github.com/PurpleBooth/109311bb0361f32d87a2](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+* Thank you everyone for all the npm packages
 * [http://lea.verou.me/css3patterns/#steps](http://lea.verou.me/css3patterns/#steps) for the CSS used in demonstrating the Bezold effect
+* [https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern](https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern) for the Checkerboard CSS

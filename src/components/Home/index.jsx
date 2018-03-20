@@ -58,13 +58,17 @@ const modalContents = (
             >Twitter</a>, if you absolutely must.
         </p>
         <p>
-            Acknowledgements:
+            UI Acknowledgements:
             <br />
             Color Picker: <a href="https://casesandberg.github.io/react-color/" target="_blank">
             https://casesandberg.github.io/react-color/</a>
             <br />
             Bezold Effect CSS: <a href="http://lea.verou.me/css3patterns/#steps" target="_blank">
             http://lea.verou.me/css3patterns/#steps</a>
+            <br />
+            Checkerboard CSS: <a target="_blank"
+            href="https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern">
+            https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern</a>
         </p>
     </div>
 );
