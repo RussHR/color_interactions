@@ -73,7 +73,11 @@ class OpticalMixture extends Component {
         const bgColor1 = `rgb(${color1.r}, ${color1.g}, ${color1.b})`;
         const style = {
             backgroundColor: `rgb(${color0.r}, ${color0.g}, ${color0.b})`,
-            backgroundImage: `linear-gradient(45deg, ${bgColor1} 25%, transparent 25%), linear-gradient(-45deg, ${bgColor1} 25%, transparent 25%), linear-gradient(45deg, transparent 75%, ${bgColor1} 75%), linear-gradient(-45deg, transparent 75%, ${bgColor1} 75%)`,
+            backgroundImage:
+                `linear-gradient(45deg, ${bgColor1} 25%, transparent 25%),
+                linear-gradient(-45deg, ${bgColor1} 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, ${bgColor1} 75%),
+                linear-gradient(-45deg, transparent 75%, ${bgColor1} 75%)`,
             backgroundSize: `${squareSize * 2}px ${squareSize * 2}px`,
             backgroundPosition: `0 0, 0 ${squareSize}px, ${squareSize}px -${squareSize}px, -${squareSize}px 0px`
         };

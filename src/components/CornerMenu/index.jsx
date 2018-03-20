@@ -98,9 +98,15 @@ class CornerMenu extends Component {
     }
 
     renderActiveColorRadios() {
+        const { colors } = this.props;
+
         return this.props.colorLabels.map((label, i) => {
+            const color = colors[`color${i}`];
+            const style = { backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})` };
+
             return (
                 <div key={`color-radio-${i}`}>
+                    <div className="CornerMenu__colorPreview display-inline-block" style={style} />
                     <label htmlFor={`color${i}`}>{label}: </label>
                     <input
                         type="radio"
